@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <wsdl:definitions name="BankPrivilege"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:westbank:ws:business:BankPrivilege:2009:11"
+	targetNamespace="urn:westbank:ws:business:BankPrivilege:2009:11">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="urn:westbank:ws:business:BankPrivilege:2009:11"
+					xmlns="urn:westbank:ws:business:BankPrivilege:2009:11"
+					elementFormDefault="qualified">
+
+			<xsd:element name="BankPrivilegeRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="borrowerCustomerId" type="xsd:long" />
+            <xsd:element name="borrowerFirstName" type="xsd:string" />
+            <xsd:element name="borrowerLastName" type="xsd:string" />
+            <xsd:element name="borrowerDateOfBirth" type="xsd:date" />
+            <xsd:element name="staffId" type="xsd:string" />
+            <xsd:element name="staffRole" type="xsd:string" />                       
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+      
+      <!-- The numberOfIncidents is greater than 0 means not suspended -->
+			<xsd:element name="BankPrivilegeResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+            <xsd:element name="registered" type="xsd:boolean"/>
+            <xsd:element name="numberOfIncidents" type="xsd:int"/>
+            <xsd:element name="numberOfBanks" type="xsd:int"/>
+						<xsd:element name="description" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="BankPrivilegeRequest">
+		<wsdl:part element="tns:BankPrivilegeRequest" name="request" />
+	</wsdl:message>
+	<wsdl:message name="BankPrivilegeResponse">
+		<wsdl:part element="tns:BankPrivilegeResponse" name="response" />
+	</wsdl:message>
+
+	<wsdl:portType name="BankPrivilege">
+		<wsdl:operation name="check">
+			<wsdl:input message="tns:BankPrivilegeRequest" />
+			<wsdl:output message="tns:BankPrivilegeResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="BankPrivilegeSOAP" type="tns:BankPrivilege">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="check">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="BankPrivilege">
+		<wsdl:port name="BankPrivilegePort" binding="tns:BankPrivilegeSOAP">
+			<soap:address location="http://localhost:9999/portal/services/BankPrivilege" />
+		</wsdl:port>
+	</wsdl:service>
+	
+</wsdl:definitions>

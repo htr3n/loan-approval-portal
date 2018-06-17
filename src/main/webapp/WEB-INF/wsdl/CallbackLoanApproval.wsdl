@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CallbackLoanApproval"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="urn:westbank:ws:client:CallbackLoanApproval"
+	targetNamespace="urn:westbank:ws:client:CallbackLoanApproval">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="urn:westbank:ws:client:CallbackLoanApproval"
+			   xmlns="urn:westbank:ws:client:CallbackLoanApproval" elementFormDefault="qualified">
+			<xsd:element name="CallbackLoanApprovalRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+            <xsd:element name="borrowerCustomerId" type="xsd:long" />
+						<xsd:element name="contractId" type="xsd:string" />
+            <xsd:element name="loanFileId" type="xsd:string" />
+            <xsd:element name="status" type="xsd:string" />
+            <xsd:element name="description" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="CallbackLoanApprovalRequest">
+		<wsdl:part element="tns:CallbackLoanApprovalRequest" name="request" />
+	</wsdl:message>
+	
+	<wsdl:portType name="CallbackLoanApproval">
+		<wsdl:operation name="notify">
+			<wsdl:input message="tns:CallbackLoanApprovalRequest" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="CallbackLoanApprovalSOAP" type="tns:CallbackLoanApproval">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="notify">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CallbackLoanApproval">
+		<wsdl:port name="CallbackLoanApprovalPort" binding="tns:CallbackLoanApprovalSOAP">
+			<soap:address location="http://localhost:9999/portal/services/CallbackLoanApproval" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                       http://www.springframework.org/schema/beans/spring-beans.xsd
+                       http://www.springframework.org/schema/context 
+                       http://www.springframework.org/schema/context/spring-context.xsd
+                       http://www.springframework.org/schema/mvc
+                       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:ignoreUnresolvablePlaceholders="true">
+		<property name="locations">
+			<list>
+				<value>classpath:hibernate-derby.properties</value>
+				<value>classpath:c3p0.properties</value>
+				<value>classpath:endpoint.properties</value>
+			</list>
+		</property>
+	</bean>
+	<import resource="resources.xml" />
+	<import resource="test.xml" />
+
+	<mvc:annotation-driven />
+
+	<context:component-scan
+		base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model,westbank.ws.impl" />
+
+	<context:annotation-config />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+
+	<bean id="loginValidator"
+		class="westbank.mvc.customer.controller.LoginValidator" />
+
+	<bean id="customerProfileValidator"
+		class="westbank.mvc.customer.controller.ProfileValidator" />
+
+	<bean id="staffLoginValidator"
+		class="westbank.mvc.staff.controller.StaffLoginValidator" />
+
+	<bean id="loanRequestValidator"
+		class="westbank.mvc.customer.controller.LoanRequestValidator" />
+
+	<bean id="newLoanRequestValidator"
+		class="westbank.mvc.customer.controller.NewRequestValidator" />
+
+	<bean id="processProxy"
+		class="westbank.proxy.LoanApprovalProcessProxy"
+		p:loanApproval-ref="LoanApprovalClient">
+	</bean>
+
+</beans>

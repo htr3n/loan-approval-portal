@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LoanSettlement"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:westbank:ws:business:LoanSettlement:2009:11"
+	targetNamespace="urn:westbank:ws:business:LoanSettlement:2009:11">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="urn:westbank:ws:business:LoanSettlement:2009:11"
+					xmlns="urn:westbank:ws:business:LoanSettlement:2009:11"
+					elementFormDefault="qualified">
+			
+			<xsd:element name="LoanSettlementRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+            <xsd:element name="loanFileId" type="xsd:string" />           
+						<xsd:element name="loanContractId" type="xsd:string" />						
+            <xsd:element name="staffId" type="xsd:string" />
+            <xsd:element name="staffRole" type="xsd:string" />                       
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<xsd:element name="LoanSettlementResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="status" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+		</xsd:schema>
+	</wsdl:types>
+
+
+	<wsdl:message name="LoanSettlementRequest">
+		<wsdl:part element="tns:LoanSettlementRequest" name="request" />
+	</wsdl:message>
+	<wsdl:message name="LoanSettlementResponse">
+		<wsdl:part element="tns:LoanSettlementResponse" name="response" />
+	</wsdl:message>
+
+	<wsdl:portType name="LoanSettlement">
+		<wsdl:operation name="start">
+			<wsdl:input message="tns:LoanSettlementRequest" />
+			<wsdl:output message="tns:LoanSettlementResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="LoanSettlementSOAP" type="tns:LoanSettlement">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="start">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="LoanSettlement">
+		<wsdl:port binding="tns:LoanSettlementSOAP" name="LoanSettlementPort">
+			<soap:address location="http://localhost:9999/portal/services/LoanSettlement" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

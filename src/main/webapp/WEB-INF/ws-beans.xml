@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:jaxws="http://cxf.apache.org/jaxws"
+  xsi:schemaLocation="
+	  http://www.springframework.org/schema/beans 
+	  http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- Test WS beans -->
+  <bean
+    id="TestMockImpl"
+    class="westbank.ws.testmock.TestMockImpl">
+  </bean>
+
+  <!-- Callback WS beans -->
+  <bean
+    id="CallbackLoanApprovalImpl"
+    class="westbank.ws.impl.CallbackLoanApprovalImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="CallbackLoanContractImpl"
+    class="westbank.ws.impl.CallbackLoanContractImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <!-- Business WS beans -->
+
+  <bean
+    id="BankInformationImpl"
+    class="westbank.ws.impl.BankInformationImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="BankPrivilegeImpl"
+    class="westbank.ws.impl.BankPrivilegeImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="CreditWorthinessImpl"
+    class="westbank.ws.impl.CreditWorthinessImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="LoanApprovalClosingImpl"
+    class="westbank.ws.impl.LoanApprovalClosingImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="LoanFileImpl"
+    class="westbank.ws.impl.LoanFileImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="LoanContractImpl"
+    class="westbank.ws.impl.LoanContractImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="LoanRiskImpl"
+    class="westbank.ws.impl.LoanRiskImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="LoanSettlementImpl"
+    class="westbank.ws.impl.LoanSettlementImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+
+  <bean
+    id="TaskDispatchImpl"
+    class="westbank.ws.impl.TaskDispatchImpl"
+    p:dataAccessObject-ref="dataAccessObject">
+  </bean>
+  
+</beans>

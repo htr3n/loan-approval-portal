@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LoanApprovalClosing"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:westbank:ws:business:LoanApprovalClosing:2009:11"
+	targetNamespace="urn:westbank:ws:business:LoanApprovalClosing:2009:11">
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="urn:westbank:ws:business:LoanApprovalClosing:2009:11"
+					xmlns="urn:westbank:ws:business:LoanApprovalClosing:2009:11"
+					elementFormDefault="qualified">			
+			<xsd:element name="LoanApprovalClosingRequest">
+			   <xsd:complexType>
+			      <xsd:sequence>
+              <xsd:element name="loanFileId" type="xsd:string" />
+		          <xsd:element name="loanContractId" type="xsd:string" />
+	            <xsd:element name="staffId" type="xsd:string" />
+	            <xsd:element name="staffRole" type="xsd:string" />                       
+			      </xsd:sequence>
+			   </xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LoanApprovalClosingResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="status" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>			
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="LoanApprovalClosingRequest">
+		<wsdl:part element="tns:LoanApprovalClosingRequest" name="request" />
+	</wsdl:message>
+	<wsdl:message name="LoanApprovalClosingResponse">
+		<wsdl:part element="tns:LoanApprovalClosingResponse" name="response" />
+	</wsdl:message>
+
+	<wsdl:portType name="LoanApprovalClosing">
+		<wsdl:operation name="close">
+			<wsdl:input message="tns:LoanApprovalClosingRequest" />
+			<wsdl:output message="tns:LoanApprovalClosingResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="LoanApprovalClosingSOAP" type="tns:LoanApprovalClosing">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="close">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="LoanApprovalClosing">
+		<wsdl:port name="LoanApprovalClosingPort" binding="tns:LoanApprovalClosingSOAP" >
+			<soap:address location="http://localhost:9999/portal/services/LoanApprovalClosing" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

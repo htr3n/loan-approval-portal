@@ -1,0 +1,78 @@
+#loginForm {
+	margin: 50px auto 0px auto;
+	padding: 5px;
+	width: 290px;
+	border: 0px solid;
+	text-align: center;
+}
+
+#loginForm #title {
+	padding: 20px 0 10px 0;
+	margin: 0 0 0 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #0066FF;
+	border: 0px solid;
+	position: relative;
+}
+
+#loginForm #formBody {
+	border: 0px solid;
+	margin: 0px auto 0px auto;
+	width: 160px;
+	text-align: left;
+}
+
+#divSubmit {
+	margin: 10px auto 0px auto;
+	width: 99px;
+	border: 0px solid;
+	float: left;
+}
+
+#imgLock {
+	float: left;
+	border: 0px;
+	margin: 0 0 0 0;
+	position: relative;
+	left: -2px;
+	top: -4px;
+}
+
+#loginForm label {
+	border: 0px solid;
+	display: block;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+#loginForm input {
+	width: 120px;
+	margin-bottom: .0px;
+	padding: 3px;
+	border: 1px solid #ddd;
+	font-size: 11px;
+	border-top: 1px solid #7c7c7c;
+	border-left: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+	border-bottom: 1px solid #ddd;
+}
+
+#loginForm fieldset select {
+  padding: 2px;
+  font-size: 10px;
+}
+
+#loginForm input:hover,#loginForm input:focus {
+	border-color: #94BB50;
+   background: rgba(254, 245, 202, 0.7);
+}
+
+#loginForm .loginError {
+	display: block;
+	color: red;
+	font-weight: bold;
+	font-size: 9px;
+	text-align: left;
+	color: red;
+}

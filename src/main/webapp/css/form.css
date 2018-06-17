@@ -1,0 +1,103 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The form and styles are adapted from the work by
+Chris Ramakers @ Skyrocket.be
+
+URL : http://www.skyrocket.be/lab/semantic_horizontal_form.html
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+#applform {
+	float: left;
+	border: 0px solid;
+}
+
+#applform fieldset {
+	float: left;
+	width: 200px;
+	border: 0px solid;
+	margin: 0em;
+	padding: 0px 0px 3px 3px;
+}
+
+#applform fieldset legend {
+	font: normal 60px/ 30px Georgia, "Times New Roman", Times, serif;
+}
+
+#applform fieldset h3 {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#applform fieldset label {
+	font-size: 9px;
+	font-weight: bold;
+	display: block;
+	line-height: 15px;
+	padding-top: 4px;
+}
+
+#applform fieldset input {
+	border-top: 1px solid #7c7c7c;
+	border-left: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+	border-bottom: 1px solid #ddd;
+	padding: 3px;
+	font-size: 11px;
+}
+
+#applform input:hover,#applform input:focus {
+	border-color: #94BB50;
+	background: rgba(254, 245, 202, 0.7);
+}
+
+#applform fieldset input[readonly] {
+	background: #ccc;
+}
+
+#applform fieldset select {
+	padding: 2px;
+	font-size: 11px;
+}
+
+.required {
+	color: red;
+	font: bold 14px Times, serif;
+}
+
+/* Last part styling */
+#applform #last {
+	float: left;
+	clear: both;
+	height: 55px;
+	border: 5px solid #666600;
+	border-width: 5px 0;
+	padding: 5px;
+	width: 97%;
+}
+
+#last #disclaimer {
+	float: right;
+	width: 75%;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+#last #divsubmit {
+	padding-top: 15px;
+	float: left;
+	border: 0px solid;
+}
+
+#applsuccess,#applerror {
+	margin: 0px 20px 0px 10px;
+	border: 0px solid;
+	float: left;
+}
+
+.fieldError {
+  color: red;
+  font-size: 8px !important;
+  font-weight: bold;
+  display: block;
+  clear: left;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>            
+            <pattern>%.-1level | %36.36logger{36} | %m \(%F:%L\)%n</pattern>
+        </encoder>
+    </appender>
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+	</root>
+	  <!-- --> 
+    <logger name="org.eclipse.jetty" level="INFO" />
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.apache.cxf.bus" level="WARN" />
+    <logger name="org.apache.cxf.transport" level="WARN" />
+    <logger name="org.apache.cxf.service.factory" level="WARN" />
+    <logger name="org.hibernate.cfg" level="WARN" />
+    <logger name="org.hibernate.connection" level="WARN" />
+    <logger name="org.hibernate.impl" level="WARN" />
+    <logger name="com.mchange" level="WARN" />
+     
+</configuration>

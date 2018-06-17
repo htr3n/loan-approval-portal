@@ -1,0 +1,90 @@
+#loanListForm {
+	padding: 0; float : left;
+	border: 0px solid;
+	width: 100%;
+	float: left;
+}
+
+table.task {
+	border-collapse: collapse;
+	font-size: 11px;
+	border: 0px solid;
+  /*	width: 100%; */
+}
+
+table.task thead th {
+	background: #898B5E;
+	color: #fff;
+	padding: 6px 6px;
+	text-align: center;
+	border-right: 1px solid #fff;
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+table.task tfoot th {
+	height: 1px;
+	background: #898B5E;
+	padding: 0px;
+	border-top: 1px solid #898B5E;
+}
+
+table.task tbody td {
+	padding: 2px 2px;
+	border-bottom: 1px dashed #CCC;
+	vertical-align: middle;
+	text-align: center;
+	height: 32px;
+	background: rgba(255, 255, 255, .7);
+}
+
+table.task tbody tr.alt td {
+	background: rgba(253, 252, 220, .7);
+}
+
+table.task tbody tr.over td {
+	background: rgba(241, 237, 194, .7);
+}
+
+table.legend {
+	margin-top: 10px;
+	font-size: 10px;
+	border: 0px solid;
+}
+
+#twotables {
+   border: 0px solid;
+   width: 100%;
+   float: left;
+   position: relative;
+   left: 0%;
+   padding: 0;
+}
+
+#runningHead {
+   font-weight: bold;
+   font-size: 12px;
+   border: 0px solid;
+   float: right;
+   padding-bottom: 10px;
+}
+#refresh {
+	border: 0px;
+	height: 14px;
+	width: 14px;
+	position: relative;
+	top: 3px;
+	left: -2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

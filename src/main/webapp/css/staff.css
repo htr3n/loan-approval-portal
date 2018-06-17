@@ -1,0 +1,64 @@
+body {
+   font-family: Verdana, Tahoma, Arial, san-serif;
+   font-size: 10px;
+     background: #ddd url(../images/body.gif) repeat fixed 0 0;  
+}
+a {
+   text-decoration: none;
+   color: #86862D;
+   cursor: pointer !important;
+   cursor: hand;
+}
+
+#managerForm {
+   padding: 0; float : left;
+   border: 0px solid;
+   width: 100%;
+   float: left;
+}
+table {
+   border-collapse: collapse;
+   border: 0px solid;
+  width: 100% !important;
+  text-align: center;
+  font-size: 10px;
+}
+table thead tr.primary th {
+   background: #898B5E;
+   color: #fff;
+   padding: 6px 6px;
+   text-align: center;
+   border-right: 1px solid #fff;
+   border-bottom: 1px solid #fff;
+   line-height: 1;
+   font-weight: bold;
+}
+table thead tr th {
+   background: #898B5E;
+   color: #fff;
+   padding: 7px 6px;
+   text-align: center;
+   border-right: 1px solid #fff;
+   line-height: 1;
+   font-weight: bold;
+}
+table tfoot th {
+   height: 1px;
+   background: #898B5E;
+   padding: 0px;
+   border-top: 1px solid #898B5E;
+}
+table tbody tr.alt td {
+   background: rgba(253, 252, 220, .7);
+}
+table tbody tr.over td {
+   background: rgba(241, 237, 194, .7);
+}
+table tbody td {
+   padding: 2px 2px;
+   border-bottom: 1px dashed #CCC;
+   vertical-align: middle;
+   text-align: center;
+   height: 34px;
+   background: rgba(255, 255, 255, .7)
+}

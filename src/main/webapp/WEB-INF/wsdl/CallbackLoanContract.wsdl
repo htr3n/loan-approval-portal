@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CallbackLoanContract"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="urn:westbank:ws:client:CallbackLoanContract"
+	targetNamespace="urn:westbank:ws:client:CallbackLoanContract">
+
+	<wsdl:types>
+		<xsd:schema 
+         targetNamespace="urn:westbank:ws:client:CallbackLoanContract"
+			   xmlns="urn:westbank:ws:client:CallbackLoanContract"
+			   elementFormDefault="qualified">
+			<xsd:element name="CallbackLoanContractRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+            <xsd:element name="borrowerCustomerId" type="xsd:long" />					
+						<xsd:element name="loanContractId" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="CallbackLoanContractRequest">
+		<wsdl:part element="tns:CallbackLoanContractRequest" name="request" />
+	</wsdl:message>
+	
+	<wsdl:portType name="CallbackLoanContract">
+		<wsdl:operation name="send">
+			<wsdl:input message="tns:CallbackLoanContractRequest" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="CallbackLoanContractSOAP" type="tns:CallbackLoanContract">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="send">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CallbackLoanContract">
+		<wsdl:port name="CallbackLoanContractPort" binding="tns:CallbackLoanContractSOAP">
+			<soap:address location="http://localhost:9999/portal/services/CallbackLoanContract" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>
