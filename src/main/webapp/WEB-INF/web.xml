@@ -6,17 +6,15 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
   <display-name>Loan Approval Portal</display-name>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>
-      /WEB-INF/cxf.xml
-      /WEB-INF/data-access.xml
-     </param-value>
-  </context-param>
 
+	<!-- Root Application Context -->
 	<listener>
-	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	 <context-param>
+	   <param-name>contextConfigLocation</param-name>
+	   <param-value>/WEB-INF/cxf.xml,/WEB-INF/data-access.xml</param-value>
+	 </context-param>
 
   <!--
     ====================================================================
@@ -24,18 +22,14 @@
     intercepts all incoming request to *.html, *.list, and /staff/*.html
     resources. By convention, this dispatcher will load the configuration
     file `mvc-servlet.xml` ('mvc' is the servlet's name defined here)  
-    
-    In addition, the customized dispatcher also starts the Derby DB Network 
-    Server at localhost:1527. If Derby is not used as the underlying RDBMS,
-    please disable the corresponding code in this dispatcher. 
-    
-    Besides, the dispatcher also checks the underlying database schema 
+        
+    The dispatcher also checks the underlying database schema 
     (i.e., the database and tables) to ensure everything is ok. Otherwise, 
     it will also create a new database schema and insert some test data.
-  -->  
+  -->
   <servlet>
     <servlet-name>mvc</servlet-name>
-    <servlet-class>westbank.mvc.PortalDispatcherServlet</servlet-class>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/mvc-servlet.xml</param-value>
@@ -47,6 +41,7 @@
     <servlet-name>mvc</servlet-name>
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
+  
   <!-- The below mapping url-pattern is not supported by Tomcat ;( -->
   <!-- 
   <servlet-mapping>
@@ -64,11 +59,14 @@
     ====================================================================
     This is the Apache CXF front-end that intercepts all incoming
     service invocations and delivers to the corresponding Web services.
+    
+    Asynchronous Requests are support only with Servlet 3+
   -->
   <servlet>
     <servlet-name>cxf</servlet-name>
     <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
+    <async-supported>true</async-supported>
   </servlet>
 
   <servlet-mapping>
@@ -80,7 +78,8 @@
     ====================================================================
     This is a filter that keeps the Hibernate session opening for using
     in Web frontend (JSPs).
-  -->   
+  -->
+  <!--   
   <filter>
     <filter-name>hibernateFilter</filter-name>
     <filter-class>
@@ -91,6 +90,7 @@
       <param-value>AUTO</param-value>
     </init-param>
   </filter>
+  
   <filter-mapping>
     <filter-name>hibernateFilter</filter-name>
     <url-pattern>*.html</url-pattern>
@@ -99,6 +99,7 @@
     <filter-name>hibernateFilter</filter-name>
     <url-pattern>*.list</url-pattern>
   </filter-mapping>
+  -->
   
   <!-- Complained by Tomcat ;( -->
   <!-- https://jcp.org/aboutJava/communityprocess/final/jsr340/index.html  -->

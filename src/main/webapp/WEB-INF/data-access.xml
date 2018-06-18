@@ -1,71 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 	                    http://www.springframework.org/schema/beans/spring-beans.xsd
 	                    http://www.springframework.org/schema/tx 
-                      http://www.springframework.org/schema/tx/spring-tx.xsd
-                      http://www.springframework.org/schema/context
-                      http://www.springframework.org/schema/context/spring-context.xsd">
+                      	http://www.springframework.org/schema/tx/spring-tx.xsd
+                      	http://www.springframework.org/schema/context
+                      	http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="propertyPlaceholderConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:hibernate-derby.properties</value>
-				<value>classpath:c3p0.properties</value>
-				<value>classpath:endpoint.properties</value>
-			</list>
-		</property>
-	</bean>
+    <bean id="propertyPlaceholderConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:hibernate.properties</value>
+                <value>classpath:pooling.properties</value>
+                <value>classpath:endpoint.properties</value>
+            </list>
+        </property>
+    </bean>
 
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
-		p:packagesToScan="westbank.db.entity"
-		p:hibernateProperties-ref="hibernateProperties" 
-		/>
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+          p:packagesToScan="westbank.db.entity"
+          p:hibernateProperties-ref="hibernateProperties"
+    />
 
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager"
-		p:sessionFactory-ref="sessionFactory" />
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
 
-  <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!-- 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${hibernate.connection.driver_class}"
+          p:url="${hibernate.connection.url}"
+          p:username="${hibernate.connection.username}"
+          p:password="${hibernate.connection.password}"/>
+	 -->
+	 
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.connection.autocommit">false</prop>
+                <prop key="hibernate.connection.driver_class">${hibernate.connection.driver_class}</prop>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.connection.url">${hibernate.connection.url}</prop>
+                <prop key="hibernate.connection.username">${hibernate.connection.username}</prop>
+                <prop key="hibernate.connection.password">${hibernate.connection.password}</prop>
+                <prop key="hibernate.connection.pool_size">${hibernate.connection.pool_size}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- Pooling -->
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.connection.provider_class">${hibernate.connection.provider_class}</prop>
+                <prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop>
+                <prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>
+                <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+                <prop key="autoCommitOnClose">${autoCommitOnClose}</prop>
+            </props>
+        </property>
+    </bean>
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:driverClassName="${hibernate.connection.driver_class}" 
-		p:url="${hibernate.connection.url}" 
-		p:username="${hibernate.connection.username}"
-		p:password="${hibernate.connection.password}" />
-
-	<bean id="hibernateProperties"
-		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-		<property name="properties">
-			<props>
-				<prop key="hibernate.connection.autocommit">false</prop>
-				<prop key="hibernate.connection.driver_class">${hibernate.connection.driver_class}</prop>
-				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				<prop key="hibernate.connection.url">${hibernate.connection.url}</prop>
-				<prop key="hibernate.connection.username">${hibernate.connection.username}</prop>
-				<prop key="hibernate.connection.password">${hibernate.connection.password}</prop>
-				<prop key="hibernate.connection.pool_size">${hibernate.connection.pool_size}</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.current_session_context_class">thread</prop>
-				<!-- 
-				<prop key="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</prop> 
-					<prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop> <prop 
-					key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop> <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop> 
-					<prop key="autoCommitOnClose">${autoCommitOnClose}</prop>
-					 -->
-			</props>			
-		</property>
-	</bean>
- 
-	<!-- Data access object beans -->
-	<bean id="dataAccessObject" class="westbank.db.dao.DataAccess"
-		scope="singleton" p:sessionFactory-ref="sessionFactory" />
+    <!-- Data access object beans -->
+    <bean id="dataAccessObject" class="westbank.db.dao.DataAccess"
+          scope="singleton" p:sessionFactory-ref="sessionFactory"/>
 
 </beans>

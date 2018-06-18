@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
@@ -32,6 +34,8 @@ import westbank.ws.business.loanfile._2009._11.LoanFileResponse;
 public class DataAccess extends HibernateDaoSupport {
 
     static Logger log = LoggerFactory.getLogger(DataAccess.class);
+    
+    DataSource x;
     /**
      * Creates and stores a loan contract the underlying database
      *

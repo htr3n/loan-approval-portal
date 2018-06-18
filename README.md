@@ -4,16 +4,16 @@ This project provides a Web interface portal for end-users to work with the loan
 
 ## Technologies
 
-* SOAP/Web Services (WSDL/XML/SOAP/HTTP) implemented using [JAX-WS](https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services) / [Apache CXF](http://cxf.apache.org) / [Spring Framework 3.x](https://spring.io)
-* [Spring MVC Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) 3.x for Web based user interface running in a Web application server [Eclipse Jetty](https://www.eclipse.org/jetty) or [Apache Tomcat](http://tomcat.apache.org)
-* [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate 3](http://hibernate.org) on top of an RDBMS with [c3p0](https://www.mchange.com/projects/c3p0) for improving JDBC connections.
+* SOAP/Web Services (WSDL/XML/SOAP/HTTP) implemented using [JAX-WS](https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services) / [Apache CXF](http://cxf.apache.org) / [Spring Framework](https://spring.io)
+* [Spring MVC Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for user interface running in a Web application server
+* [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate](http://hibernate.org) on top of an RDBMS with [c3p0](https://www.mchange.com/projects/c3p0) for JDBC connection pooling.
 * [Apache Derby](https://db.apache.org/derby), [HyperSQL](http://hsqldb.org), [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org) have been included and tested but any RDBMS can be also used with extra configuration effort
 * [Logback](https://logback.qos.ch) and [Simple Logging Facade for Java (SLF4J)](https://www.slf4j.org) for efficient logging
-* [Apache Maven](https://maven.apache.org) and [Apache Ant](https://ant.apache.org) for dependency management, building, packaging, and deployment
+* [Apache Maven](https://maven.apache.org) for dependency management, building, packaging, and deployment
 
 ## Quick Start
 
-###### Executing at command line
+##### Executing using command line
 
 The Loan Approval Portal can be deployed as a Web application (`*.war`) and executed with a Web application server such as Apache Tomcat, Eclipse Jetty, JBoss, etc. Nevertheless, we can directly execute them at the command line for testing purpose. Go to the project folder and proceed with the following command.
 
@@ -35,30 +35,28 @@ Some other pages for development/testing
    * Checking the list of running Web services: http://localhost:9999/portal/services
 
    * To login as a staff (manager, supervisor, clerk, or broker), go to page: http://localhost:9999/portal/staff/login.html
-* Note: ID and password for staff are temporarily listed in page http://localhost:9999/portal/dev.list
 
-###### Packaging a deployable Web application (.war)
+ * Note: ID and password for staff are temporarily listed in page http://localhost:9999/portal/dev.list
+
+##### Packaging a deployable Web application (.war)
 
 ```sh
 mvn -DskipTests clean package
 ```
 
-
 ## Technical Details
 
-This is an Apache Maven based Web application project. The main development configuration is `pom.xml` and the main Web application configuration is `WEB-INF/web.xml`.
+The main development configuration is defined in `pom.xml` and the main Web application configuration is `WEB-INF/web.xml`.
 
 #### Web Layer
 
-The Web user interface for the customers of the loan approval process which is implemented using [Spring MVC 3](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data persistence is performed with [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate 3](http://hibernate.org).
+The Web user interface for the customers of the loan approval process which is implemented using [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data manipulation and persistence are performed with [Hibernate](http://hibernate.org).
 
 * The main configuration for the Web application is `WEB-INF/web.xml`. 
 
-* I want start the embedded Apache Derby DB server early, i.e. at the time of initialising the root `WebApplicationContext`. Thus, I extended `org.springframework.web.context.ContextLoaderListener` with `westbank.mvc.PortalContextLoaderListener` in which Derby server will be started (see `westbank.mvc.DerbyNetworkServer`). Nevertheless, when using other RDBMS that is running in standalone mode, we must drop `PortalContextLoaderListener` in `web.xml`.
+* `ContextLoadListener` is used load the Spring managed beans for Web services (`cxf.ml`) and data handling (`data-access.xml`).
 
-* I also used `ContextLoadListener`/`PortalContextLoaderListener` to load the Spring managed beans for Web services (`cxf.ml`) and data access (`data-access.xml`).
-
-* ```xml
+```xml
     <context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
@@ -66,7 +64,7 @@ The Web user interface for the customers of the loan approval process which is i
         /WEB-INF/data-access.xml
        </param-value>
     </context-param>
-  ```
+```
 
 * After the embedded server started, we must validate and initialise the database if necessary. Hence, I extended [org.springframework.web.servlet.DispatcherServlet](https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch15s02.html) with [PortalDispatcherServlet](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/westbank/mvc/PortalDispatcherServlet) for extra tasks on database initialisation apart from intercepting incoming requests and delivering to the controllers. Per convention, the default configuration for the dispatcher will be `mvc-servlet.xml`. Note that `mvc` is the name of the servlet defined in `web.xml`. For better undestanding, I explicitly specified the configuration file though.
 
@@ -112,23 +110,12 @@ The Web user interface for the customers of the loan approval process which is i
 * Some required Spring beans will be injected into Spring managed controllers and DAO helpers. Those beans are also defined in `WEB-INF/data-access.xml`.
 
 * The currently used RDBMS is [Apache Derby](https://db.apache.org/derby) (or formerly Java DB). Nevertheless, any other RDBMS can be used as well. In order to use other RDBMSs instead of Apache Derby, note the following points:
-  * Create a database name `testdb`
-
-  * Create a user `test` with password `test` and assign that user to the previously created database.
-
-  * Turn off the Derby DB server: Go to the constructor method of the class `westbank.mvc.PortalLoaderListener`, find the following line
-
-    ```java
-    startDerbyServer();
-    ```
-
-    then comment or remove that line to disable Derby Network Server.
-
-  * Go to file `WEB-INF/data-access.xml`, find the bean named  `propertyPlaceholderConfigurer`, and replace `hibernate-derby.properties` with the corresponding value according to the RDBMS being used. Keep the rest unchanged.
-
+  * Create a database name 'WESTBANKDB'
+  * Create a user 'westbank' with password 'secret' and assign that user to the database.
+  * Go to file `WEB-INF/data-access.xml`, find the bean named  `propertyPlaceholderConfigurer`, and replace `hibernate.properties` with the corresponding value according to the RDBMS being used. Keep the rest unchanged.
   * Add necessary Maven dependencies for the new DBMS in `pom.xml`.
-
-  * Issue the command `mvn jetty:run` to check if the Web application works. In case of problems, tune the verbosity in 'logback.xml' for debugging.
+  * Issue the command `mvn jetty:run` to check if the Web application works. 
+  * In case of problems, tune the verbosity in `logback.xml` for debugging.
 
 #### Web Services
 
@@ -175,8 +162,7 @@ The real implementation of the business logic of each Web service is in the corr
 
 ## Sidenotes
 
-File `WEB-INF/test.xml` is a Spring configuration used for testing only. It will inject some predefined data for the customer's input forms. For the final release, it should be disabled by commenting/removing the corresponding
-import statement in `WEB-INF/mvc-servlet.xml`.
+* File `WEB-INF/test.xml` is used for testing only. It will inject some predefined data for the customer's input forms. In the final release, it should be disabled by commenting/removing the corresponding import statement in `WEB-INF/mvc-servlet.xml`.
 
 For further testing and demonstration purposes, some special values are hard-coded in the Web services logics:
 

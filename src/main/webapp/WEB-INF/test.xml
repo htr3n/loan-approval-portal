@@ -2,25 +2,10 @@
 <beans
   xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:context="http://www.springframework.org/schema/context"
   xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="
 	   http://www.springframework.org/schema/beans 
-	   http://www.springframework.org/schema/beans/spring-beans.xsd
-	   http://www.springframework.org/schema/context 
-	   http://www.springframework.org/schema/context/spring-context.xsd">
-
-  <bean
-    id="loginForm"
-    class="westbank.mvc.customer.model.LoginForm"
-    p:email="power@abc.com">
-  </bean>
-
-  <bean
-    id="staffLoginForm"
-    class="westbank.mvc.staff.model.StaffLoginForm"
-    p:id="bryan">
-  </bean>
+	   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean
     id="customerAliceMeyer"
@@ -33,25 +18,25 @@
     p:interestRate="0.04"
     p:residenceType="MAIN_HOUSE"
     p:estateType="PARKING"
-    p:estateAddress="Leaf Str. 3, Vienna 1210"
+    p:estateAddress="123 Green Str., Mount Waverley, VIC 3149"
     p:startDate="01/01/2011"
 
     p:borrowerTitle="Miss"
     p:borrowerFirstName="Alice"
     p:borrowerLastName="Power"
-    p:borrowerCity="Vienna"
-    p:borrowerState="Vienna"
-    p:borrowerCountry="Austria"
+    p:borrowerCity="Melbourne"
+    p:borrowerState="Victoria"
+    p:borrowerCountry="Australia"
     p:borrowerEmail="power@abc.com"
     p:borrowerMaritalStatus="MARRIED"
     p:borrowerIncome="48000"
     p:borrowerLengthOfService="6"
     p:borrowerPhone="012345678"
     p:borrowerMobilePhone="06501234567"
-    p:borrowerStreet="Queen Str. 1/2"
-    p:borrowerZipcode="1020"
+    p:borrowerStreet="3 Queen Road"
+    p:borrowerZipcode="3031"
     p:borrowerOccupation="Accountant"
-    p:borrowerDateOfBirth="01/01/1970"
+    p:borrowerDateOfBirth="01/01/1988"
     
     p:hasCoborrower="false"
     p:coborrowerTitle="Mr"
@@ -60,7 +45,7 @@
     p:coborrowerIncome="70000"
     p:coborrowerLengthOfService="8"
     p:coborrowerOccupation="Project Manager"
-    p:coborrowerDateOfBirth="01/01/1965"
-    p:coborrowerEmail="schneider@abc.com" />
+    p:coborrowerDateOfBirth="01/01/1982"
+    p:coborrowerEmail="schneider@free.org" />
 
 </beans>

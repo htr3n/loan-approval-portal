@@ -16,12 +16,13 @@
 		p:ignoreUnresolvablePlaceholders="true">
 		<property name="locations">
 			<list>
-				<value>classpath:hibernate-derby.properties</value>
-				<value>classpath:c3p0.properties</value>
+				<value>classpath:hibernate-derby-embedded.properties</value>
+				<value>classpath:pooling.properties</value>
 				<value>classpath:endpoint.properties</value>
 			</list>
 		</property>
 	</bean>
+
 	<import resource="resources.xml" />
 	<import resource="test.xml" />
 
@@ -39,22 +40,25 @@
 
 	<bean id="loginValidator"
 		class="westbank.mvc.customer.controller.LoginValidator" />
-
 	<bean id="customerProfileValidator"
 		class="westbank.mvc.customer.controller.ProfileValidator" />
-
 	<bean id="staffLoginValidator"
 		class="westbank.mvc.staff.controller.StaffLoginValidator" />
-
 	<bean id="loanRequestValidator"
 		class="westbank.mvc.customer.controller.LoanRequestValidator" />
-
 	<bean id="newLoanRequestValidator"
 		class="westbank.mvc.customer.controller.NewRequestValidator" />
-
 	<bean id="processProxy"
 		class="westbank.proxy.LoanApprovalProcessProxy"
-		p:loanApproval-ref="LoanApprovalClient">
+		p:loanApproval-ref="LoanApprovalClient" />
+
+	<bean id="loginForm"
+		class="westbank.mvc.customer.model.LoginForm"
+		p:email="power@abc.com">
+	</bean>
+	<bean id="staffLoginForm"
+		class="westbank.mvc.staff.model.StaffLoginForm"
+		p:id="bryan">
 	</bean>
 
 </beans>
