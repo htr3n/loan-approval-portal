@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="isLogged" value="${sessionScope.theSesssionId != null}"/>
 <div id="banner">
-   <h1>Western Bank Loan Portal</h1>
+   <h1>WestBank Loan Portal</h1>
 </div>  
 <ul id="tabmenu">
  <li>

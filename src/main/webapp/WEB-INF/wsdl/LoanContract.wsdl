@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions name="LoanContract"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:westbank:ws:business:LoanContract:2009:11"
-	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="urn:westbank:ws:business:LoanContract:2009:11">
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:com:westbank:ws:business:LoanContract:2018:06"
+	targetNamespace="urn:com:westbank:ws:business:LoanContract:2018:06">
 
 	<wsdl:types>
-		<xsd:schema targetNamespace="urn:westbank:ws:business:LoanContract:2009:11"
-			xmlns="urn:westbank:ws:business:LoanContract:2009:11" 
+		<xsd:schema targetNamespace="urn:com:westbank:ws:business:LoanContract:2018:06"
+			xmlns="urn:com:westbank:ws:business:LoanContract:2018:06"
 			elementFormDefault="qualified">
 
 			<xsd:element name="LoanContractRequest">

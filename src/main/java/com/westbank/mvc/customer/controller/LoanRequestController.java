@@ -1,12 +1,5 @@
 package com.westbank.mvc.customer.controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import com.westbank.mvc.customer.model.ApplicationForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
 import org.slf4j.Logger;
@@ -21,11 +14,14 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.westbank.db.dao.DataAccess;
+import com.westbank.mvc.Constants;
 
-import westbank.db.dao.DataAccess;
-import westbank.mvc.Constants;
-import westbank.mvc.customer.model.ApplicationForm;
-import westbank.proxy.LoanApprovalProcessProxy;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * This controller returns the front-end loan request view for the customer

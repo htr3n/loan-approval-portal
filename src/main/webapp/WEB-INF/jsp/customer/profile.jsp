@@ -159,13 +159,13 @@
               </div>  
            </div>
           <div id="disclaimer">By clicking the &#8220;Update&#8221; button,
-            I am attaching my personal information and agreeing to the Western Bank's
+            I am attaching my personal information and agreeing to the WestBank's
             Terms of Services Agreement; I agree to be bound by any modifications, 
-            changes, or revisions made by Western Bank to the online services or 
+            changes, or revisions made by WestBank to the online services or
             to these Terms of Services.             
             I understand that if I do not agree to these 
             terms of use and privacy statements, I should refrain from using services 
-            provided by Western Bank.</div>
+            provided by WestBank.</div>
         </fieldset>
     </div>
   </form:form>

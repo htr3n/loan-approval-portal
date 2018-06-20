@@ -1,9 +1,5 @@
 package com.westbank.db;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-
 import com.westbank.db.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,12 +15,9 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
-import westbank.db.entity.Agency;
-import westbank.db.entity.Contract;
-import westbank.db.entity.Customer;
-import westbank.db.entity.LoanFile;
-import westbank.db.entity.Role;
-import westbank.db.entity.Staff;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
 
 public class PortalSessionFactoryBean extends LocalSessionFactoryBean {
 

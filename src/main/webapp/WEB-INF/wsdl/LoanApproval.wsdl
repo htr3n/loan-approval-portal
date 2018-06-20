@@ -5,22 +5,20 @@
   xmlns:ws="http://schemas.xmlsoap.org/wsdl/"
   xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" 
   xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+  xmlns:tns="urn:com:westbank:ws:process:LoanApproval:2018:06"
+  targetNamespace="urn:com:westbank:ws:process:LoanApproval:2018:06"
 
-  xmlns:tns="urn:westbank:ws:process:LoanApproval:2009:11"
-  targetNamespace="urn:westbank:ws:process:LoanApproval:2009:11"
-
-  xmlns:bankinformation="urn:westbank:ws:business:BankInformation:2009:11"
-  xmlns:bankprivilege="urn:westbank:ws:business:BankPrivilege:2009:11"
-  xmlns:callbackloanapproval="urn:westbank:ws:client:CallbackLoanApproval"
-  xmlns:callbackloancontract="urn:westbank:ws:client:CallbackLoanContract"
-  xmlns:creditworthiness="urn:westbank:ws:business:CreditWorthiness:2009:11"
-  xmlns:loanapprovalclosing="urn:westbank:ws:business:LoanApprovalClosing:2009:11"
-  xmlns:loansettlement="urn:westbank:ws:business:LoanSettlement:2009:11"
-  xmlns:loanfile="urn:westbank:ws:business:LoanFile:2009:11"
-  xmlns:loanrisk="urn:westbank:ws:business:LoanRisk:2009:11"
-  xmlns:loancontract="urn:westbank:ws:business:LoanContract:2009:11"
-  xmlns:taskdispatch="urn:westbank:ws:business:TaskDispatch:2009:11"
-  xmlns:testmock="urn:westbank:ws:TestMock"
+  xmlns:bankinformation="urn:com:westbank:ws:business:BankInformation:2018:06"
+  xmlns:bankprivilege="urn:com:westbank:ws:business:BankPrivilege:2018:06"
+  xmlns:callbackloanapproval="urn:com:westbank:ws:client:CallbackLoanApproval"
+  xmlns:callbackloancontract="urn:com:westbank:ws:client:CallbackLoanContract"
+  xmlns:creditworthiness="urn:com:westbank:ws:business:CreditWorthiness:2018:06"
+  xmlns:loanapprovalclosing="urn:com:westbank:ws:business:LoanApprovalClosing:2018:06"
+  xmlns:loansettlement="urn:com:westbank:ws:business:LoanSettlement:2018:06"
+  xmlns:loanfile="urn:com:westbank:ws:business:LoanFile:2018:06"
+  xmlns:loanrisk="urn:com:westbank:ws:business:LoanRisk:2018:06"
+  xmlns:loancontract="urn:com:westbank:ws:business:LoanContract:2018:06"
+  xmlns:taskdispatch="urn:com:westbank:ws:business:TaskDispatch:2018:06"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://docs.oasis-open.org/wsbpel/2.0/plnktype 
       http://docs.oasis-open.org/wsbpel/2.0/OS/plnktype/ws-bpel_plnktype.xsd
@@ -29,8 +27,8 @@
 
   <ws:types>
     <xsd:schema
-      targetNamespace="urn:westbank:ws:process:LoanApproval:2009:11"
-      xmlns="urn:westbank:ws:process:LoanApproval:2009:11"
+      targetNamespace="urn:com:westbank:ws:process:LoanApproval:2018:06"
+      xmlns="urn:com:westbank:ws:process:LoanApproval:2018:06"
       elementFormDefault="qualified">
 
       <xsd:element name="LoanApprovalRequest">

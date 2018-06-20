@@ -43,11 +43,11 @@
         In case of a successful approval, a loan contract will be sent to you. By law, you will have <strong>7 days</strong> for judging the loan contract. After that, we would like to ask you to digitally sign the final loan contract and send it back to us within <strong>2 months</strong>. 
         As soon as we receive the loan contract with your digital signature, the loan will be properly settled and valid. 
         </p>
-        <p>In case you have any problem, please contact our service support at phone number +43-1-08020304 or email <strong>customer@western-bank.com</strong>.</p>
+        <p>In case you have any problem, please contact our service support at phone number +43-1-08020304 or email <strong>customer@westbank.com</strong>.</p>
         <p>
         Sincerely yours,<br/>
-        General Director of Western Bank.<br/>
-        <strong>Robert Lange</strong><br/>
+        General Director of WestBank.<br/>
+        <strong>Robert Landon</strong><br/>
         </p>
      </div>
    </div>

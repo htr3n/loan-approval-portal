@@ -6,17 +6,17 @@
 	  http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <!-- Callback WS beans -->
-  <bean id="callbackLoanApprovalImpl" class="westbank.ws.impl.CallbackLoanApprovalImpl" />
-  <bean id="callbackLoanContractImpl" class="westbank.ws.impl.CallbackLoanContractImpl" />
+  <bean id="callbackLoanApprovalImpl" class="com.westbank.ws.impl.CallbackLoanApprovalImpl" />
+  <bean id="callbackLoanContractImpl" class="com.westbank.ws.impl.CallbackLoanContractImpl" />
 
   <!-- Business WS beans -->
-  <bean id="bankInformationImpl"  class="westbank.ws.impl.BankInformationImpl" />
-  <bean id="bankPrivilegeImpl" class="westbank.ws.impl.BankPrivilegeImpl" />
-  <bean id="creditWorthinessImpl" class="westbank.ws.impl.CreditWorthinessImpl" />
-  <bean id="loanApprovalClosingImpl" class="westbank.ws.impl.LoanApprovalClosingImpl" />
-  <bean id="loanFileImpl" class="westbank.ws.impl.LoanFileImpl" />
-  <bean id="loanContractImpl" class="westbank.ws.impl.LoanContractImpl" />
-  <bean id="loanRiskImpl" class="westbank.ws.impl.LoanRiskImpl" />
-  <bean id="loanSettlementImpl" class="westbank.ws.impl.LoanSettlementImpl" />
-  <bean id="taskDispatchImpl" class="westbank.ws.impl.TaskDispatchImpl" />
+  <bean id="bankInformationImpl"  class="com.westbank.ws.impl.BankInformationImpl" />
+  <bean id="bankPrivilegeImpl" class="com.westbank.ws.impl.BankPrivilegeImpl" />
+  <bean id="creditWorthinessImpl" class="com.westbank.ws.impl.CreditWorthinessImpl" />
+  <bean id="loanApprovalClosingImpl" class="com.westbank.ws.impl.LoanApprovalClosingImpl" />
+  <bean id="loanFileImpl" class="com.westbank.ws.impl.LoanFileImpl" />
+  <bean id="loanContractImpl" class="com.westbank.ws.impl.LoanContractImpl" />
+  <bean id="loanRiskImpl" class="com.westbank.ws.impl.LoanRiskImpl" />
+  <bean id="loanSettlementImpl" class="com.westbank.ws.impl.LoanSettlementImpl" />
+  <bean id="taskDispatchImpl" class="com.westbank.ws.impl.TaskDispatchImpl" />
 </beans>

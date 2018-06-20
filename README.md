@@ -1,13 +1,13 @@
 # Loan Approval Portal
 
-This project provides a Web interface portal for end-users to work with the loan approval process of the fictitious West Bank. Besides, for testing purpose it also includes the Web services and underlying databases that provide necessary business functions used by the loan approval process.
+This project provides a Web interface portal for end-users to work with the loan approval process of the fictitious WestBank. Besides, for testing purpose it also includes the Web services and underlying databases that provide necessary business functions used by the loan approval process.
 
 ## Technologies
 
 * SOAP/Web Services (WSDL/XML/SOAP/HTTP) implemented using [JAX-WS](https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services) / [Apache CXF](http://cxf.apache.org) / [Spring Framework](https://spring.io)
 * [Spring MVC Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for user interface running in a Web application server
 * [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate](http://hibernate.org) on top of an RDBMS with [c3p0](https://www.mchange.com/projects/c3p0) for JDBC connection pooling.
-* [Apache Derby](https://db.apache.org/derby), [HyperSQL](http://hsqldb.org), [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org) have been included and tested but any RDBMS can be also used with extra configuration effort
+* [H2](http://www.h2database.com/html/main.html), [Apache Derby](https://db.apache.org/derby), [HyperSQL](http://hsqldb.org), [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org) have been included and tested but any RDBMS can be also used with extra configuration effort
 * [Logback](https://logback.qos.ch) and [Simple Logging Facade for Java (SLF4J)](https://www.slf4j.org) for efficient logging
 * [Apache Maven](https://maven.apache.org) for dependency management, building, packaging, and deployment
 
@@ -25,10 +25,8 @@ Then open a Web browser to http://localhost:9999/portal for the portal main page
 
 Some other pages for development/testing
 
-   * Verifying the underlying database (see westbank.mvc.DevController) : 
-   		
-   		http://localhost:9999/portal/dev.html 
-   
+   * Verifying the underlying database (see `src/main/java/com.westbank.mvc.DevController`) : http://localhost:9999/portal/dev.html 
+
    * Checking the list of running Web services: http://localhost:9999/portal/services
 
    * To login as a staff (manager, supervisor, clerk, or broker), go to page: http://localhost:9999/portal/staff/login.html
@@ -47,50 +45,52 @@ The main development configuration is defined in `pom.xml` and the main Web appl
 
 #### Web Layer
 
-The Web user interface for the customers of the loan approval process which is implemented with [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data manipulation and persistence are done using [Hibernate](http://hibernate.org).
+The user interface for the customers of the loan approval process which is implemented with [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data manipulation and persistence are done using [Hibernate](http://hibernate.org).
 
 * The main configuration for the Web application is `WEB-INF/web.xml`. 
 
-* `ContextLoadListener` is used load the Spring managed beans for Web services (`cxf.ml`) and data handling (`data-access.xml`).
+* `ContextLoadListener`, that stars the root web application context is used load the Spring managed beans for web services (`cxf.ml`) and data handling (`data-access.xml`).
 
 ```xml
-    <context-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>
-        /WEB-INF/cxf.xml
-        /WEB-INF/data-access.xml
-       </param-value>
-    </context-param>
+<listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>
+    /WEB-INF/cxf.xml
+    /WEB-INF/data-access.xml
+  </param-value>
+</context-param>
 ```
 
 By convention, the default configuration for [DispatcherServlet](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html) will be `mvc-servlet.xml`. Note that `mvc` is the name of the servlet defined in `web.xml`. For better understanding, I explicitly specified the configuration file though.
 
-  ```xml
-  <servlet>
-      <servlet-name>mvc</servlet-name>
-      <servlet-class>westbank.mvc.PortalDispatcherServlet</servlet-class>
-      <init-param>
-          <param-name>contextConfigLocation</param-name>
-          <param-value>/WEB-INF/mvc-servlet.xml</param-value>
-      </init-param>
-      <load-on-startup>1</load-on-startup>
-  </servlet>
-  ```
+```xml
+<servlet>
+  <servlet-name>mvc</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/mvc-servlet.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+</servlet>
+```
 
-* The Spring managed and annotated controllers for customers and staffs are under `westbank.mvc.customer` and `westbank.mvc.staff` respectively. The portal's index page is mapped to `HomeController`.
+The Spring managed and annotated controllers for customers and staffs are under `westbank.mvc.customer` and `westbank.mvc.staff` respectively. The portal's index page is mapped to `HomeController`.
 
-* ```xml
-  <mvc:annotation-driven />
-  
-  <!-- These statements are required for Spring MVC Annotations -->
-  <context:component-scan base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model,westbank.ws.impl" />
-  
-  <context:annotation-config />
-  ```
+```xml
+<mvc:annotation-driven />
 
-* All views (JSP/JSTL) are in the folder `src/main/webapp/WEB-INF/jsp/` for customers (`customer/*.jsp`) and staff (`staff/*.jsp`)
+<!-- These statements are required for Spring MVC Annotations -->
+<context:component-scan base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model,westbank.ws.impl" />
 
-* CSS styles, images, and JavasSripts are in the folders `src/main/webapp/[css | images | js ]`.
+<context:annotation-config />
+```
+
+
+All views (JSP/JSTL) are in the folder `src/main/webapp/WEB-INF/jsp/` for customers (`customer/*.jsp`) and staff (`staff/*.jsp`). Other resources like CSSs, images, and JavasSripts are in the folders `src/main/webapp/[css | images | js ]`.
 
 ###### Some Relevant Resources
 
@@ -100,15 +100,12 @@ By convention, the default configuration for [DispatcherServlet](https://docs.sp
 
 #### Data Access Layer
 
-* Data entities are annotated with JPA conventions (see `westbank.db.entity`). Hibernate configuration is in `WEB-INF/data-access.xml` loaded by `PortalContextLoaderListener` or `org.springframework.web.context.ContextLoaderListener`.
-
+* Data entities are annotated with JPA conventions (see `westbank.db.entity`). 
+* The Hibernate configuration is in `WEB-INF/data-access.xml` loaded by`org.springframework.web.context.ContextLoaderListener`.
 * The DAO helpers are in the package `db.dao` for manipulating the underlying data/objects using Spring HibernateTemplate such as `CustomerDao`, `ProviderDao`, `LoanDao`, `StaffDao`, `RoleDao`, etc.
-
 * Some required Spring beans will be injected into Spring managed controllers and DAO helpers. Those beans are also defined in `WEB-INF/data-access.xml`.
-
 * As we must validate and initialise the database if necessary, I extend [LocalSessionFactoryBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/orm/hibernate5/LocalSessionFactoryBean.html) with [PortalSessionFactoryBean](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/westbank/db/PortalSessionFactoryBean) for extra tasks on database initialisation.
-
-* The currently used RDBMS is [Apache Derby](https://db.apache.org/derby) (or formerly Java DB). Nevertheless, any other RDBMS can be used as well. In order to use other RDBMSs instead of Apache Derby, note the following points:
+* The currently used RDBMS is in-memory H2. Nevertheless, any other RDBMS can be used as well. In order to use other RDBMSs instead of Apache Derby, note the following points:
   * Create a database name 'WESTBANKDB'
   * Create a user 'westbank' with password 'secret' and assign that user to the database.
   * Go to file `WEB-INF/data-access.xml`, find the bean named  `propertyPlaceholderConfigurer`, and replace `hibernate.properties` with the corresponding value according to the RDBMS being used. Keep the rest unchanged.

@@ -1,10 +1,8 @@
 package com.westbank.mvc.staff.controller;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.*;
+import com.westbank.mvc.Constants;
 import com.westbank.mvc.customer.controller.SessionValidator;
 import com.westbank.mvc.customer.model.TaskForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
@@ -12,16 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Contract;
-import westbank.db.entity.LoanFile;
-import westbank.db.entity.LoanFileStatus;
-import westbank.db.entity.Role;
-import westbank.db.entity.Staff;
-import westbank.mvc.Constants;
-import westbank.mvc.customer.controller.SessionValidator;
-import westbank.mvc.customer.model.TaskForm;
-import westbank.proxy.LoanApprovalProcessProxy;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.List;
 
 public class StaffUtil {
 
@@ -49,7 +40,7 @@ public class StaffUtil {
 	 *         portal view of the staff
 	 */
 	public static String prepare(HttpSession session,
-			final DataAccess dataAccessObject, final String thisView) {
+								 final DataAccess dataAccessObject, final String thisView) {
 		session.removeAttribute(Constants.SESSION_PROCESS_STATUS);
 		session.removeAttribute(Constants.SESSION_PROCESS_STATUS_KEY);
 		final String currentStaffId = (String) SessionValidator
@@ -252,7 +243,6 @@ public class StaffUtil {
 										dataAccessObject.save(loanFile);
 										dataAccessObject.getHibernateTemplate()
 												.flush();
-										loanFile = null;
 									}
 								} catch (Exception e) {
 									log.error("Cannot update LoanFile status: "

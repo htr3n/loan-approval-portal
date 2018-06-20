@@ -1,10 +1,10 @@
 package com.westbank.mvc.customer.model;
 
-import java.util.Date;
+import com.westbank.db.entity.EstateType;
+import com.westbank.db.entity.MaritalStatus;
+import com.westbank.db.entity.ResidenceType;
 
-import westbank.db.entity.EstateType;
-import westbank.db.entity.MaritalStatus;
-import westbank.db.entity.ResidenceType;
+import java.util.Date;
 
 public class ApplicationForm {
 

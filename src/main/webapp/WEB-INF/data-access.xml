@@ -23,13 +23,14 @@
     </bean>
 
     <bean id="sessionFactory"
-          class="westbank.db.PortalSessionFactoryBean"
-          p:packagesToScan="westbank.db.entity"
+          class="com.westbank.db.PortalSessionFactoryBean"
+          p:packagesToScan="com.westbank.db.entity"
           p:dataSource-ref="dataSource"
     />
 
 	<context:annotation-config />
-	<context:component-scan base-package="westbank.db,westbank.db.entity,westbank.db.dao"/>
+
+	<context:component-scan base-package="com.westbank.db,com.westbank.db.entity,com.westbank.db.dao"/>
 
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate5.HibernateTransactionManager"
@@ -68,7 +69,7 @@
     </bean>
 
     <!-- Data access object -->
-    <bean id="dataAccessObject" class="westbank.db.dao.DataAccess"
+    <bean id="dataAccessObject" class="com.westbank.db.dao.DataAccess"
           p:sessionFactory-ref="sessionFactory"/>
 
 </beans>

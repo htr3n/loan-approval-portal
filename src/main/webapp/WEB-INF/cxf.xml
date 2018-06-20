@@ -34,45 +34,45 @@
 	<!-- Client beans -->
 
 	<jaxws:client id="loanApprovalClient"
-		serviceClass="westbank.ws.process.loanapproval._2009._11.LoanApproval"
+		serviceClass="com.westbank.ws.process.loanapproval._2018._06.LoanApproval"
 		address="${process.start.endpoint}" />
 	<jaxws:client id="bankInformationClient"
-		serviceClass="westbank.ws.business.bankinformation._2009._11.BankInformation"
+		serviceClass="com.westbank.ws.business.bankinformation._2018._06.BankInformation"
 		address="${service.enpoint.base}BankInformation?wsdl" />
 	<jaxws:client id="bankPrivilegeClient"
-		serviceClass="westbank.ws.business.bankprivilege._2009._11.BankPrivilege"
+		serviceClass="com.westbank.ws.business.bankprivilege._2018._06.BankPrivilege"
 		address="${service.enpoint.base}BankPrivilege?wsdl" />
 	<jaxws:client id="creditWorthinessClient"
-		serviceClass="westbank.ws.business.creditworthiness._2009._11.CreditWorthiness"
+		serviceClass="com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness"
 		address="${service.enpoint.base}CreditWorthiness?wsdl" />
 	<jaxws:client id="loanApprovalClosingClient"
-		serviceClass="westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosing"
+		serviceClass="com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosing"
 		address="${service.enpoint.base}LoanApprovalClosings?wsdl" />
 	<jaxws:client id="loanContractClient"
-		serviceClass="westbank.ws.business.loancontract._2009._11.LoanContract"
+		serviceClass="com.westbank.ws.business.loancontract._2018._06.LoanContract"
 		address="${service.enpoint.base}LoanContract?wsdl" />
 	<jaxws:client id="loanFileClient"
-		serviceClass="westbank.ws.business.loanfile._2009._11.LoanFile"
+		serviceClass="com.westbank.ws.business.loanfile._2018._06.LoanFile"
 		address="${service.enpoint.base}LoanFile?wsdl" />
 	<jaxws:client id="loanRiskClient"
-		serviceClass="westbank.ws.business.loanrisk._2009._11.LoanRisk"
+		serviceClass="com.westbank.ws.business.loanrisk._2018._06.LoanRisk"
 		address="${service.enpoint.base}LoanRisk?wsdl" />
 	<jaxws:client id="loanSettlementClient"
-		serviceClass="westbank.ws.business.loansettlement._2009._11.LoanSettlement"
+		serviceClass="com.westbank.ws.business.loansettlement._2018._06.LoanSettlement"
 		address="${service.enpoint.base}LoanSettlement?wsdl" />
 	<jaxws:client id="taskDispatchClient"
-		serviceClass="westbank.ws.business.taskdispatch._2009._11.TaskDispatch"
+		serviceClass="com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch"
 		address="${service.enpoint.base}TaskDispatch?wsdl" />
 	<jaxws:client id="callbackLoanApprovalClient"
-		serviceClass="westbank.ws.client.callbackloanapproval.CallbackLoanApproval"
+		serviceClass="com.westbank.ws.client.callbackloanapproval.CallbackLoanApproval"
 		address="${service.enpoint.base}CallbackLoanApproval?wsdl" />
 	<jaxws:client id="callbackLoanContractClient"
-		serviceClass="westbank.ws.client.callbackloancontract.CallbackLoanContract"
+		serviceClass="com.westbank.ws.client.callbackloancontract.CallbackLoanContract"
 		address="${service.enpoint.base}CallbackLoanContract?wsdl" />
 
 	<!-- Loan Approval Process Simulation bean -->
 	<bean id="loanApprovalImpl"
-		class="westbank.ws.impl.LoanApprovalImpl"
+		class="com.westbank.ws.impl.LoanApprovalImpl"
 		p:endpointBase="${service.enpoint.base}"
 		p:dataAccessObject-ref="dataAccessObject"
 		p:bankInformation-ref="bankInformationClient"
@@ -88,7 +88,7 @@
 		p:taskDispatch-ref="taskDispatchClient" />
 
 	<bean id="processProxy"
-		  class="westbank.proxy.LoanApprovalProcessProxy"
+		  class="com.westbank.proxy.LoanApprovalProcessProxy"
 		  p:loanApproval-ref="loanApprovalClient" />
 
 

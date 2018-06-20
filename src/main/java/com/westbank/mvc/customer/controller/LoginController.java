@@ -1,7 +1,9 @@
 package com.westbank.mvc.customer.controller;
 
-import javax.servlet.http.HttpSession;
-
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.Customer;
+import com.westbank.mvc.Constants;
+import com.westbank.mvc.customer.model.LoginForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Customer;
-import westbank.mvc.Constants;
-import westbank.mvc.customer.model.LoginForm;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/login.html")

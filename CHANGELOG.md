@@ -29,3 +29,4 @@
   * Move to XML free Web application
     * Spring `WebApplicationInitializer`
     * https://stackoverflow.com/a/21714524/339302
+ * Switch the database-in-use from [Apache Derby](https://db.apache.org/derby) to [H2](http://www.h2database.com/html/main.html) for less memory footprint

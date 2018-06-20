@@ -1,7 +1,10 @@
 package com.westbank.mvc.staff.controller;
 
-import javax.servlet.http.HttpSession;
-
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.Role;
+import com.westbank.db.entity.Staff;
+import com.westbank.mvc.Constants;
+import com.westbank.mvc.staff.model.StaffLoginForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Role;
-import westbank.db.entity.Staff;
-import westbank.mvc.Constants;
-import westbank.mvc.staff.model.StaffLoginForm;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/staff/login.html")

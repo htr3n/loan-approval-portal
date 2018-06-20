@@ -1,31 +1,18 @@
 package com.westbank.proxy;
 
-import java.util.Base64;
-import java.util.GregorianCalendar;
-import java.util.UUID;
-
 import com.westbank.util.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.*;
+import com.westbank.mvc.customer.model.ApplicationForm;
+import com.westbank.ws.process.loanapproval._2018._06.*;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Address;
-import westbank.db.entity.Contract;
-import westbank.db.entity.Customer;
-import westbank.db.entity.LoanFile;
-import westbank.db.entity.Staff;
-import westbank.mvc.customer.model.ApplicationForm;
-import westbank.util.DateUtil;
-import westbank.ws.process.loanapproval._2009._11.AddressType;
-import westbank.ws.process.loanapproval._2009._11.CustomerDecision;
-import westbank.ws.process.loanapproval._2009._11.LoanApproval;
-import westbank.ws.process.loanapproval._2009._11.LoanApprovalRequest;
-import westbank.ws.process.loanapproval._2009._11.ManagerDecision;
-import westbank.ws.process.loanapproval._2009._11.ManagerSignature;
-import westbank.ws.process.loanapproval._2009._11.StaffIdentity;
-import westbank.ws.process.loanapproval._2009._11.TokenType;
+import java.util.Base64;
+import java.util.GregorianCalendar;
+import java.util.UUID;
 
 @Component
 public class LoanApprovalProcessProxy {

@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import westbank.mvc.staff.model.StaffLoginForm;
+import com.westbank.mvc.staff.model.StaffLoginForm;
 
 public class StaffLoginValidator implements Validator {
 

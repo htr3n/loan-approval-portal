@@ -1,12 +1,11 @@
 package com.westbank.mvc.customer.controller;
 
+import com.westbank.mvc.customer.model.LoginForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
-import westbank.mvc.customer.model.LoginForm;
 
 public class LoginValidator implements Validator {
 

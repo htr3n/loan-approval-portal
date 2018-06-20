@@ -1,7 +1,6 @@
 package com.westbank.mvc.staff.controller;
 
-import javax.servlet.http.HttpSession;
-
+import com.westbank.db.dao.DataAccess;
 import com.westbank.mvc.customer.model.TaskForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
 import org.slf4j.Logger;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import westbank.db.dao.DataAccess;
-import westbank.mvc.customer.model.TaskForm;
-import westbank.proxy.LoanApprovalProcessProxy;
+import javax.servlet.http.HttpSession;
 
 /**
  * This controller handles the front-end of a Manager. After logged in, a staff

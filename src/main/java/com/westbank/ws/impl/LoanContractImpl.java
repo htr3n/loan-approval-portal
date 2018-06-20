@@ -1,18 +1,18 @@
 package com.westbank.ws.impl;
 
-import com.westbank.ws.business.loancontract._2009._11.LoanContract;
-import com.westbank.ws.business.loancontract._2009._11.LoanContractRequest;
-import com.westbank.ws.business.loancontract._2009._11.LoanContractResponse;
+import com.westbank.db.dao.DataAccess;
+import com.westbank.ws.business.loancontract._2018._06.LoanContract;
+import com.westbank.ws.business.loancontract._2018._06.LoanContractRequest;
+import com.westbank.ws.business.loancontract._2018._06.LoanContractResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import westbank.db.dao.DataAccess;
-import westbank.ws.business.loancontract._2009._11.LoanContract;
-import westbank.ws.business.loancontract._2009._11.LoanContractRequest;
-import westbank.ws.business.loancontract._2009._11.LoanContractResponse;
 
-@javax.jws.WebService(serviceName = "LoanContract", portName = "LoanContractPort", targetNamespace = "urn:westbank:ws:business:LoanContract:2009:11", endpointInterface = "westbank.ws.business.loancontract._2009._11.LoanContract")
+@javax.jws.WebService(
+		serviceName = "LoanContract",
+		portName = "LoanContractPort",
+		targetNamespace = "urn:com:westbank:ws:business:LoanContract:2018:06",
+		endpointInterface = "com.westbank.ws.business.loancontract._2018._06.LoanContract")
 public class LoanContractImpl implements LoanContract {
 
 	static final Logger log = LoggerFactory.getLogger(LoanContractImpl.class);

@@ -1,89 +1,59 @@
 package com.westbank.ws.impl;
 
-import java.util.Random;
-
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.Address;
+import com.westbank.db.entity.Customer;
+import com.westbank.db.entity.LoanFileStatus;
+import com.westbank.db.entity.Role;
 import com.westbank.util.DateUtil;
-import com.westbank.ws.business.bankinformation._2009._11.BankInformation;
-import com.westbank.ws.business.bankinformation._2009._11.BankInformationRequest;
-import com.westbank.ws.business.bankinformation._2009._11.BankInformationResponse;
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilege;
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilegeRequest;
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilegeResponse;
-import com.westbank.ws.business.creditworthiness._2009._11.CreditWorthiness;
-import com.westbank.ws.business.creditworthiness._2009._11.CreditWorthinessRequest;
-import com.westbank.ws.business.creditworthiness._2009._11.CreditWorthinessResponse;
-import com.westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosing;
-import com.westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosingRequest;
-import com.westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosingResponse;
-import com.westbank.ws.business.loancontract._2009._11.LoanContract;
-import com.westbank.ws.business.loancontract._2009._11.LoanContractRequest;
-import com.westbank.ws.business.loancontract._2009._11.LoanContractResponse;
-import com.westbank.ws.business.loanfile._2009._11.LoanFile;
-import com.westbank.ws.business.loanfile._2009._11.LoanFileRequest;
-import com.westbank.ws.business.loanfile._2009._11.LoanFileResponse;
-import com.westbank.ws.business.loanrisk._2009._11.LoanRisk;
-import com.westbank.ws.business.loanrisk._2009._11.LoanRiskRequest;
-import com.westbank.ws.business.loanrisk._2009._11.LoanRiskResponse;
-import com.westbank.ws.business.loansettlement._2009._11.LoanSettlement;
-import com.westbank.ws.business.loansettlement._2009._11.LoanSettlementRequest;
-import com.westbank.ws.business.loansettlement._2009._11.LoanSettlementResponse;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatch;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatchRequest;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatchResponse;
+import com.westbank.ws.business.bankinformation._2018._06.BankInformation;
+import com.westbank.ws.business.bankinformation._2018._06.BankInformationRequest;
+import com.westbank.ws.business.bankinformation._2018._06.BankInformationResponse;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilege;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeRequest;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeResponse;
+import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness;
+import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessRequest;
+import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessResponse;
+import com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosing;
+import com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosingRequest;
+import com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosingResponse;
+import com.westbank.ws.business.loancontract._2018._06.LoanContract;
+import com.westbank.ws.business.loancontract._2018._06.LoanContractRequest;
+import com.westbank.ws.business.loancontract._2018._06.LoanContractResponse;
+import com.westbank.ws.business.loanfile._2018._06.LoanFile;
+import com.westbank.ws.business.loanfile._2018._06.LoanFileRequest;
+import com.westbank.ws.business.loanfile._2018._06.LoanFileResponse;
+import com.westbank.ws.business.loanrisk._2018._06.LoanRisk;
+import com.westbank.ws.business.loanrisk._2018._06.LoanRiskRequest;
+import com.westbank.ws.business.loanrisk._2018._06.LoanRiskResponse;
+import com.westbank.ws.business.loansettlement._2018._06.LoanSettlement;
+import com.westbank.ws.business.loansettlement._2018._06.LoanSettlementRequest;
+import com.westbank.ws.business.loansettlement._2018._06.LoanSettlementResponse;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchRequest;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchResponse;
 import com.westbank.ws.client.callbackloanapproval.CallbackLoanApproval;
 import com.westbank.ws.client.callbackloanapproval.CallbackLoanApprovalRequest;
 import com.westbank.ws.client.callbackloancontract.CallbackLoanContract;
 import com.westbank.ws.client.callbackloancontract.CallbackLoanContractRequest;
-import com.westbank.ws.process.loanapproval._2009._11.*;
+import com.westbank.ws.process.loanapproval._2018._06.AddressType;
+import com.westbank.ws.process.loanapproval._2018._06.CustomerDecision;
+import com.westbank.ws.process.loanapproval._2018._06.LoanApproval;
+import com.westbank.ws.process.loanapproval._2018._06.LoanApprovalRequest;
+import com.westbank.ws.process.loanapproval._2018._06.ManagerDecision;
+import com.westbank.ws.process.loanapproval._2018._06.ManagerSignature;
+import com.westbank.ws.process.loanapproval._2018._06.StaffIdentity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Address;
-import westbank.db.entity.Customer;
-import westbank.db.entity.LoanFileStatus;
-import westbank.db.entity.Role;
-import westbank.util.DateUtil;
-import westbank.ws.business.bankinformation._2009._11.BankInformation;
-import westbank.ws.business.bankinformation._2009._11.BankInformationRequest;
-import westbank.ws.business.bankinformation._2009._11.BankInformationResponse;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilege;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilegeRequest;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilegeResponse;
-import westbank.ws.business.creditworthiness._2009._11.CreditWorthiness;
-import westbank.ws.business.creditworthiness._2009._11.CreditWorthinessRequest;
-import westbank.ws.business.creditworthiness._2009._11.CreditWorthinessResponse;
-import westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosing;
-import westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosingRequest;
-import westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosingResponse;
-import westbank.ws.business.loancontract._2009._11.LoanContract;
-import westbank.ws.business.loancontract._2009._11.LoanContractRequest;
-import westbank.ws.business.loancontract._2009._11.LoanContractResponse;
-import westbank.ws.business.loanfile._2009._11.LoanFile;
-import westbank.ws.business.loanfile._2009._11.LoanFileRequest;
-import westbank.ws.business.loanfile._2009._11.LoanFileResponse;
-import westbank.ws.business.loanrisk._2009._11.LoanRisk;
-import westbank.ws.business.loanrisk._2009._11.LoanRiskRequest;
-import westbank.ws.business.loanrisk._2009._11.LoanRiskResponse;
-import westbank.ws.business.loansettlement._2009._11.LoanSettlement;
-import westbank.ws.business.loansettlement._2009._11.LoanSettlementRequest;
-import westbank.ws.business.loansettlement._2009._11.LoanSettlementResponse;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatch;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatchRequest;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatchResponse;
-import westbank.ws.client.callbackloanapproval.CallbackLoanApproval;
-import westbank.ws.client.callbackloanapproval.CallbackLoanApprovalRequest;
-import westbank.ws.client.callbackloancontract.CallbackLoanContract;
-import westbank.ws.client.callbackloancontract.CallbackLoanContractRequest;
-import westbank.ws.process.loanapproval._2009._11.AddressType;
-import westbank.ws.process.loanapproval._2009._11.CustomerDecision;
-import westbank.ws.process.loanapproval._2009._11.LoanApproval;
-import westbank.ws.process.loanapproval._2009._11.LoanApprovalRequest;
-import westbank.ws.process.loanapproval._2009._11.ManagerDecision;
-import westbank.ws.process.loanapproval._2009._11.ManagerSignature;
-import westbank.ws.process.loanapproval._2009._11.StaffIdentity;
+import java.util.Random;
 
-@javax.jws.WebService(serviceName = "LoanApproval", portName = "LoanApprovalPort", targetNamespace = "urn:westbank:ws:process:LoanApproval:2009:11", endpointInterface = "westbank.ws.process.loanapproval._2009._11.LoanApproval")
+@javax.jws.WebService(
+		serviceName = "LoanApproval",
+		portName = "LoanApprovalPort",
+		targetNamespace = "urn:com:westbank:ws:process:LoanApproval:2018:06",
+		endpointInterface = "com.westbank.ws.process.loanapproval._2018._06.LoanApproval")
 public class LoanApprovalImpl implements LoanApproval {
 
 	static final Logger log = LoggerFactory.getLogger(LoanApprovalImpl.class);
@@ -103,15 +73,15 @@ public class LoanApprovalImpl implements LoanApproval {
 
 	String endpointBase;
 
-	com.westbank.ws.business.bankinformation._2009._11.BankInformation bankInformation;
-	com.westbank.ws.business.bankprivilege._2009._11.BankPrivilege bankPrivilege;
-	com.westbank.ws.business.creditworthiness._2009._11.CreditWorthiness creditWorthiness;
-	com.westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosing loanApprovalClosing;
-	com.westbank.ws.business.loanfile._2009._11.LoanFile loanFile;
-	com.westbank.ws.business.loancontract._2009._11.LoanContract loanContract;
-	com.westbank.ws.business.loanrisk._2009._11.LoanRisk loanRisk;
-	com.westbank.ws.business.loansettlement._2009._11.LoanSettlement loanSettlement;
-	com.westbank.ws.business.taskdispatch._2009._11.TaskDispatch taskDispatch;
+	com.westbank.ws.business.bankinformation._2018._06.BankInformation bankInformation;
+	com.westbank.ws.business.bankprivilege._2018._06.BankPrivilege bankPrivilege;
+	com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness creditWorthiness;
+	com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosing loanApprovalClosing;
+	com.westbank.ws.business.loanfile._2018._06.LoanFile loanFile;
+	com.westbank.ws.business.loancontract._2018._06.LoanContract loanContract;
+	com.westbank.ws.business.loanrisk._2018._06.LoanRisk loanRisk;
+	com.westbank.ws.business.loansettlement._2018._06.LoanSettlement loanSettlement;
+	com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch taskDispatch;
 	com.westbank.ws.client.callbackloanapproval.CallbackLoanApproval callbackLoanApproval;
 	com.westbank.ws.client.callbackloancontract.CallbackLoanContract callbackLoanContract;
 
@@ -196,7 +166,7 @@ public class LoanApprovalImpl implements LoanApproval {
 			String contractId = request.getContractId();
 			if (contractId != null) {
 				if (dataAccessObject != null) {
-					westbank.db.entity.Contract contract = dataAccessObject.getContractById(contractId);
+					com.westbank.db.entity.Contract contract = dataAccessObject.getContractById(contractId);
 					String loanFileId = contract.getLoanFile().getLoanFileId();
 					performLoanSettlement(contractId);
 					closeLoanApproval(loanFileId, contractId);
@@ -351,7 +321,7 @@ public class LoanApprovalImpl implements LoanApproval {
 		final BankPrivilegeRequest request = new BankPrivilegeRequest();
 
 		if (dataAccessObject != null) {
-			westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
+			com.westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
 			if (loanFile != null) {
 				request.setBorrowerCustomerId(loanFile.getBorrower().getCustomerId());
 				request.setBorrowerFirstName(loanFile.getBorrower().getFirstName());
@@ -373,7 +343,7 @@ public class LoanApprovalImpl implements LoanApproval {
 		BankInformationResponse response = null;
 
 		if (dataAccessObject != null) {
-			westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
+            com.westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
 			if (loanFile != null) {
 				request.setLoanAmount(loanFile.getLoanAmount());
 				request.setLoanTerm(loanFile.getLoanTerm());
@@ -394,7 +364,7 @@ public class LoanApprovalImpl implements LoanApproval {
 		TaskDispatchResponse response = null;
 
 		if (dataAccessObject != null) {
-			westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
+			com.westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
 			if (loanFile != null) {
 				request.setLoanAmount(loanFile.getLoanAmount());
 				request.setStaffId(staffId);
@@ -483,7 +453,7 @@ public class LoanApprovalImpl implements LoanApproval {
 			request.setContractId(contractId);
 		}
 		if (dataAccessObject != null) {
-			westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
+			com.westbank.db.entity.LoanFile loanFile = dataAccessObject.getLoanFileById(loanFileId);
 			if (loanFile != null) {
 				request.setBorrowerCustomerId(loanFile.getBorrower().getCustomerId());
 				request.setStatus(LoanFileStatus.APPROVED.name());

@@ -3,12 +3,12 @@
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
 	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns:tns="urn:westbank:ws:client:CallbackLoanApproval"
-	targetNamespace="urn:westbank:ws:client:CallbackLoanApproval">
+  xmlns:tns="urn:com:westbank:ws:client:CallbackLoanApproval"
+	targetNamespace="urn:com:westbank:ws:client:CallbackLoanApproval">
 
 	<wsdl:types>
-		<xsd:schema targetNamespace="urn:westbank:ws:client:CallbackLoanApproval"
-			   xmlns="urn:westbank:ws:client:CallbackLoanApproval" elementFormDefault="qualified">
+		<xsd:schema targetNamespace="urn:com:westbank:ws:client:CallbackLoanApproval"
+			   xmlns="urn:com:westbank:ws:client:CallbackLoanApproval" elementFormDefault="qualified">
 			<xsd:element name="CallbackLoanApprovalRequest">
 				<xsd:complexType>
 					<xsd:sequence>

@@ -1,10 +1,12 @@
 package com.westbank.mvc.customer.controller;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.Contract;
+import com.westbank.db.entity.Customer;
+import com.westbank.db.entity.LoanFile;
+import com.westbank.db.entity.LoanFileStatus;
+import com.westbank.mvc.Constants;
+import com.westbank.mvc.customer.model.TaskForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Contract;
-import westbank.db.entity.Customer;
-import westbank.db.entity.LoanFile;
-import westbank.db.entity.LoanFileStatus;
-import westbank.mvc.Constants;
-import westbank.mvc.customer.model.TaskForm;
-import westbank.proxy.LoanApprovalProcessProxy;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.List;
 
 /**
  * A controller for the front-end portal view for the customer <br>

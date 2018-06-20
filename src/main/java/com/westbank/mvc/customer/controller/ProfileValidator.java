@@ -1,10 +1,9 @@
 package com.westbank.mvc.customer.controller;
 
+import com.westbank.mvc.customer.model.ApplicationForm;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
-import westbank.mvc.customer.model.ApplicationForm;
 
 public class ProfileValidator implements Validator {
 

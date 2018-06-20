@@ -9,14 +9,14 @@ import javax.persistence.Id;
 @Entity
 public class Agency {
 
-	public static final String BANK = "Western Bank";
-	public static final String NAME = "Western Bank Agency";
+	public static final String BANK = "WestBank";
+	public static final String NAME = "WestBank Agency";
 	public static final String ID = "WSTN-021";
-	public static final String STREET = "Western Str. 93/81";
-	public static final String ZIPCODE = "1080";
-	public static final String CITY = "Vienna";
-	public static final String STATE = "Vienna";
-	public static final String COUNTRY = "Austria";
+	public static final String STREET = "123 Queen Street";
+	public static final String ZIPCODE = "3001";
+	public static final String CITY = "Melbourne";
+	public static final String STATE = "Victoria";
+	public static final String COUNTRY = "Australia";
 
 	@Id
 	protected String agencyCode;

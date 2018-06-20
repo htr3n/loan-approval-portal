@@ -2,19 +2,20 @@ package com.westbank.ws.impl;
 
 import java.util.Random;
 
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilege;
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilegeRequest;
-import com.westbank.ws.business.bankprivilege._2009._11.BankPrivilegeResponse;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilege;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeRequest;
+import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import westbank.db.dao.DataAccess;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilege;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilegeRequest;
-import westbank.ws.business.bankprivilege._2009._11.BankPrivilegeResponse;
+import com.westbank.db.dao.DataAccess;
 
-@javax.jws.WebService(serviceName = "BankPrivilege", portName = "BankPrivilegePort", targetNamespace = "urn:westbank:ws:business:BankPrivilege:2009:11", endpointInterface = "westbank.ws.business.bankprivilege._2009._11.BankPrivilege")
+@javax.jws.WebService(
+		serviceName = "BankPrivilege",
+		portName = "BankPrivilegePort",
+		targetNamespace = "urn:com:westbank:ws:business:BankPrivilege:2018:06",
+		endpointInterface = "com.westbank.ws.business.bankprivilege._2018._06.BankPrivilege")
 public class BankPrivilegeImpl implements BankPrivilege {
 
 	static final Logger log = LoggerFactory.getLogger(BankPrivilegeImpl.class);

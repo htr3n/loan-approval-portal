@@ -1,21 +1,20 @@
 package com.westbank.ws.impl;
 
+import com.westbank.db.dao.DataAccess;
+import com.westbank.db.entity.Role;
 import com.westbank.mvc.Constants;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatch;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatchRequest;
-import com.westbank.ws.business.taskdispatch._2009._11.TaskDispatchResponse;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchRequest;
+import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import westbank.db.dao.DataAccess;
-import westbank.db.entity.Role;
-import westbank.mvc.Constants;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatch;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatchRequest;
-import westbank.ws.business.taskdispatch._2009._11.TaskDispatchResponse;
 
-@javax.jws.WebService(serviceName = "TaskDispatch", portName = "TaskDispatchPort", targetNamespace = "urn:westbank:ws:business:TaskDispatch:2009:11", endpointInterface = "westbank.ws.business.taskdispatch._2009._11.TaskDispatch")
+@javax.jws.WebService(
+		serviceName = "TaskDispatch",
+		portName = "TaskDispatchPort",
+		targetNamespace = "urn:com:westbank:ws:business:TaskDispatch:2018:06",
+		endpointInterface = "com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch")
 public class TaskDispatchImpl implements TaskDispatch {
 
 	static final Logger log = LoggerFactory.getLogger(TaskDispatchImpl.class);
