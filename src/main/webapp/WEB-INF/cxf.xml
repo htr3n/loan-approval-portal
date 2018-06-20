@@ -4,137 +4,92 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:jaxws="http://cxf.apache.org/jaxws"
 	xsi:schemaLocation="
-    http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd
-    http://cxf.apache.org/jaxws
-    http://cxf.apache.org/schemas/jaxws.xsd">
+    	http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://cxf.apache.org/jaxws
+    	http://cxf.apache.org/schemas/jaxws.xsd">
   
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
-
 	<import resource="ws-beans.xml" />
 
-	<!-- Testing Service -->
-	<!-- 
-	<jaxws:endpoint id="TestMock"
-		implementor="#TestMockImpl" address="/TestMock">
-	</jaxws:endpoint>
-	 -->
-	 
+	<bean id="propertyPlaceholderConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		  p:location="classpath:endpoint.properties"
+		  p:ignoreUnresolvablePlaceholders="true"/>
+
+
 	<!-- Business Services -->
-
-	<jaxws:endpoint id="CallbackLoanApproval"
-		implementor="#CallbackLoanApprovalImpl"
-		address="/CallbackLoanApproval">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="CallbackLoanContract"
-		implementor="#CallbackLoanContractImpl"
-		address="/CallbackLoanContract">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="BankInformation"
-		implementor="#BankInformationImpl" address="/BankInformation">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="BankPrivilege"
-		implementor="#BankPrivilegeImpl" address="/BankPrivilege">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="CreditWorthiness"
-		implementor="#CreditWorthinessImpl" address="/CreditWorthiness">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="LoanApprovalClosing"
-		implementor="#LoanApprovalClosingImpl" address="/LoanApprovalClosing">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="LoanFile"
-		implementor="#LoanFileImpl" address="/LoanFile">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="LoanContract"
-		implementor="#LoanContractImpl" address="/LoanContract">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="LoanRisk"
-		implementor="#LoanRiskImpl" address="/LoanRisk">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="LoanSettlement"
-		implementor="#LoanSettlementImpl" address="/LoanSettlement">
-	</jaxws:endpoint>
-
-	<jaxws:endpoint id="TaskDispatch"
-		implementor="#TaskDispatchImpl" address="/TaskDispatch">
-	</jaxws:endpoint>
+	<jaxws:endpoint id="callbackLoanApproval" implementor="#callbackLoanApprovalImpl" address="/CallbackLoanApproval"/>
+	<jaxws:endpoint id="callbackLoanContract" implementor="#callbackLoanContractImpl" address="/CallbackLoanContract" />
+	<jaxws:endpoint id="bankInformation" implementor="#bankInformationImpl" address="/BankInformation" />
+	<jaxws:endpoint id="bankPrivilege" implementor="#bankPrivilegeImpl" address="/BankPrivilege" />
+	<jaxws:endpoint id="creditWorthiness" implementor="#creditWorthinessImpl" address="/CreditWorthiness" />
+	<jaxws:endpoint id="loanApprovalClosing" implementor="#loanApprovalClosingImpl" address="/LoanApprovalClosing"/>
+	<jaxws:endpoint id="loanFile" implementor="#loanFileImpl" address="/LoanFile" />
+	<jaxws:endpoint id="loanContract" implementor="#loanContractImpl" address="/LoanContract"/>
+	<jaxws:endpoint id="loanRisk" implementor="#loanRiskImpl" address="/LoanRisk" />
+	<jaxws:endpoint id="loanSettlement" implementor="#loanSettlementImpl" address="/LoanSettlement"/>
+	<jaxws:endpoint id="taskDispatch" implementor="#taskDispatchImpl" address="/TaskDispatch" />
 
 	<!-- Client beans -->
 
-	<jaxws:client id="LoanApprovalClient"
+	<jaxws:client id="loanApprovalClient"
 		serviceClass="westbank.ws.process.loanapproval._2009._11.LoanApproval"
 		address="${process.start.endpoint}" />
-
-	<jaxws:client id="BankInformationClient"
+	<jaxws:client id="bankInformationClient"
 		serviceClass="westbank.ws.business.bankinformation._2009._11.BankInformation"
 		address="${service.enpoint.base}BankInformation?wsdl" />
-
-	<jaxws:client id="BankPrivilegeClient"
+	<jaxws:client id="bankPrivilegeClient"
 		serviceClass="westbank.ws.business.bankprivilege._2009._11.BankPrivilege"
 		address="${service.enpoint.base}BankPrivilege?wsdl" />
-
-	<jaxws:client id="CreditWorthinessClient"
+	<jaxws:client id="creditWorthinessClient"
 		serviceClass="westbank.ws.business.creditworthiness._2009._11.CreditWorthiness"
 		address="${service.enpoint.base}CreditWorthiness?wsdl" />
-
-	<jaxws:client id="LoanApprovalClosingClient"
+	<jaxws:client id="loanApprovalClosingClient"
 		serviceClass="westbank.ws.business.loanapprovalclosing._2009._11.LoanApprovalClosing"
 		address="${service.enpoint.base}LoanApprovalClosings?wsdl" />
-
-	<jaxws:client id="LoanContractClient"
+	<jaxws:client id="loanContractClient"
 		serviceClass="westbank.ws.business.loancontract._2009._11.LoanContract"
 		address="${service.enpoint.base}LoanContract?wsdl" />
-
-
-	<jaxws:client id="LoanFileClient"
+	<jaxws:client id="loanFileClient"
 		serviceClass="westbank.ws.business.loanfile._2009._11.LoanFile"
 		address="${service.enpoint.base}LoanFile?wsdl" />
-
-	<jaxws:client id="LoanRiskClient"
+	<jaxws:client id="loanRiskClient"
 		serviceClass="westbank.ws.business.loanrisk._2009._11.LoanRisk"
 		address="${service.enpoint.base}LoanRisk?wsdl" />
-
-	<jaxws:client id="LoanSettlementClient"
+	<jaxws:client id="loanSettlementClient"
 		serviceClass="westbank.ws.business.loansettlement._2009._11.LoanSettlement"
 		address="${service.enpoint.base}LoanSettlement?wsdl" />
-
-	<jaxws:client id="TaskDispatchClient"
+	<jaxws:client id="taskDispatchClient"
 		serviceClass="westbank.ws.business.taskdispatch._2009._11.TaskDispatch"
 		address="${service.enpoint.base}TaskDispatch?wsdl" />
-
-	<jaxws:client id="CallbackLoanApprovalClient"
+	<jaxws:client id="callbackLoanApprovalClient"
 		serviceClass="westbank.ws.client.callbackloanapproval.CallbackLoanApproval"
 		address="${service.enpoint.base}CallbackLoanApproval?wsdl" />
-
-	<jaxws:client id="CallbackLoanContractClient"
+	<jaxws:client id="callbackLoanContractClient"
 		serviceClass="westbank.ws.client.callbackloancontract.CallbackLoanContract"
 		address="${service.enpoint.base}CallbackLoanContract?wsdl" />
 
 	<!-- Loan Approval Process Simulation bean -->
-	<bean id="LoanApprovalImpl"
+	<bean id="loanApprovalImpl"
 		class="westbank.ws.impl.LoanApprovalImpl"
 		p:endpointBase="${service.enpoint.base}"
 		p:dataAccessObject-ref="dataAccessObject"
-		p:bankInformation-ref="BankInformationClient"
-		p:bankPrivilege-ref="BankPrivilegeClient"
-		p:callbackLoanApproval-ref="CallbackLoanApprovalClient"
-		p:callbackLoanContract-ref="CallbackLoanContractClient"
-		p:creditWorthiness-ref="CreditWorthinessClient"
-		p:loanApprovalClosing-ref="LoanApprovalClosingClient"
-		p:loanContract-ref="LoanContractClient"
-		p:loanFile-ref="LoanFileClient" p:loanRisk-ref="LoanRiskClient"
-		p:loanSettlement-ref="LoanSettlementClient"
-		p:taskDispatch-ref="TaskDispatchClient">
-	</bean>
+		p:bankInformation-ref="bankInformationClient"
+		p:bankPrivilege-ref="bankPrivilegeClient"
+		p:callbackLoanApproval-ref="callbackLoanApprovalClient"
+		p:callbackLoanContract-ref="callbackLoanContractClient"
+		p:creditWorthiness-ref="creditWorthinessClient"
+		p:loanApprovalClosing-ref="loanApprovalClosingClient"
+		p:loanContract-ref="loanContractClient"
+		p:loanFile-ref="loanFileClient"
+	  	p:loanRisk-ref="loanRiskClient"
+		p:loanSettlement-ref="loanSettlementClient"
+		p:taskDispatch-ref="taskDispatchClient" />
+
+	<bean id="processProxy"
+		  class="westbank.proxy.LoanApprovalProcessProxy"
+		  p:loanApproval-ref="loanApprovalClient" />
 
 
 </beans>

@@ -16,21 +16,21 @@
 		p:ignoreUnresolvablePlaceholders="true">
 		<property name="locations">
 			<list>
-				<value>classpath:hibernate-derby-embedded.properties</value>
-				<value>classpath:pooling.properties</value>
+				<value>classpath:hibernate-h2.properties</value>
+				<value>classpath:hibernate-extra.properties</value>
 				<value>classpath:endpoint.properties</value>
 			</list>
 		</property>
 	</bean>
 
 	<import resource="resources.xml" />
-	<import resource="test.xml" />
+	<import resource="test-beans.xml" />
 
 	<mvc:annotation-driven />
 
 	<context:component-scan
-		base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model,westbank.ws.impl" />
-
+		base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model" />
+ 
 	<context:annotation-config />
 
 	<bean id="viewResolver"
@@ -48,9 +48,6 @@
 		class="westbank.mvc.customer.controller.LoanRequestValidator" />
 	<bean id="newLoanRequestValidator"
 		class="westbank.mvc.customer.controller.NewRequestValidator" />
-	<bean id="processProxy"
-		class="westbank.proxy.LoanApprovalProcessProxy"
-		p:loanApproval-ref="LoanApprovalClient" />
 
 	<bean id="loginForm"
 		class="westbank.mvc.customer.model.LoginForm"

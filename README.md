@@ -15,28 +15,25 @@ This project provides a Web interface portal for end-users to work with the loan
 
 ##### Executing using command line
 
-The Loan Approval Portal can be deployed as a Web application (`*.war`) and executed with a Web application server such as Apache Tomcat, Eclipse Jetty, JBoss, etc. Nevertheless, we can directly execute them at the command line for testing purpose. Go to the project folder and proceed with the following command.
+The Loan Approval Portal can be deployed as a Web application (`*.war`) and executed with a Web application server such as Apache Tomcat, Eclipse Jetty, JBoss Wildfly AS, etc. Nevertheless, we can directly execute them at the command line for testing purpose. Go to the project folder and proceed with the following command.
 
 ```sh
 mvn jetty:run
-```
-
-or
-
-```sh
-mvn tomcat:run
 ```
 
 Then open a Web browser to http://localhost:9999/portal for the portal main page.
 
 Some other pages for development/testing
 
-   * Verifying the underlying database: http://localhost:9999/portal/dev.list
+   * Verifying the underlying database (see westbank.mvc.DevController) : 
+   		
+   		http://localhost:9999/portal/dev.html 
+   
    * Checking the list of running Web services: http://localhost:9999/portal/services
 
    * To login as a staff (manager, supervisor, clerk, or broker), go to page: http://localhost:9999/portal/staff/login.html
 
- * Note: ID and password for staff are temporarily listed in page http://localhost:9999/portal/dev.list
+   * Note: ID and password for staff are temporarily listed in page http://localhost:9999/portal/dev.html
 
 ##### Packaging a deployable Web application (.war)
 
@@ -50,7 +47,7 @@ The main development configuration is defined in `pom.xml` and the main Web appl
 
 #### Web Layer
 
-The Web user interface for the customers of the loan approval process which is implemented using [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data manipulation and persistence are performed with [Hibernate](http://hibernate.org).
+The Web user interface for the customers of the loan approval process which is implemented with [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html). Data manipulation and persistence are done using [Hibernate](http://hibernate.org).
 
 * The main configuration for the Web application is `WEB-INF/web.xml`. 
 
@@ -66,7 +63,7 @@ The Web user interface for the customers of the loan approval process which is i
     </context-param>
 ```
 
-* After the embedded server started, we must validate and initialise the database if necessary. Hence, I extended [org.springframework.web.servlet.DispatcherServlet](https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch15s02.html) with [PortalDispatcherServlet](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/westbank/mvc/PortalDispatcherServlet) for extra tasks on database initialisation apart from intercepting incoming requests and delivering to the controllers. Per convention, the default configuration for the dispatcher will be `mvc-servlet.xml`. Note that `mvc` is the name of the servlet defined in `web.xml`. For better undestanding, I explicitly specified the configuration file though.
+By convention, the default configuration for [DispatcherServlet](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html) will be `mvc-servlet.xml`. Note that `mvc` is the name of the servlet defined in `web.xml`. For better understanding, I explicitly specified the configuration file though.
 
   ```xml
   <servlet>
@@ -93,7 +90,7 @@ The Web user interface for the customers of the loan approval process which is i
 
 * All views (JSP/JSTL) are in the folder `src/main/webapp/WEB-INF/jsp/` for customers (`customer/*.jsp`) and staff (`staff/*.jsp`)
 
-* CSS styles, images, and some helper Javascripts are in the folders `src/main/webapp/[css | images | js ]`.
+* CSS styles, images, and JavasSripts are in the folders `src/main/webapp/[css | images | js ]`.
 
 ###### Some Relevant Resources
 
@@ -108,6 +105,8 @@ The Web user interface for the customers of the loan approval process which is i
 * The DAO helpers are in the package `db.dao` for manipulating the underlying data/objects using Spring HibernateTemplate such as `CustomerDao`, `ProviderDao`, `LoanDao`, `StaffDao`, `RoleDao`, etc.
 
 * Some required Spring beans will be injected into Spring managed controllers and DAO helpers. Those beans are also defined in `WEB-INF/data-access.xml`.
+
+* As we must validate and initialise the database if necessary, I extend [LocalSessionFactoryBean](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/orm/hibernate5/LocalSessionFactoryBean.html) with [PortalSessionFactoryBean](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/westbank/db/PortalSessionFactoryBean) for extra tasks on database initialisation.
 
 * The currently used RDBMS is [Apache Derby](https://db.apache.org/derby) (or formerly Java DB). Nevertheless, any other RDBMS can be used as well. In order to use other RDBMSs instead of Apache Derby, note the following points:
   * Create a database name 'WESTBANKDB'
@@ -156,7 +155,7 @@ The configuration for publishing Web services using Apache CXF and Spring is pro
 
 After the Web application is running, open a Web browser at http://localhost:9999/portal/services to see a list of running Web services.
 
-In order to modify these Web serivces, have a look into the folder `WEB-INF/wsdl`. After modifying the WSDLs, run `mvn clean generate-sources` to re-generate Java implementations for these Web services.
+In order to modify these Web services, have a look into the folder `WEB-INF/wsdl`. After modifying the WSDLs, run `mvn clean generate-sources` to re-generate Java implementations for these Web services.
 
 The real implementation of the business logic of each Web service is in the corresponding Java class named `XXXImpl` in which '_XXX_' is the name of that Web service.
 

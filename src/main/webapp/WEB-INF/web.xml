@@ -1,117 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="LoanApprovalPortal"
-  version="3.0"
-  xmlns="http://java.sun.com/xml/ns/javaee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+         version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-  <display-name>Loan Approval Portal</display-name>
+    <display-name>Loan Approval Portal</display-name>
 
-	<!-- Root Application Context -->
+    <!-- Root Application Context -->
 	<listener>
     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	 <context-param>
 	   <param-name>contextConfigLocation</param-name>
-	   <param-value>/WEB-INF/cxf.xml,/WEB-INF/data-access.xml</param-value>
+	   <param-value>
+          /WEB-INF/data-access.xml
+          /WEB-INF/cxf.xml
+       </param-value>
 	 </context-param>
 
-  <!--
-    ====================================================================
-    This is a customization of the Spring MVC front-end dispatcher that
-    intercepts all incoming request to *.html, *.list, and /staff/*.html
-    resources. By convention, this dispatcher will load the configuration
-    file `mvc-servlet.xml` ('mvc' is the servlet's name defined here)  
-        
-    The dispatcher also checks the underlying database schema 
-    (i.e., the database and tables) to ensure everything is ok. Otherwise, 
-    it will also create a new database schema and insert some test data.
-  -->
-  <servlet>
-    <servlet-name>mvc</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
+    <!--
+      ====================================================================
+      This is a customization of the Spring MVC front-end dispatcher that
+      intercepts all incoming request to *.html, *.list, and /staff/*.html
+      resources. By convention, this dispatcher will load the configuration
+      file `mvc-servlet.xml` ('mvc' is the servlet's name defined here)
+
+      The dispatcher also checks the underlying database schema
+      (i.e., the database and tables) to ensure everything is ok. Otherwise,
+      it will also create a new database schema and insert some test data.
+    -->
+    <servlet>
+        <servlet-name>mvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/mvc-servlet.xml</param-value>
-      </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>mvc</servlet-name>
-    <url-pattern>*.html</url-pattern>
-  </servlet-mapping>
-  
-  <!-- The below mapping url-pattern is not supported by Tomcat ;( -->
-  <!-- 
-  <servlet-mapping>
-    <servlet-name>mvc</servlet-name>
-    <url-pattern>/staff/*.html</url-pattern>
-  </servlet-mapping>
-   -->
-  <!-- The following mapping is only used for testing -->
-  <servlet-mapping>
-    <servlet-name>mvc</servlet-name>
-    <url-pattern>*.list</url-pattern>
-  </servlet-mapping>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <!--
-    ====================================================================
-    This is the Apache CXF front-end that intercepts all incoming
-    service invocations and delivers to the corresponding Web services.
-    
-    Asynchronous Requests are support only with Servlet 3+
-  -->
-  <servlet>
-    <servlet-name>cxf</servlet-name>
-    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-    <async-supported>true</async-supported>
-  </servlet>
+    <servlet-mapping>
+        <servlet-name>mvc</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>cxf</servlet-name>
-    <url-pattern>/services/*</url-pattern>
-  </servlet-mapping>
+    <!-- This mapping url-pattern breaks Servlet specs 12.2 -->
+    <!--
+    <servlet-mapping>
+      <servlet-name>mvc</servlet-name>
+      <url-pattern>/staff/*.html</url-pattern>
+    </servlet-mapping>
+    -->
 
-  <!--
-    ====================================================================
-    This is a filter that keeps the Hibernate session opening for using
-    in Web frontend (JSPs).
-  -->
-  <!--   
-  <filter>
-    <filter-name>hibernateFilter</filter-name>
-    <filter-class>
-      org.springframework.orm.hibernate5.support.OpenSessionInViewFilter
-    </filter-class>
-    <init-param>
-      <param-name>flushMode</param-name>
-      <param-value>AUTO</param-value>
-    </init-param>
-  </filter>
-  
-  <filter-mapping>
-    <filter-name>hibernateFilter</filter-name>
-    <url-pattern>*.html</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>hibernateFilter</filter-name>
-    <url-pattern>*.list</url-pattern>
-  </filter-mapping>
-  -->
-  
-  <!-- Complained by Tomcat ;( -->
-  <!-- https://jcp.org/aboutJava/communityprocess/final/jsr340/index.html  -->
-  <!-- 
-  <filter-mapping>
-    <filter-name>hibernateFilter</filter-name>
-    <url-pattern>/staff/*.html</url-pattern>
-  </filter-mapping>
-   -->
+    <!--
+      ====================================================================
+      This is the Apache CXF front-end that intercepts all incoming
+      service invocations and delivers to the corresponding Web services.
+      Asynchronous Requests are support only with Servlet 3+
+    -->
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
 
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+    <!--
+      ====================================================================
+      This is a filter that keeps the Hibernate session opening for using
+      in Web frontend (JSPs).
+    -->
+    <filter>
+        <filter-name>hibernateFilter</filter-name>
+        <filter-class>
+            org.springframework.orm.hibernate5.support.OpenSessionInViewFilter
+        </filter-class>
+        <init-param>
+            <param-name>flushMode</param-name>
+            <param-value>AUTO</param-value>
+        </init-param>
+        <init-param>
+            <param-name>singleSession</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>hibernateFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+
+    <!-- This mapping url-pattern breaks Servlet specs 12.2 -->
+    <!--
+    <filter-mapping>
+      <filter-name>hibernateFilter</filter-name>
+      <url-pattern>/staff/*.html</url-pattern>
+    </filter-mapping>
+    -->
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
 </web-app>

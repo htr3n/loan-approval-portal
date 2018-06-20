@@ -4,3 +4,6 @@ xtend-gen
 plugin.xml_gen
 /*.log
 /WESTBANKDB
+rebel.xml
+/build
+
