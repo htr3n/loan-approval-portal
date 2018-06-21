@@ -1,7 +1,8 @@
 package com.westbank.mvc.customer.controller;
 
-import com.westbank.db.dao.DataAccess;
+import com.westbank.db.dao.CustomerDao;
 import com.westbank.db.entity.Customer;
+import com.westbank.db.service.CustomerService;
 import com.westbank.mvc.Constants;
 import com.westbank.mvc.customer.model.ApplicationForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
@@ -25,9 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * A controller for handling a new loan request issued after the customer had
+ * A controller for handling a new loan request issued after the customer already
  * logged in.
- * 
  */
 @Controller
 @RequestMapping("/newrequest.html")
@@ -39,9 +39,6 @@ public class NewRequestController {
 	static final String THIS_VIEW = "customer/newrequest";
 	static final String NEW_REQUEST_INFO = "customer/info";
 
-	@Autowired
-	protected DataAccess dataAccessObject;
-
 	@Autowired(required = false)
 	protected ApplicationForm applicationForm;
 
@@ -50,6 +47,9 @@ public class NewRequestController {
 
 	@Autowired
 	protected LoanApprovalProcessProxy processProxy;
+
+	@Autowired
+	private CustomerService customerService;
 
 	@ModelAttribute("applicationForm")
 	public ApplicationForm setupApplicationForm() {
@@ -107,11 +107,11 @@ public class NewRequestController {
 			} else {
 				if (sessionId != null) {
 					session.setAttribute(Constants.SESSION_NAV, Constants.NAV_NEW_REQUEST);
-					if (dataAccessObject != null && processProxy != null) {
+					if (processProxy != null) {
 						log.info("Deliver the new request to the process");
 						// customer ID must be set to be properly handled
 						form.setBorrowerCustomerId(String.valueOf(sessionId));
-						Customer borrower = dataAccessObject.getCustomerById((Long) sessionId);
+						Customer borrower = customerService.getCustomerById((Long) sessionId);
 						boolean isOK = processProxy.startProcess(form);
 						if (isOK) {
 							session.setAttribute(Constants.SESSION_CUSTOMER_TITLE, borrower.getTitle());

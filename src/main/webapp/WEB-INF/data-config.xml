@@ -11,6 +11,8 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="dao.xml" />
+
     <bean id="propertyPlaceholderConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:ignoreUnresolvablePlaceholders="true">
@@ -26,17 +28,20 @@
           class="com.westbank.db.PortalSessionFactoryBean"
           p:packagesToScan="com.westbank.db.entity"
           p:dataSource-ref="dataSource"
-    />
+          p:hibernateProperties-ref="hibernateProperties"/>
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.westbank.db,com.westbank.db.entity,com.westbank.db.dao"/>
+	<context:component-scan base-package="com.westbank.db"/>
+	<context:component-scan base-package="com.westbank.db.entity"/>
+	<context:component-scan base-package="com.westbank.db.dao"/>
+    <context:component-scan base-package="com.westbank.db.service" />
 
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate5.HibernateTransactionManager"
           p:sessionFactory-ref="sessionFactory"/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven />
 
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
@@ -58,18 +63,46 @@
                 <prop key="hibernate.connection.password">${hibernate.connection.password}</prop>
                 <prop key="hibernate.connection.pool_size">${hibernate.connection.pool_size}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
                 <prop key="hibernate.connection.provider_class">${hibernate.connection.provider_class}</prop>
-                <prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop>
-                <prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>
-                <prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+                <prop key="hibernate.hikari.minimumIdle">${hibernate.hikari.minimumIdle}</prop>
+                <prop key="hibernate.hikari.maximumPoolSize">${hibernate.hikari.maximumPoolSize}</prop>
+                <prop key="hibernate.hikari.idleTimeout">${hibernate.hikari.idleTimeout}</prop>
                 <prop key="autoCommitOnClose">${autoCommitOnClose}</prop>
             </props>
         </property>
     </bean>
 
-    <!-- Data access object -->
-    <bean id="dataAccessObject" class="com.westbank.db.dao.DataAccess"
+
+    <!--
+<bean id="customerService" class="com.westbank.db.service.CustomerServiceImpl" >
+    <constructor-arg ref="customerDao"/>
+</bean>
+
+<bean id="loanFileService" class="com.westbank.db.service.LoanFileServiceImpl" />
+
+<bean id="contractService" class="com.westbank.db.service.LoanContractServiceImpl" >
+    <constructor-arg ref="loanContractDao" />
+</bean>
+
+<bean id="staffService" class="com.westbank.db.service.StaffServiceImpl" >
+    <constructor-arg ref="staffDao"/>
+</bean>
+-->
+
+    <bean id="customerDao" class="com.westbank.db.dao.CustomerDaoImpl"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="loanFileDao" class="com.westbank.db.dao.LoanFileDaoImpl"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="loanContractDao" class="com.westbank.db.dao.LoanContractDaoImpl"
+          p:sessionFactory-ref="sessionFactory"/>
+
+    <bean id="agencyDao" class="com.westbank.db.dao.AgencyDaoImpl" />
+
+    <bean id="staffDao" class="com.westbank.db.dao.StaffDaoImpl"
           p:sessionFactory-ref="sessionFactory"/>
 
 </beans>

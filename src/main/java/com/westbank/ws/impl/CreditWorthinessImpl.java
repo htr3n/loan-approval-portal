@@ -1,7 +1,6 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.dao.DataAccess;
-import com.westbank.db.entity.LoanFile;
+import com.westbank.db.service.LoanFileService;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessRequest;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessResponse;
@@ -11,36 +10,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @javax.jws.WebService(
-		serviceName = "CreditWorthiness",
-		portName = "CreditWorthinessPort",
-		targetNamespace = "urn:com:westbank:ws:business:CreditWorthiness:2018:06",
-		endpointInterface = "com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness")
+        serviceName = "CreditWorthiness",
+        portName = "CreditWorthinessPort",
+        targetNamespace = "urn:com:westbank:ws:business:CreditWorthiness:2018:06",
+        endpointInterface = "com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness")
 public class CreditWorthinessImpl implements CreditWorthiness {
 
-	static final Logger log = LoggerFactory.getLogger(CreditWorthinessImpl.class);
+    static final Logger log = LoggerFactory.getLogger(CreditWorthinessImpl.class);
 
-	@Autowired
-	protected DataAccess dataAccessObject;
+    private LoanFileService loanFileService;
 
-	public void setDataAccessObject(DataAccess dataAccessObject) {
-		this.dataAccessObject = dataAccessObject;
-	}
+    @Autowired
+    public void setLoanFileService(LoanFileService loanFileService) {
+        this.loanFileService = loanFileService;
+    }
 
-	public CreditWorthinessResponse check(CreditWorthinessRequest request) {
-		log.info("Executing operation check:" + request);
-		try {
-			final CreditWorthinessResponse response = new CreditWorthinessResponse();
-			LoanFile loanFile = dataAccessObject.getLoanFileById(request.getLoanFileId());
-			if (loanFile != null && "Alice".equalsIgnoreCase(loanFile.getBorrower().getFirstName())) {
-				response.setCreditWorthiness(true);
-			} else {
-				response.setCreditWorthiness(false);
-			}
-			log.info(" Response: " + response);
-			return response;
-		} catch (final Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-	}
+    public CreditWorthinessResponse check(CreditWorthinessRequest request) {
+        log.info("Executing operation check:" + request);
+        final CreditWorthinessResponse response = new CreditWorthinessResponse();
+        response.setCreditWorthiness(loanFileService.checkCreditWorthiness(request));
+        log.info(" Response: " + response);
+        return response;
+    }
 }

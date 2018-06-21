@@ -13,22 +13,14 @@
 	</listener>
 	 <context-param>
 	   <param-name>contextConfigLocation</param-name>
-	   <param-value>
-          /WEB-INF/data-access.xml
-          /WEB-INF/cxf.xml
-       </param-value>
+	   <param-value>/WEB-INF/data-config.xml,/WEB-INF/cxf.xml</param-value>
 	 </context-param>
 
     <!--
       ====================================================================
-      This is a customization of the Spring MVC front-end dispatcher that
-      intercepts all incoming request to *.html, *.list, and /staff/*.html
-      resources. By convention, this dispatcher will load the configuration
-      file `mvc-servlet.xml` ('mvc' is the servlet's name defined here)
-
-      The dispatcher also checks the underlying database schema
-      (i.e., the database and tables) to ensure everything is ok. Otherwise,
-      it will also create a new database schema and insert some test data.
+      This is Spring DispatcherServlet that intercepts all incoming request 
+      to *.html. By convention, the dispatcher will load the configuration
+      file `mvc-servlet.xml` ('mvc' is the servlet's name)
     -->
     <servlet>
         <servlet-name>mvc</servlet-name>

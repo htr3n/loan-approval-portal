@@ -1,4 +1,4 @@
-package com.westbank.util;
+package com.westbank.db;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DateUtil {
+public class DateHelper {
 
-	static final Logger log = LoggerFactory.getLogger(DateUtil.class);
+	static final Logger log = LoggerFactory.getLogger(DateHelper.class);
 
 	/**
 	 * Convert a java.util.Date object into an XMLGregorianCalendar object

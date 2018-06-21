@@ -1,10 +1,10 @@
-package com.westbank.util;
+package com.westbank.db;
 
 import java.util.Date;
 
 import org.apache.commons.lang.RandomStringUtils;
 
-public class DbUtil {
+public class DbHelper {
 
 	public static final int PIN_LENGTH = 6;
 

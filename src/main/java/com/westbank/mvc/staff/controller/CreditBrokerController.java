@@ -1,6 +1,5 @@
 package com.westbank.mvc.staff.controller;
 
-import com.westbank.db.dao.DataAccess;
 import com.westbank.mvc.customer.model.TaskForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,32 +18,29 @@ import javax.servlet.http.HttpSession;
  * -end. When the Credit Broker pushes the button, the controller will activate
  * the Loan Approval process at the task "Access Portal". This way, we can
  * simply simulate the interaction between the Credit Broker and the process
- * 
  */
 @Controller
 @RequestMapping("/staff/broker.html")
 public class CreditBrokerController {
-	
-	static final String THIS_VIEW = "staff/broker";
 
-	@Autowired
-	protected DataAccess dataAccessObject;
-	@Autowired
-	protected LoanApprovalProcessProxy processProxy;
+    static final String THIS_VIEW = "staff/broker";
 
-	@ModelAttribute("loanList")
-	public TaskForm setupTaskForm() {
-		return new TaskForm();
-	}
+    @Autowired
+    protected LoanApprovalProcessProxy processProxy;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String prepare(HttpSession session) {
-		return StaffUtil.prepare(session, dataAccessObject, THIS_VIEW);
-	}
+    @ModelAttribute("loanList")
+    public TaskForm setupTaskForm() {
+        return new TaskForm();
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String process(TaskForm form, BindingResult result, HttpSession session) {
-		return StaffUtil.process(form, result, session, processProxy, dataAccessObject, THIS_VIEW);
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String prepare(HttpSession session) {
+        return new StaffUtil().prepare(session, THIS_VIEW);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String process(TaskForm form, BindingResult result, HttpSession session) {
+        return new StaffUtil().process(form, result, session, processProxy, THIS_VIEW);
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.dao.DataAccess;
 import com.westbank.db.entity.Role;
 import com.westbank.mvc.Constants;
 import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch;
@@ -8,7 +7,6 @@ import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchRequest;
 import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @javax.jws.WebService(
 		serviceName = "TaskDispatch",
@@ -19,14 +17,7 @@ public class TaskDispatchImpl implements TaskDispatch {
 
 	static final Logger log = LoggerFactory.getLogger(TaskDispatchImpl.class);
 
-	@Autowired
-	protected DataAccess dataAccessObject;
-
 	protected double threshold = Constants.LOAN_THRESHOLD;
-
-	public void setDataAccessObject(DataAccess dataAccessObject) {
-		this.dataAccessObject = dataAccessObject;
-	}
 
 	public void setThreshold(double threshold) {
 		this.threshold = threshold;

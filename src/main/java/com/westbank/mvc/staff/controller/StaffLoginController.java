@@ -1,8 +1,8 @@
 package com.westbank.mvc.staff.controller;
 
-import com.westbank.db.dao.DataAccess;
 import com.westbank.db.entity.Role;
 import com.westbank.db.entity.Staff;
+import com.westbank.db.service.StaffService;
 import com.westbank.mvc.Constants;
 import com.westbank.mvc.staff.model.StaffLoginForm;
 import org.slf4j.Logger;
@@ -20,125 +20,117 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/staff/login.html")
 public class StaffLoginController {
 
-	static Logger log = LoggerFactory.getLogger(StaffLoginController.class);
+    static Logger log = LoggerFactory.getLogger(StaffLoginController.class);
 
-	static final String THIS_VIEW = "staff/stafflogin";
+    static final String THIS_VIEW = "staff/stafflogin";
 
-	static final String BROKER_VIEW = "redirect:/staff/broker.html";
+    static final String BROKER_VIEW = "redirect:/staff/broker.html";
 
-	static final String SUPERVISOR_CLERK_VIEW = "redirect:/staff/clerk.html";
+    static final String SUPERVISOR_CLERK_VIEW = "redirect:/staff/clerk.html";
 
-	static final String MANAGER_VIEW = "redirect:/staff/manager.html";
+    static final String MANAGER_VIEW = "redirect:/staff/manager.html";
 
-	static final String ACTION_CHANGED = "changed";
+    static final String ACTION_CHANGED = "changed";
 
-	@Autowired
-	protected StaffLoginForm staffLoginForm;
-	@Autowired
-	protected StaffLoginValidator validator;
-	@Autowired
-	protected DataAccess dataAccessObject;
+    @Autowired
+    protected StaffLoginForm staffLoginForm;
 
-	@ModelAttribute("staffLoginForm")
-	public StaffLoginForm setupStaffLoginForm() {
-		if (staffLoginForm != null) {
-			return staffLoginForm;
-		} else {
-			return new StaffLoginForm();
-		}
-	}
+    @Autowired
+    protected StaffLoginValidator validator;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String prepare(@ModelAttribute StaffLoginForm form,
-			HttpSession session) {
-		session.removeAttribute(Constants.SESSION_PROCESS_STATUS);
-		session.removeAttribute(Constants.SESSION_PROCESS_STATUS_KEY);
-		session.removeAttribute(Constants.SESSION_STAFF_ID);
-		if (form != null && dataAccessObject != null) {
-			final String staffId = form.getId();
-			final Staff staff = dataAccessObject.getStaffById(staffId);
-			session.setAttribute("roles", staff.getRole());
-			session.setAttribute("staffs", dataAccessObject.getAllStaffs());
-		}
-		return THIS_VIEW;
-	}
+    @Autowired
+    protected StaffService staffService;
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String processSubmission(@ModelAttribute StaffLoginForm form,
-			BindingResult result, HttpSession session) {
 
-		if (ACTION_CHANGED.equalsIgnoreCase(form.getAction())) {
-			if (form != null && dataAccessObject != null) {
-				final String staffId = form.getId();
-				log.info("Change staff to: " + staffId);
-				final Staff staff = dataAccessObject.getStaffById(staffId);
-				if (staff != null) {
-					session.setAttribute("roles", staff.getRole());
-				} else {
-					session.setAttribute("staffs", dataAccessObject
-							.getAllStaffs());
-					session.setAttribute("roles", dataAccessObject
-							.getAllRoles());
-				}
-			}
-		} else {
-			if (validator != null) {
-				validator.validate(form, result);
-				if (result.hasFieldErrors()) {
-					log.info("Form validation failed. Stay!");
-				} else { /* now, authenticate */
-					if (dataAccessObject != null) {
-						final String inputRole = form.getStaffRole();
-						final Staff staff = dataAccessObject.authenticateStaff(
-								form.getId(), form.getPassword());
-						boolean isLogged = false;
-						if (staff != null && inputRole != null
-								&& !inputRole.isEmpty()) {
-							for (final Role role : staff.getRole()) {
-								if (inputRole.equalsIgnoreCase(role
-										.getRoleName())) {
-									isLogged = true;
-									break;
-								}
-							}
-						}
-						if (!isLogged) {
-							log.info("Failed authentication. Stay!");
-							session.setAttribute(
-									Constants.SESSION_PROCESS_STATUS,
-									Constants.PROCESS_STATUS_ERROR);
-							session.setAttribute(
-									Constants.SESSION_PROCESS_STATUS_KEY,
-									Constants.MSG_STAFF_LOGIN_FAILED);
-						} else {
-							log.info("Successful authentication. Forwarded");
-							session.setAttribute(Constants.SESSION_STAFF_ID,
-									staff.getStaffId());
-							session.setAttribute(Constants.SESSION_STAFF_ROLE,
-									inputRole);
-							if (Role.CREDIT_BROKER.equalsIgnoreCase(inputRole)) {
-								return BROKER_VIEW;
-							} else if (Role.POST_PROCESSING_CLERK
-									.equalsIgnoreCase(inputRole)
-									|| Role.SUPERVISOR
-											.equalsIgnoreCase(inputRole)) {
-								return SUPERVISOR_CLERK_VIEW;
-							} else if (Role.MANAGER.equalsIgnoreCase(inputRole)) {
-								return MANAGER_VIEW;
-							} else {
-								log.error("Role '" + inputRole
-										+ "' has not been supported yet.");
-							}
-						}
-					} else {
-						log
-								.error("Cannot retrieve the autowired data access bean");
-					}
-				}
-			} else {
-				log.error("Cannot get the autowired staff login validator");
-			}
-		}
-		return THIS_VIEW;
-	}
+    @ModelAttribute("staffLoginForm")
+    public StaffLoginForm setupStaffLoginForm() {
+        if (staffLoginForm != null) {
+            return staffLoginForm;
+        } else {
+            return new StaffLoginForm();
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String prepare(@ModelAttribute StaffLoginForm form,
+                          HttpSession session) {
+        session.removeAttribute(Constants.SESSION_PROCESS_STATUS);
+        session.removeAttribute(Constants.SESSION_PROCESS_STATUS_KEY);
+        session.removeAttribute(Constants.SESSION_STAFF_ID);
+        if (form != null) {
+            final String staffId = form.getId();
+            final Staff staff = staffService.getStaffById(staffId);
+            session.setAttribute("roles", staff.getRole());
+            session.setAttribute("staffs", staffService.getAllStaffs());
+        }
+        return THIS_VIEW;
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String processSubmission(@ModelAttribute StaffLoginForm form, BindingResult result, HttpSession session) {
+
+        if (ACTION_CHANGED.equalsIgnoreCase(form.getAction())) {
+            final String staffId = form.getId();
+            log.info("Change staff to: " + staffId);
+            final Staff staff = staffService.getStaffById(staffId);
+            if (staff != null) {
+                session.setAttribute("roles", staff.getRole());
+            } else {
+                session.setAttribute("staffs", staffService.getAllStaffs());
+                session.setAttribute("roles", staffService.getAllRoles());
+            }
+        } else {
+            if (validator != null) {
+                validator.validate(form, result);
+                if (result.hasFieldErrors()) {
+                    log.info("Form validation failed. Stay!");
+                } else { /* now, authenticate */
+                    final String inputRole = form.getStaffRole();
+                    final Staff staff = staffService.authenticateStaff(form.getId(), form.getPassword());
+                    boolean isLogged = false;
+                    if (staff != null && inputRole != null
+                            && !inputRole.isEmpty()) {
+                        for (final Role role : staff.getRole()) {
+                            if (inputRole.equalsIgnoreCase(role
+                                    .getRoleName())) {
+                                isLogged = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!isLogged) {
+                        log.info("Failed authentication. Stay!");
+                        session.setAttribute(
+                                Constants.SESSION_PROCESS_STATUS,
+                                Constants.PROCESS_STATUS_ERROR);
+                        session.setAttribute(
+                                Constants.SESSION_PROCESS_STATUS_KEY,
+                                Constants.MSG_STAFF_LOGIN_FAILED);
+                    } else {
+                        log.info("Successful authentication. Forwarded");
+                        session.setAttribute(Constants.SESSION_STAFF_ID,
+                                staff.getStaffId());
+                        session.setAttribute(Constants.SESSION_STAFF_ROLE,
+                                inputRole);
+                        if (Role.CREDIT_BROKER.equalsIgnoreCase(inputRole)) {
+                            return BROKER_VIEW;
+                        } else if (Role.POST_PROCESSING_CLERK
+                                .equalsIgnoreCase(inputRole)
+                                || Role.SUPERVISOR
+                                .equalsIgnoreCase(inputRole)) {
+                            return SUPERVISOR_CLERK_VIEW;
+                        } else if (Role.MANAGER.equalsIgnoreCase(inputRole)) {
+                            return MANAGER_VIEW;
+                        } else {
+                            log.error("Role '" + inputRole
+                                    + "' has not been supported yet.");
+                        }
+                    }
+                }
+            } else {
+                log.error("Cannot get the autowired staff login validator");
+            }
+        }
+        return THIS_VIEW;
+    }
 }

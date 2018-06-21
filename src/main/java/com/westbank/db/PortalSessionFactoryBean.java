@@ -10,6 +10,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -34,7 +35,7 @@ public class PortalSessionFactoryBean extends LocalSessionFactoryBean {
 	void checkAndCreateSchema(SessionFactory sessionFactory) {
 		if (!isSchemaValid(sessionFactory)) {
 			log.info("The data schema might be corrupted or not exist.");
-			createSchema(sessionFactory);
+			createSchema();
 		} else {
 			log.info("Tables exist and are valid. Ready to launch ... ");
 		}
@@ -54,7 +55,7 @@ public class PortalSessionFactoryBean extends LocalSessionFactoryBean {
 		return false;
 	}
 
-	void createSchema(SessionFactory sessionFactory) {
+	void createSchema() {
 		log.info("No worry. Let's create a new database ...");
 		final MetadataSources sources = getMetadataSources();
 		final MetadataImplementor metadata = (MetadataImplementor) sources.buildMetadata();

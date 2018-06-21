@@ -15,6 +15,8 @@ public class SessionValidator {
 	public static Object validateSession(HttpSession session, String sessionName) {
 		try {
 			final Object id = session.getAttribute(sessionName);
+			StringBuilder builder = new StringBuilder();
+			builder.append(session.getAttribute(sessionName));
 			if (id != null) {
 				if (id instanceof String && !((String) id).isEmpty()) {
 					return id;

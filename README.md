@@ -6,7 +6,7 @@ This project provides a Web interface portal for end-users to work with the loan
 
 * SOAP/Web Services (WSDL/XML/SOAP/HTTP) implemented using [JAX-WS](https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services) / [Apache CXF](http://cxf.apache.org) / [Spring Framework](https://spring.io)
 * [Spring MVC Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) for user interface running in a Web application server
-* [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate](http://hibernate.org) on top of an RDBMS with [c3p0](https://www.mchange.com/projects/c3p0) for JDBC connection pooling.
+* [JPA](https://en.wikipedia.org/wiki/Java_Persistence_API) / [Hibernate](http://hibernate.org) on top of an RDBMS with [HikariCP](https://github.com/brettwooldridge/HikariCP) for JDBC connection pooling.
 * [H2](http://www.h2database.com/html/main.html), [Apache Derby](https://db.apache.org/derby), [HyperSQL](http://hsqldb.org), [MySQL](https://www.mysql.com), [PostgreSQL](https://www.postgresql.org) have been included and tested but any RDBMS can be also used with extra configuration effort
 * [Logback](https://logback.qos.ch) and [Simple Logging Facade for Java (SLF4J)](https://www.slf4j.org) for efficient logging
 * [Apache Maven](https://maven.apache.org) for dependency management, building, packaging, and deployment
@@ -78,13 +78,13 @@ By convention, the default configuration for [DispatcherServlet](https://docs.sp
 </servlet>
 ```
 
-The Spring managed and annotated controllers for customers and staffs are under `westbank.mvc.customer` and `westbank.mvc.staff` respectively. The portal's index page is mapped to `HomeController`.
+The Spring managed and annotated controllers for customers and staffs are under `com.westbank.mvc.customer` and `com.westbank.mvc.staff` respectively. The portal's index page is mapped to `HomeController`.
 
 ```xml
 <mvc:annotation-driven />
 
 <!-- These statements are required for Spring MVC Annotations -->
-<context:component-scan base-package="westbank.mvc.staff.controller,westbank.mvc.staff.model,westbank.mvc,westbank.mvc.customer.controller,westbank.mvc.customer.model,westbank.ws.impl" />
+<context:component-scan base-package="..." />
 
 <context:annotation-config />
 ```
@@ -100,7 +100,7 @@ All views (JSP/JSTL) are in the folder `src/main/webapp/WEB-INF/jsp/` for custom
 
 #### Data Access Layer
 
-* Data entities are annotated with JPA conventions (see `westbank.db.entity`). 
+* Data entities are annotated with JPA conventions (see `com.westbank.db.entity`). 
 * The Hibernate configuration is in `WEB-INF/data-access.xml` loaded by`org.springframework.web.context.ContextLoaderListener`.
 * The DAO helpers are in the package `db.dao` for manipulating the underlying data/objects using Spring HibernateTemplate such as `CustomerDao`, `ProviderDao`, `LoanDao`, `StaffDao`, `RoleDao`, etc.
 * Some required Spring beans will be injected into Spring managed controllers and DAO helpers. Those beans are also defined in `WEB-INF/data-access.xml`.
@@ -162,9 +162,9 @@ The real implementation of the business logic of each Web service is in the corr
 
 For further testing and demonstration purposes, some special values are hard-coded in the Web services logics:
 
-* If the borrower's last name is "Power", the privilege is ok, i.e., the number of incidents is 0, the number of banks is 0 (see `westbank.ws.impl.BankPrivilegeImpl`)
-* The monthly payment is calculated according to a provided formula (see `westbank.ws.impl.BankInformationImpl`)
-* If choosing the EstateType as HOUSE, then the return risk evaluation is HIGH (see `westbank.ws.impl.LoanRiskImpl`)
-* If the loan amount < 1 million, then the role will be CLERK, otherwise, SUPERVISOR (see `westbank.ws.impl.TaskDispatchImpl`)
-* If the borrower's first name is "Alice", the CreditWorthinessOK is `true`, otherwise, `false`  (see `westbank.ws.impl.CreditWorthinessImpl`)
+* If the borrower's last name is "Power", the privilege is ok, i.e., the number of incidents is 0, the number of banks is 0 (see `com.westbank.ws.impl.BankPrivilegeImpl`)
+* The monthly payment is calculated according to a provided formula (see `com.westbank.ws.impl.BankInformationImpl`)
+* If choosing the EstateType as HOUSE, then the return risk evaluation is HIGH (see `com.westbank.ws.impl.LoanRiskImpl`)
+* If the loan amount < 1 million, then the role will be CLERK, otherwise, SUPERVISOR (see `com.westbank.ws.impl.TaskDispatchImpl`)
+* If the borrower's first name is "Alice", the CreditWorthinessOK is `true`, otherwise, `false`  (see `com.westbank.ws.impl.CreditWorthinessImpl`)
 

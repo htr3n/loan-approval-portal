@@ -142,14 +142,13 @@
             <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
             <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.3.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.3.1.Final" />
-            <element id="library" level="project" name="Maven: org.hibernate:hibernate-c3p0:5.3.1.Final" />
-            <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.2" />
-            <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.11" />
+            <element id="library" level="project" name="Maven: org.hibernate:hibernate-hikaricp:5.3.1.Final" />
+            <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.2.0" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
             <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.8" />
             <element id="library" level="project" name="Maven: com.h2database:h2:1.4.197" />
             <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
             <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
             <element id="library" level="project" name="Maven: org.slf4j:jul-to-slf4j:1.7.25" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
             <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
@@ -440,28 +439,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.197/h2-1.4.197-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.mchange:c3p0:0.9.5.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/c3p0/0.9.5.2/c3p0-0.9.5.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: com.mchange:mchange-commons-java:0.2.11">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mchange/mchange-commons-java/0.2.11/mchange-commons-java-0.2.11-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: com.sun.istack:istack-commons-runtime:3.0.5">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/3.0.5/istack-commons-runtime-3.0.5.jar!/" />
@@ -482,6 +459,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.13/FastInfoset-1.2.13-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.zaxxer:HikariCP:3.2.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.2.0/HikariCP-3.2.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.2.0/HikariCP-3.2.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.2.0/HikariCP-3.2.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-lang:commons-lang:2.6">
@@ -902,17 +890,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.0.3.Final/hibernate-commons-annotations-5.0.3.Final-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.hibernate:hibernate-c3p0:5.3.1.Final">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-c3p0/5.3.1.Final/hibernate-c3p0-5.3.1.Final.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-c3p0/5.3.1.Final/hibernate-c3p0-5.3.1.Final-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-c3p0/5.3.1.Final/hibernate-c3p0-5.3.1.Final-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.hibernate:hibernate-core:5.3.1.Final">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.3.1.Final/hibernate-core-5.3.1.Final.jar!/" />
@@ -933,6 +910,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.3.1.Final/hibernate-entitymanager-5.3.1.Final-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.hibernate:hibernate-hikaricp:5.3.1.Final">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-hikaricp/5.3.1.Final/hibernate-hikaricp-5.3.1.Final.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-hikaricp/5.3.1.Final/hibernate-hikaricp-5.3.1.Final-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-hikaricp/5.3.1.Final/hibernate-hikaricp-5.3.1.Final-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.javassist:javassist:3.22.0-GA">

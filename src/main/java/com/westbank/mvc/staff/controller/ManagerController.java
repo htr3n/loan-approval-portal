@@ -1,6 +1,5 @@
 package com.westbank.mvc.staff.controller;
 
-import com.westbank.db.dao.DataAccess;
 import com.westbank.mvc.customer.model.TaskForm;
 import com.westbank.proxy.LoanApprovalProcessProxy;
 import org.slf4j.Logger;
@@ -21,37 +20,32 @@ import javax.servlet.http.HttpSession;
  * Manager pushes the button, the controller will activate the Loan Approval
  * process at the task "Sign Officially Loan Contract". This way, we can simply
  * simulate the interaction between the Manager and the process.
- * 
  */
 @Controller
 @RequestMapping("/staff/manager.html")
 public class ManagerController {
 
-	static Logger log = LoggerFactory.getLogger(ManagerController.class);
+    static Logger log = LoggerFactory.getLogger(ManagerController.class);
 
-	static final String THIS_VIEW = "staff/manager";
+    static final String THIS_VIEW = "staff/manager";
 
-	@Autowired
-	protected DataAccess dataAccessObject;
-	@Autowired
-	protected LoanApprovalProcessProxy processProxy;
+    @Autowired
+    protected LoanApprovalProcessProxy processProxy;
 
-	@ModelAttribute("loanList")
-	public TaskForm setupTaskForm() {
-		final TaskForm list = new TaskForm();
-		return list;
-	}
+    @ModelAttribute("loanList")
+    public TaskForm setupTaskForm() {
+        final TaskForm list = new TaskForm();
+        return list;
+    }
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String prepare(HttpSession session) {
-		return StaffUtil.prepare(session, dataAccessObject, THIS_VIEW);
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String prepare(HttpSession session) {
+        return new StaffUtil().prepare(session, THIS_VIEW);
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String process(TaskForm form, BindingResult result,
-			HttpSession session) {
-		return StaffUtil.process(form, result, session, processProxy,
-				dataAccessObject, THIS_VIEW);
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    public String process(TaskForm form, BindingResult result, HttpSession session) {
+        return new StaffUtil().process(form, result, session, processProxy, THIS_VIEW);
+    }
 
 }

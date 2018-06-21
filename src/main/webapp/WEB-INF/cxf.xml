@@ -74,7 +74,6 @@
 	<bean id="loanApprovalImpl"
 		class="com.westbank.ws.impl.LoanApprovalImpl"
 		p:endpointBase="${service.enpoint.base}"
-		p:dataAccessObject-ref="dataAccessObject"
 		p:bankInformation-ref="bankInformationClient"
 		p:bankPrivilege-ref="bankPrivilegeClient"
 		p:callbackLoanApproval-ref="callbackLoanApprovalClient"
