@@ -24,7 +24,6 @@
 	</bean>
 
 	<import resource="resources.xml" />
-	<import resource="test-beans.xml" />
 
 	<mvc:annotation-driven />
 

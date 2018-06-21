@@ -8,7 +8,7 @@
 	   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean
-    id="customerAliceMeyer"
+    id="exampleLoanForm"
     class="com.westbank.mvc.customer.model.ApplicationForm"
     p:loanAmount="100000"
     p:loanReason="Home Mortgage"

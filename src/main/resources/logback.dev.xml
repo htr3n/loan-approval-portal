@@ -18,6 +18,6 @@
     <logger name="com.mchange" level="WARN" />
      -->
     <logger name="org.hibernate.cfg" level="INFO" />
-    <logger name="org.hibernate.connection" level="DEBUG" />
-    <logger name="org.hibernate.impl" level="DEBUG" />
+    <logger name="org.hibernate.connection" level="INFO" />
+    <logger name="org.hibernate.impl" level="INFO" />
 </configuration>

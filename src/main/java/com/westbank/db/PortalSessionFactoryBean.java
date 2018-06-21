@@ -1,6 +1,11 @@
 package com.westbank.db;
 
-import com.westbank.db.entity.*;
+import com.westbank.db.entity.Agency;
+import com.westbank.db.entity.Contract;
+import com.westbank.db.entity.Customer;
+import com.westbank.db.entity.LoanFile;
+import com.westbank.db.entity.Role;
+import com.westbank.db.entity.Staff;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,7 +15,6 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -93,19 +97,28 @@ public class PortalSessionFactoryBean extends LocalSessionFactoryBean {
 
 		Agency agency = new Agency();
 
+		Customer alice = new Customer();
+		alice.setFirstName("Alice");
+		alice.setLastName("Power");
+		alice.setPin("abc123");
+		alice.setIncome(80000.0);
+		alice.setEmail("power@abc.com");
+
+
 		// start saving data to the database
 		final Session session = sessionFactory.openSession();
 		try {
 			final Transaction transaction = session.beginTransaction();
-			template.save(agency);
-			template.save(manager);
-			template.save(supervisor);
-			template.save(broker);
-			template.save(clerk);
-			template.save(staff1);
-			template.save(staff2);
-			template.save(staff3);
-			template.save(staff4);
+			session.save(alice);
+			session.save(agency);
+			session.save(manager);
+			session.save(supervisor);
+			session.save(broker);
+			session.save(clerk);
+			session.save(staff1);
+			session.save(staff2);
+			session.save(staff3);
+			session.save(staff4);
 			transaction.commit();
 		} finally {
 			session.close();

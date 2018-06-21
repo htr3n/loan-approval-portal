@@ -12,6 +12,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="dao.xml" />
+    <import resource="test-beans.xml" />
 
     <bean id="propertyPlaceholderConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -73,36 +74,5 @@
             </props>
         </property>
     </bean>
-
-
-    <!--
-<bean id="customerService" class="com.westbank.db.service.CustomerServiceImpl" >
-    <constructor-arg ref="customerDao"/>
-</bean>
-
-<bean id="loanFileService" class="com.westbank.db.service.LoanFileServiceImpl" />
-
-<bean id="contractService" class="com.westbank.db.service.LoanContractServiceImpl" >
-    <constructor-arg ref="loanContractDao" />
-</bean>
-
-<bean id="staffService" class="com.westbank.db.service.StaffServiceImpl" >
-    <constructor-arg ref="staffDao"/>
-</bean>
--->
-
-    <bean id="customerDao" class="com.westbank.db.dao.CustomerDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
-
-    <bean id="loanFileDao" class="com.westbank.db.dao.LoanFileDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
-
-    <bean id="loanContractDao" class="com.westbank.db.dao.LoanContractDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
-
-    <bean id="agencyDao" class="com.westbank.db.dao.AgencyDaoImpl" />
-
-    <bean id="staffDao" class="com.westbank.db.dao.StaffDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
 
 </beans>
