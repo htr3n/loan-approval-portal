@@ -43,21 +43,19 @@ mvn -DskipTests clean package
 
 ## Technical Details
 
-The main development configuration is a Maven `pom.xml`.
-
 ### Web Layer
 
-As switching to XML-less configurations with Servlet 3.0+, the main web application configuration is `com.westbank.config.PortalWebApplicationInitializer` instead of  `WEB-INF/web.xml`. 
+As switching to XML-less configurations with Servlet 3.0+, the main web application configuration is [`PortalWebApplicationInitializer`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/PortalWebApplicationInitializer.java) instead of  the traditional `WEB-INF/web.xml`. 
 
-* `PortalWebApplicationInitializer` first loads the root context and registers two configurations `PersistenceConfiguration` (for data access) and `ServiceConfiguration` (for publishing Web/SOAP services)
-* Then it registers a child context with `AnnotationConfigWebApplicationContext` for the Spring `DispatcherServlet`
-	* ``AnnotationConfigWebApplicationContext`` registers the MVC configuration in `WebMvcConfiguration`
-	* `DispatcherServlet` will serve all `*.html` and `/portal/*`
+* `PortalWebApplicationInitializer` first loads the root context and registers two configurations [`PersistenceConfiguration`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/PersistenceConfiguration.java) (for data access) and [`ServiceConfiguration`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/ServiceConfiguration.java) (for publishing Web/SOAP services)
+* Then it registers a child context with [`AnnotationConfigWebApplicationContext`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/context/support/AnnotationConfigWebApplicationContext.html) for the Spring [`DispatcherServlet`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html)
+  * ``AnnotationConfigWebApplicationContext`` registers the MVC configuration in `WebMvcConfiguration`
+  * `DispatcherServlet` will serve all `*.html` and `/portal/*`
 * `PortalWebApplicationInitializer` will also load another servlet  [`CXFServlet`](https://cxf.apache.org/javadoc/latest/org/apache/cxf/transport/servlet/CXFServlet.html) to serve the Web/SOAP services at `/services/*`
 
 ### MVC Configuration
 
-The configuration for Spring MVC is in `com.westbank.config.WebMvcConfiguration`:
+The configuration for Spring MVC is in [`WebMvcConfiguration`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/WebMvcConfiguration.java):
 
 * It implements [`WebMvcConfigurer`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html) and is annotated with [`@EnableWebMvc`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html) (equivalent to `<mvc:annotation-driven />` in Spring XML)
 
@@ -78,32 +76,31 @@ The configuration for Spring MVC is in `com.westbank.config.WebMvcConfiguration`
 
 ### Data Access Layer
 
-* Data manipulation and persistence are done using JPA / [Hibernate](http://hibernate.org) configured via `PersistenceConfiguration`.
+* Data manipulation and persistence are done using Spring JPA / [Hibernate](http://hibernate.org) configured via [`PersistenceConfiguration`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/PersistenceConfiguration.java).
 
-	* Annotated with `@Configuration` `@EnableJpaRepositories`, `@EnableTransactionManagement`, `@ComponentScan`
+	* Annotated with [`@Configuration`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html)  [`@EnableJpaRepositories`](https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaRepositories.html), [`@EnableTransactionManagement`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/EnableTransactionManagement.html), [`@ComponentScan`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html)
 	* Defines `javax.sql.DataSource` with the underlyling implementation `HikariDataSource` of [HikariCP](https://github.com/brettwooldridge/HikariCP)
 	* Defines `entityManagerFactory` with [`LocalContainerEntityManagerFactoryBean`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.html)
 	* Defines JPA TransactionManager / Java Transaction API (JTA) with [`JpaTransactionManager`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/orm/jpa/JpaTransactionManager.html)
 	* Defines a [`DataSourceInitializer`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/datasource/init/DataSourceInitializer.html) to set up some data using the script `load-user-and-role.sql`
 
-* Domain entities are annotated with JPA conventions in `com.westbank.domain`
-* Data repositories are in `com.westbank.repository` for manipulating the underlying data/objects using `EntityManager`
-* Data services (including some business logic) are in `com.westbank.service` working on top of the repositories
+* Domain entities are annotated with JPA conventions in [`com.westbank.domain`](https://github.com/htr3n/loan-approval-portal/tree/master/src/main/java/com/westbank/domain)
+* Data repositories are in [`com.westbank.repository`](https://github.com/htr3n/loan-approval-portal/tree/master/src/main/java/com/westbank/repository) for manipulating the underlying data/objects using [`EntityManager`](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html)
+* Data services (including some business logic) are in [`com.westbank.service`](https://github.com/htr3n/loan-approval-portal/tree/master/src/main/java/com/westbank/service) working on top of the repositories
 * The currently used RDBMS is in-memory H2 for minimal memory footprint. Nevertheless, any other RDBMS can be used as well. In order to use other RDBMSs instead, just please note the following points:
 	* Create a database name `WESTBANKDB`
-	* Create a user `westbank` with password `secret` and assign that user to the database or use your preferred values and update  `hibernate.properties` accordingly
+	* Create a user `westbank` with password `secret` and assign that user to the database or use your preferred values and update  [`hibernate.properties`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/resources/hibernate.properties) accordingly
 	* Add necessary Maven dependencies for the new RDBMS in `pom.xml`.
 	* Issue the command `mvn jetty:run` to check if the Web application works. 
 	* In case of problems, tune the verbosity in `logback.xml` for debugging.
 
 ### Web Services
 
-This project also includes some Web services using JAX-WS / Apache CXF to provide the business functions needed by the loan approval process. These Web service interfaces (`*.wsdl`) are in the folder `src/main/webapp/WEB-INF/wsdl`. We distinguish 3 main service types
+This project also includes some Web services using JAX-WS / Apache CXF to provide the business functions needed by the loan approval process. These Web service interfaces (`*.wsdl`) are in the folder [`WEB-INF/wsdl`](https://github.com/htr3n/loan-approval-portal/tree/master/src/main/webapp/WEB-INF/wsdl). 
 
    - __Business services__ -- functions provided by the underlying IT infrastructure.
       ```
       |
-      +-- Authentication.wsdl
       +-- BankInformation.wsdl
       +-- BankPrivilege.wsdl
       +-- CreditWorthiness.wsdl
@@ -124,20 +121,17 @@ This project also includes some Web services using JAX-WS / Apache CXF to provid
 
 ##### Java Code Generation from WSDLs
 
-Apache CXF WSDL2Java `cxf-codegen-plugin` is used to generate server and client stuffs for the aforementioned services according to the configuration in the `pom.xml` file. The generated Java sources are under the base package
-`westbank.ws`.
+Apache CXF's [`cxf-codegen-plugin`](http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html) Maven plugin is used to generate Java code from the aforementioned services (i.e. _contract-first service development_). The generated Java sources are under the base package [`com.westbank.ws`](https://github.com/htr3n/loan-approval-portal/tree/master/src/main/java/com/westbank/ws).
 
 >  The _m2eclipse_ plugin that supports Maven in Eclipse will invoke the Apache CXF `cxf-codegen-plugin` whenever you import this project into Eclipse,the existing generated stuffs will be unnecessarily overwritten. Thus, the plugin is currently disabled. Whenever any WSDL is modified, please enable this plugin and execute the command `mvn generate-sources` to re-generate the Java code.
 
-##### Web Services Publishing
+##### Web Services Implementation and Publishing
 
-The configuration for publishing Web services using Apache CXF and Spring is provided in `com.westbank.config.ServiceConfiguration` loaded by the root application context. It in turn loads the service bean definitions in `com.westbank.config.ServiceBeans`.
+The actual implementation of the business logic of each Web service is in the corresponding Java class named `com.westbank.ws.impl.XXXImpl` in which '_XXX_' is the name of that Web service. In order to alter these services, have a look into the folder `WEB-INF/wsdl`. After modifying the WSDLs, just run `mvn clean generate-sources` to re-generate Java code. 
+
+The configuration for publishing Web services using Apache CXF and Spring is provided in [`ServiceConfiguration`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/ServiceConfiguration.java) loaded by the root application context. It in turn loads the service bean definitions in [`ServiceBeans`](https://github.com/htr3n/loan-approval-portal/blob/master/src/main/java/com/westbank/config/ServiceBeans.java).
 
 As the Web application is running, open a Web browser at http://localhost:9999/portal/services to see a list of running Web services.
-
-In order to modify these Web services, have a look into the folder `WEB-INF/wsdl`. After modifying the WSDLs, run `mvn clean generate-sources` to re-generate Java implementations for these Web services.
-
-The actual implementation of the business logic of each Web service is in the corresponding Java class named `com.westbank.ws.impl.XXXImpl` in which '_XXX_' is the name of that Web service.
 
 ## Sidenotes
 
