@@ -25,14 +25,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(
-        basePackages = "com.westbank.repository",
-        excludeFilters = {
-                @ComponentScan.Filter(
-                        type = FilterType.ASSIGNABLE_TYPE,
-                        classes = {BaseRepository.class})
-        }
-)
+@EnableJpaRepositories(basePackages = "com.westbank.repository", excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {BaseRepository.class})})
 @PropertySource({"classpath:hibernate.properties", "classpath:hibernate-extra.properties"})
 @ComponentScan(basePackages = {"com.westbank.domain", "com.westbank.service"})
 @Import(DataBeans.class)

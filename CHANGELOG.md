@@ -32,10 +32,14 @@
  * Switch the database-in-use from [Apache Derby](https://db.apache.org/derby) to [H2](http://www.h2database.com/html/main.html) for less memory footprint
 
 2018-06-21
-* Refactore big fat DAOs
+* Refactore big fat DAOs and creates Service classes
 * Switch the database pooling from [c3p0](https://www.mchange.com/projects/c3p0) to [HikariCP](https://github.com/brettwooldridge/HikariCP)
 
 2018-06-22
 
-* Switch to JPA 
+* Switch to JPA and use EntityManager
+
+2018-06-25
+
+* Switch to XML-less configuration
 
