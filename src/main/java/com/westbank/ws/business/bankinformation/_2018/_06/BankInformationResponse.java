@@ -3,8 +3,12 @@ package com.westbank.ws.business.bankinformation._2018._06;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter2;
 
 
 /**
@@ -33,21 +37,32 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "BankInformationResponse")
 public class BankInformationResponse {
 
-    protected double monthlyPayment;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    @XmlSchemaType(name = "double")
+    protected Double monthlyPayment;
 
     /**
      * Gets the value of the monthlyPayment property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public double getMonthlyPayment() {
+    public Double getMonthlyPayment() {
         return monthlyPayment;
     }
 
     /**
      * Sets the value of the monthlyPayment property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setMonthlyPayment(double value) {
+    public void setMonthlyPayment(Double value) {
         this.monthlyPayment = value;
     }
 

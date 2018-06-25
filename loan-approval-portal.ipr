@@ -143,8 +143,11 @@
             <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.3.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.3.1.Final" />
             <element id="library" level="project" name="Maven: org.hibernate:hibernate-hikaricp:5.3.1.Final" />
-            <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.2.0" />
+            <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:2.0.8.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:2.0.8.RELEASE" />
+            <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.13" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+            <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.2.0" />
             <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.8" />
             <element id="library" level="project" name="Maven: com.h2database:h2:1.4.197" />
             <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
@@ -181,6 +184,14 @@
       <module name="loan-approval-portal" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="H2 - default" uuid="d84a52a1-c080-4437-b3d9-6c79837971eb">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:default</jdbc-url>
+    </data-source>
+  </component>
   <component name="ExportToHTMLSettings">
     <option name="PRINT_LINE_NUMBERS" value="false" />
     <option name="OPEN_IN_BROWSER" value="false" />
@@ -198,6 +209,9 @@
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
       <option name="myName" value="Project Default" />
+      <inspection_tool class="SpringFacetInspection" enabled="false" level="WARNING" enabled_by_default="false">
+        <option name="checkTestFiles" value="false" />
+      </inspection_tool>
     </profile>
     <version value="1.0" />
   </component>
@@ -371,6 +385,17 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+  </component>
+  <component name="dataSourceStorageLocal">
+    <data-source name="H2 - default" uuid="d84a52a1-c080-4437-b3d9-6c79837971eb">
+      <database-info product="H2" version="1.4.196 (2017-06-10)" jdbc-version="4.0" driver-name="H2 JDBC Driver" driver-version="1.4.196 (2017-06-10)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+      <introspection-schemas>DEFAULT:PUBLIC</introspection-schemas>
+    </data-source>
   </component>
   <component name="libraryTable">
     <library name="Maven: antlr:antlr:2.7.7">
@@ -769,6 +794,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/xmlschema/xmlschema-core/2.2.3/xmlschema-core-2.2.3-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.aspectj:aspectjrt:1.8.13">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.13/aspectjrt-1.8.13.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.13/aspectjrt-1.8.13-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.8.13/aspectjrt-1.8.13-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.codehaus.woodstox:stax2-api:3.1.4">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar!/" />
@@ -1020,6 +1056,28 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.springframework.data:spring-data-commons:2.0.8.RELEASE">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.springframework.data:spring-data-jpa:2.0.8.RELEASE">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework:spring-aop:5.0.7.RELEASE">

@@ -7,7 +7,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.w3._2001.xmlschema.Adapter2;
+import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -21,14 +24,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="loanContractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="borrowerTitle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="borrowerFirstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="borrowerLastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="borrowerDateOfBirth" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="borrowerAddress" type="{urn:com:westbank:ws:business:LoanContract:2018:06}Address"/&gt;
  *         &lt;element name="coBorrower" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
- *         &lt;element name="coBorrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="coBorrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="coBorrowerTitle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="coBorrowerFirstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="coBorrowerLastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
@@ -86,7 +89,10 @@ public class LoanContractResponse {
 
     @XmlElement(required = true)
     protected String loanContractId;
-    protected long borrowerCustomerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer borrowerCustomerId;
     @XmlElement(required = true)
     protected String borrowerTitle;
     @XmlElement(required = true)
@@ -99,7 +105,10 @@ public class LoanContractResponse {
     @XmlElement(required = true)
     protected Address borrowerAddress;
     protected boolean coBorrower;
-    protected long coBorrowerCustomerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer coBorrowerCustomerId;
     @XmlElement(required = true)
     protected String coBorrowerTitle;
     @XmlElement(required = true)
@@ -111,10 +120,22 @@ public class LoanContractResponse {
     protected XMLGregorianCalendar coBorrowerDateOfBirth;
     @XmlElement(required = true)
     protected String loanReason;
-    protected double loanAmount;
-    protected int loanTerm;
-    protected double interestRate;
-    protected double monthlyPayment;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    @XmlSchemaType(name = "double")
+    protected Double loanAmount;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer loanTerm;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    @XmlSchemaType(name = "double")
+    protected Double interestRate;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    @XmlSchemaType(name = "double")
+    protected Double monthlyPayment;
     @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar settlementDate;
@@ -158,16 +179,24 @@ public class LoanContractResponse {
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getBorrowerCustomerId() {
+    public Integer getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setBorrowerCustomerId(long value) {
+    public void setBorrowerCustomerId(Integer value) {
         this.borrowerCustomerId = value;
     }
 
@@ -310,16 +339,24 @@ public class LoanContractResponse {
     /**
      * Gets the value of the coBorrowerCustomerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getCoBorrowerCustomerId() {
+    public Integer getCoBorrowerCustomerId() {
         return coBorrowerCustomerId;
     }
 
     /**
      * Sets the value of the coBorrowerCustomerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCoBorrowerCustomerId(long value) {
+    public void setCoBorrowerCustomerId(Integer value) {
         this.coBorrowerCustomerId = value;
     }
 
@@ -446,64 +483,96 @@ public class LoanContractResponse {
     /**
      * Gets the value of the loanAmount property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public double getLoanAmount() {
+    public Double getLoanAmount() {
         return loanAmount;
     }
 
     /**
      * Sets the value of the loanAmount property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setLoanAmount(double value) {
+    public void setLoanAmount(Double value) {
         this.loanAmount = value;
     }
 
     /**
      * Gets the value of the loanTerm property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getLoanTerm() {
+    public Integer getLoanTerm() {
         return loanTerm;
     }
 
     /**
      * Sets the value of the loanTerm property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setLoanTerm(int value) {
+    public void setLoanTerm(Integer value) {
         this.loanTerm = value;
     }
 
     /**
      * Gets the value of the interestRate property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public double getInterestRate() {
+    public Double getInterestRate() {
         return interestRate;
     }
 
     /**
      * Sets the value of the interestRate property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setInterestRate(double value) {
+    public void setInterestRate(Double value) {
         this.interestRate = value;
     }
 
     /**
      * Gets the value of the monthlyPayment property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public double getMonthlyPayment() {
+    public Double getMonthlyPayment() {
         return monthlyPayment;
     }
 
     /**
      * Sets the value of the monthlyPayment property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setMonthlyPayment(double value) {
+    public void setMonthlyPayment(Double value) {
         this.monthlyPayment = value;
     }
 

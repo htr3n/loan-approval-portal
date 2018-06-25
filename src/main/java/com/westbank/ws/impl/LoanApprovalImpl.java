@@ -1,13 +1,14 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.DateHelper;
-import com.westbank.db.dao.LoanContractDao;
-import com.westbank.db.dao.LoanFileDao;
-import com.westbank.db.entity.Address;
-import com.westbank.db.entity.Customer;
-import com.westbank.db.entity.LoanFileStatus;
-import com.westbank.db.entity.Role;
-import com.westbank.db.service.CustomerService;
+import com.westbank.dao.LoanContractDao;
+import com.westbank.dao.LoanFileDao;
+import com.westbank.domain.Address;
+import com.westbank.domain.Contract;
+import com.westbank.domain.Customer;
+import com.westbank.domain.LoanFileStatus;
+import com.westbank.domain.Role;
+import com.westbank.helper.DateHelper;
+import com.westbank.service.CustomerService;
 import com.westbank.ws.business.bankinformation._2018._06.BankInformation;
 import com.westbank.ws.business.bankinformation._2018._06.BankInformationRequest;
 import com.westbank.ws.business.bankinformation._2018._06.BankInformationResponse;
@@ -49,9 +50,12 @@ import com.westbank.ws.process.loanapproval._2018._06.StaffIdentity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.Optional;
 import java.util.Random;
 
+@Component
 @javax.jws.WebService(
         serviceName = "LoanApproval",
         portName = "LoanApprovalPort",
@@ -171,9 +175,9 @@ public class LoanApprovalImpl implements LoanApproval {
     public void informedByCustomer(CustomerDecision request) {
         log.info("Received the customer's signature:" + request);
         String contractId = request.getContractId();
-        if (contractId != null) {
-            com.westbank.db.entity.Contract contract = loanContractDao.getContractById(contractId);
-            String loanFileId = contract.getLoanFile().getLoanFileId();
+        Optional<Contract> contract = loanContractDao.findContractById(contractId);
+        if (contract.isPresent()) {
+            String loanFileId = contract.get().getLoanFile().getLoanFileId();
             performLoanSettlement(contractId);
             closeLoanApproval(loanFileId, contractId);
             notifyCustomer(loanFileId, contractId);
@@ -196,10 +200,10 @@ public class LoanApprovalImpl implements LoanApproval {
 
         final LoanFileRequest loanFileRequest = new LoanFileRequest();
 
-        Long borrowerCustomerId = loanRequest.getBorrowerCustomerId();
+        Integer borrowerCustomerId = loanRequest.getBorrowerCustomerId();
         Customer borrower = null;
         if (borrowerCustomerId != null) {
-            borrower = customerService.getCustomerById(borrowerCustomerId);
+            borrower = customerService.findCustomerById(borrowerCustomerId);
         }
         if (borrower != null) {
             loanFileRequest.setBorrowerCustomerId(borrowerCustomerId);
@@ -258,10 +262,10 @@ public class LoanApprovalImpl implements LoanApproval {
         loanFileRequest.setCoBorrower(loanRequest.isCoBorrower());
         if (loanRequest.isCoBorrower()) {
 
-            Long coborrowerCustomerId = loanRequest.getCoBorrowerCustomerId();
+            Integer coborrowerCustomerId = loanRequest.getCoBorrowerCustomerId();
             Customer coborrower = null;
             if (coborrowerCustomerId != null) {
-                coborrower = customerService.getCustomerById(coborrowerCustomerId);
+                coborrower = customerService.findCustomerById(coborrowerCustomerId);
                 log.info("Co-borrower existed!");
             }
             if (coborrower != null) {
@@ -313,7 +317,7 @@ public class LoanApprovalImpl implements LoanApproval {
 
         final BankPrivilegeRequest request = new BankPrivilegeRequest();
 
-        com.westbank.db.entity.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
+        com.westbank.domain.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
         if (loanFile != null) {
             request.setBorrowerCustomerId(loanFile.getBorrower().getCustomerId());
             request.setBorrowerFirstName(loanFile.getBorrower().getFirstName());
@@ -332,7 +336,7 @@ public class LoanApprovalImpl implements LoanApproval {
 
         BankInformationResponse response = null;
 
-        com.westbank.db.entity.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
+        com.westbank.domain.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
         if (loanFile != null) {
             request.setLoanAmount(loanFile.getLoanAmount());
             request.setLoanTerm(loanFile.getLoanTerm());
@@ -350,7 +354,7 @@ public class LoanApprovalImpl implements LoanApproval {
 
         TaskDispatchResponse response = null;
 
-        com.westbank.db.entity.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
+        com.westbank.domain.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
         if (loanFile != null) {
             request.setLoanAmount(loanFile.getLoanAmount());
             request.setStaffId(staffId);
@@ -436,7 +440,7 @@ public class LoanApprovalImpl implements LoanApproval {
             request.setContractId(contractId);
         }
 
-        com.westbank.db.entity.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
+        com.westbank.domain.LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
 
         if (loanFile != null) {
             request.setBorrowerCustomerId(loanFile.getBorrower().getCustomerId());

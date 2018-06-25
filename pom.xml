@@ -232,6 +232,13 @@
             <version>${hibernate.version}</version>
         </dependency>
 
+        <!-- Spring Data -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.0.8.RELEASE</version>
+        </dependency>
+
         <!-- Database Pooling -->
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -264,20 +271,6 @@
         </dependency>
 
         <!-- RDBMS -->
-        <!-- Choose an appropriate DBMS, add Maven dependencies and modify the
-            corresponding 'hibernate.properties'. -->
-        <!-- // Apache Derby
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>${derby.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derbyclient</artifactId>
-            <version>${derby.version}</version>
-        </dependency>
-        -->
         <!-- H2 -->
         <dependency>
             <groupId>com.h2database</groupId>
@@ -404,6 +397,8 @@
                                 <extraargs>
                                     <extraarg>-defaultValues</extraarg>
                                     <extraarg>-quiet</extraarg>
+                                    <extraarg>-b</extraarg>
+                                    <extraarg>${basedir}/src/main/webapp/WEB-INF/wsdl/bindings.xml</extraarg>
                                     <extraarg>-wsdlLocation</extraarg>
                                     <extraarg></extraarg>
                                 </extraargs>
@@ -415,7 +410,6 @@
                     </execution>
                 </executions>
                 <dependencies>
-                    <!-- JAXB -->
                     <dependency>
                         <groupId>javax.xml.bind</groupId>
                         <artifactId>jaxb-api</artifactId>

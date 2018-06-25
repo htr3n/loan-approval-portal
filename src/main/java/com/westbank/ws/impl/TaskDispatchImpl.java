@@ -1,13 +1,15 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.entity.Role;
-import com.westbank.mvc.Constants;
+import com.westbank.domain.Role;
+import com.westbank.web.Constants;
 import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatch;
 import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchRequest;
 import com.westbank.ws.business.taskdispatch._2018._06.TaskDispatchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 @javax.jws.WebService(
 		serviceName = "TaskDispatch",
 		portName = "TaskDispatchPort",

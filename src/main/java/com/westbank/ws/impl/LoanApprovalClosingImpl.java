@@ -5,7 +5,9 @@ import com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosin
 import com.westbank.ws.business.loanapprovalclosing._2018._06.LoanApprovalClosingResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 @javax.jws.WebService(
         serviceName = "LoanApprovalClosing",
         portName = "LoanApprovalClosingPort",

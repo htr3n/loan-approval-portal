@@ -1,37 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--
-<bean id="customerService" class="com.westbank.db.service.CustomerServiceImpl" >
+<bean id="customerService" class="com.westbank.db.servicess.CustomerServiceImpl" >
     <constructor-arg ref="customerDao"/>
 </bean>
 
-<bean id="loanFileService" class="com.westbank.db.service.LoanFileServiceImpl" />
+<bean id="loanFileService" class="com.westbank.db.servicess.LoanFileServiceImpl" />
 
-<bean id="contractService" class="com.westbank.db.service.LoanContractServiceImpl" >
+<bean id="contractService" class="com.westbank.db.servicess.LoanContractServiceImpl" >
     <constructor-arg ref="loanContractDao" />
 </bean>
 
-<bean id="staffService" class="com.westbank.db.service.StaffServiceImpl" >
+<bean id="staffService" class="com.westbank.db.servicess.StaffServiceImpl" >
     <constructor-arg ref="staffDao"/>
 </bean>
 -->
 
-    <bean id="customerDao" class="com.westbank.db.dao.CustomerDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="customerDao" class="com.westbank.dao.CustomerDaoImpl" />
 
-    <bean id="loanFileDao" class="com.westbank.db.dao.LoanFileDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="loanFileDao" class="com.westbank.dao.LoanFileDaoImpl" />
 
-    <bean id="loanContractDao" class="com.westbank.db.dao.LoanContractDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="loanContractDao" class="com.westbank.dao.LoanContractDaoImpl" />
 
-    <bean id="agencyDao" class="com.westbank.db.dao.AgencyDaoImpl"/>
+    <bean id="agencyDao" class="com.westbank.dao.AgencyDaoImpl"/>
 
-    <bean id="staffDao" class="com.westbank.db.dao.StaffDaoImpl"
-          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="staffDao" class="com.westbank.dao.StaffDaoImpl" />
 
 </beans>

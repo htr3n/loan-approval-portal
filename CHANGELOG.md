@@ -20,8 +20,8 @@
 2018-06-15
 
 * Change/upgrade Jetty Maven plugin 6.1.22 to the most recent Eclipse's version 9.x
-* Hibernate 3 --> 5 alongside with Spring Framework 3 --> 5
-* Migrate `HibernateDaoSupport` 
+* Migrate Hibernate 3 --> 5 alongside with Spring Framework 3 --> 5
+* Eliminate the use of `HibernateDaoSupport` 
 
 2018-06-16
 
@@ -34,3 +34,8 @@
 2018-06-21
 * Refactore big fat DAOs
 * Switch the database pooling from [c3p0](https://www.mchange.com/projects/c3p0) to [HikariCP](https://github.com/brettwooldridge/HikariCP)
+
+2018-06-22
+
+* Switch to JPA 
+

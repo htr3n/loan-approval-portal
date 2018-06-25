@@ -9,7 +9,7 @@
 
   <bean
     id="exampleLoanForm"
-    class="com.westbank.mvc.customer.model.ApplicationForm"
+    class="com.westbank.web.form.ApplicationForm"
     p:loanAmount="100000"
     p:loanReason="Home Mortgage"
     p:loanTerm="8"

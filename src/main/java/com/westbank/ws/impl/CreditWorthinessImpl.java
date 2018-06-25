@@ -1,14 +1,15 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.service.LoanFileService;
+import com.westbank.service.LoanFileService;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthiness;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessRequest;
 import com.westbank.ws.business.creditworthiness._2018._06.CreditWorthinessResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
+@Component
 @javax.jws.WebService(
         serviceName = "CreditWorthiness",
         portName = "CreditWorthinessPort",

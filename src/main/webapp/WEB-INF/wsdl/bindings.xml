@@ -1,0 +1,10 @@
+<jxb:bindings version="1.0"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <jxb:globalBindings>
+        <jxb:javaType name="java.lang.Integer" xmlType="xsd:int"/>
+        <jxb:javaType name="java.lang.Integer" xmlType="xsd:long"/>
+        <jxb:javaType name="java.lang.Double" xmlType="xsd:double"/>
+        <jxb:javaType name="java.lang.Double" xmlType="xsd:float"/>
+    </jxb:globalBindings>
+</jxb:bindings>

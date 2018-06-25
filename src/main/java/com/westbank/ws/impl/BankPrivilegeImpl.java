@@ -5,9 +5,11 @@ import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeRequest;
 import com.westbank.ws.business.bankprivilege._2018._06.BankPrivilegeResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@Component
 @javax.jws.WebService(
         serviceName = "BankPrivilege",
         portName = "BankPrivilegePort",

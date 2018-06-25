@@ -1,15 +1,17 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.dao.LoanFileDao;
-import com.westbank.db.entity.EstateType;
-import com.westbank.db.entity.LoanFile;
+import com.westbank.dao.LoanFileDao;
+import com.westbank.domain.EstateType;
+import com.westbank.domain.LoanFile;
 import com.westbank.ws.business.loanrisk._2018._06.LoanRisk;
 import com.westbank.ws.business.loanrisk._2018._06.LoanRiskRequest;
 import com.westbank.ws.business.loanrisk._2018._06.LoanRiskResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 @javax.jws.WebService(
         serviceName = "LoanRisk",
         portName = "LoanRiskPort",
@@ -33,12 +35,12 @@ public class LoanRiskImpl implements LoanRisk {
         LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
         if (loanFile != null) {
             if (EstateType.HOUSE == loanFile.getEstateType()) {
-                loanFile.setRisk(com.westbank.db.entity.LoanRisk.HIGH);
-                response.setRisk(com.westbank.db.entity.LoanRisk.HIGH.name());
+                loanFile.setRisk(com.westbank.domain.LoanRisk.HIGH);
+                response.setRisk(com.westbank.domain.LoanRisk.HIGH.name());
                 response.setHighRisk(true);
             } else {
-                loanFile.setRisk(com.westbank.db.entity.LoanRisk.LOW);
-                response.setRisk(com.westbank.db.entity.LoanRisk.LOW.name());
+                loanFile.setRisk(com.westbank.domain.LoanRisk.LOW);
+                response.setRisk(com.westbank.domain.LoanRisk.LOW.name());
                 response.setHighRisk(false);
             }
             loanFileDao.save(loanFile);

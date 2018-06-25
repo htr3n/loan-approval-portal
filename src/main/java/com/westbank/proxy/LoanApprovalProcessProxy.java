@@ -1,13 +1,13 @@
 package com.westbank.proxy;
 
-import com.westbank.db.DateHelper;
-import com.westbank.db.entity.Address;
-import com.westbank.db.entity.Contract;
-import com.westbank.db.entity.Customer;
-import com.westbank.db.entity.LoanFile;
-import com.westbank.db.entity.Staff;
-import com.westbank.db.service.CustomerService;
-import com.westbank.mvc.customer.model.ApplicationForm;
+import com.westbank.helper.DateHelper;
+import com.westbank.domain.Address;
+import com.westbank.domain.Contract;
+import com.westbank.domain.Customer;
+import com.westbank.domain.LoanFile;
+import com.westbank.domain.Staff;
+import com.westbank.service.CustomerService;
+import com.westbank.web.form.ApplicationForm;
 import com.westbank.ws.process.loanapproval._2018._06.AddressType;
 import com.westbank.ws.process.loanapproval._2018._06.CustomerDecision;
 import com.westbank.ws.process.loanapproval._2018._06.LoanApproval;
@@ -143,7 +143,7 @@ public class LoanApprovalProcessProxy {
      * @param accepted     -- whether the customer accepts the contract or not
      * @return <code>true</code> if successful, otherwise, <code>false</code>
      */
-    public boolean informCustomerDecision(long customerId, String customerName, String loanFileId, String contractId,
+    public boolean informCustomerDecision(Integer customerId, String customerName, String loanFileId, String contractId,
                                           boolean accepted) {
         boolean isOK = false;
         try {
@@ -200,8 +200,8 @@ public class LoanApprovalProcessProxy {
         LoanApprovalRequest request = null;
         if (form != null) {
             try {
-                long borrowerCustomerId = Long.valueOf(form.getBorrowerCustomerId());
-                Customer borrower = customerService.getCustomerById(borrowerCustomerId);
+                Integer borrowerCustomerId = Integer.valueOf(form.getBorrowerCustomerId());
+                Customer borrower = customerService.findCustomerById(borrowerCustomerId);
                 if (borrower != null) {
                     log.info("Customer exists!");
                     request = createLoanRequestByExistingCustomer(borrower);
@@ -218,7 +218,7 @@ public class LoanApprovalProcessProxy {
             // co-borrower
             if (form.isHasCoborrower()) {
                 try {
-                    long coborrowerCustomerId = Long.valueOf(form.getCoborrowerCustomerId());
+                    Integer coborrowerCustomerId = Integer.valueOf(form.getCoborrowerCustomerId());
                     request.setCoBorrowerCustomerId(coborrowerCustomerId);
                 } catch (NumberFormatException e) {
                     request.setCoBorrowerTitle(form.getCoborrowerTitle());
@@ -330,7 +330,7 @@ public class LoanApprovalProcessProxy {
         return request;
     }
 
-    protected CustomerDecision createCustomerSignature(long customerId, String customerName, String loanFileId,
+    protected CustomerDecision createCustomerSignature(Integer customerId, String customerName, String loanFileId,
                                                        String contractId) {
         final CustomerDecision signature = new CustomerDecision();
         signature.setCustomerId(customerId);

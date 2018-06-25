@@ -25,7 +25,7 @@ Then open a Web browser to http://localhost:9999/portal for the portal main page
 
 Some other pages for development/testing
 
-   * Verifying the underlying database (see `src/main/java/com.westbank.mvc.DevController`) : http://localhost:9999/portal/dev.html 
+   * Verifying the underlying database (see `src/main/java/com.westbank.web.DevController`) : http://localhost:9999/portal/dev.html 
 
    * Checking the list of running Web services: http://localhost:9999/portal/services
 
@@ -78,7 +78,7 @@ By convention, the default configuration for [DispatcherServlet](https://docs.sp
 </servlet>
 ```
 
-The Spring managed and annotated controllers for customers and staffs are under `com.westbank.mvc.customer` and `com.westbank.mvc.staff` respectively. The portal's index page is mapped to `HomeController`.
+The Spring managed and annotated controllers for customers and staffs are under `com.westbank.web.customer` and `com.westbank.web.staff` respectively. The portal's index page is mapped to `HomeController`.
 
 ```xml
 <mvc:annotation-driven />
@@ -100,7 +100,7 @@ All views (JSP/JSTL) are in the folder `src/main/webapp/WEB-INF/jsp/` for custom
 
 #### Data Access Layer
 
-* Data entities are annotated with JPA conventions (see `com.westbank.db.entity`). 
+* Data entities are annotated with JPA conventions (see `com.westbank.db.entities`). 
 * The Hibernate configuration is in `WEB-INF/data-access.xml` loaded by`org.springframework.web.context.ContextLoaderListener`.
 * The DAO helpers are in the package `db.dao` for manipulating the underlying data/objects using Spring HibernateTemplate such as `CustomerDao`, `ProviderDao`, `LoanDao`, `StaffDao`, `RoleDao`, etc.
 * Some required Spring beans will be injected into Spring managed controllers and DAO helpers. Those beans are also defined in `WEB-INF/data-access.xml`.

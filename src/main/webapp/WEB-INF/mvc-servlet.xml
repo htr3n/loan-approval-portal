@@ -27,8 +27,12 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan
-		base-package="com.westbank.mvc.staff.controller,com.westbank.mvc.staff.model,com.westbank.mvc,com.westbank.mvc.customer.controller,com.westbank.mvc.customer.model" />
+	<context:component-scan base-package="com.westbank.config" />
+	<context:component-scan base-package="com.westbank.web" />
+	<context:component-scan base-package="com.westbank.web.staff.model" />
+	<context:component-scan base-package="com.westbank.web.staff.controller" />
+	<context:component-scan base-package="com.westbank.web.customer.controller" />
+	<context:component-scan base-package="com.westbank.web.customer.model" />
  
 	<context:annotation-config />
 
@@ -38,22 +42,22 @@
 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
 
 	<bean id="loginValidator"
-		class="com.westbank.mvc.customer.controller.LoginValidator" />
+		class="com.westbank.web.validator.LoginValidator" />
 	<bean id="customerProfileValidator"
-		class="com.westbank.mvc.customer.controller.ProfileValidator" />
+		class="com.westbank.web.validator.ProfileValidator" />
 	<bean id="staffLoginValidator"
-		class="com.westbank.mvc.staff.controller.StaffLoginValidator" />
+		class="com.westbank.web.validator.StaffLoginValidator" />
 	<bean id="loanRequestValidator"
-		class="com.westbank.mvc.customer.controller.LoanRequestValidator" />
+		class="com.westbank.web.validator.LoanRequestValidator" />
 	<bean id="newLoanRequestValidator"
-		class="com.westbank.mvc.customer.controller.NewRequestValidator" />
+		class="com.westbank.web.validator.NewRequestValidator" />
 
 	<bean id="loginForm"
-		class="com.westbank.mvc.customer.model.LoginForm"
+		class="com.westbank.web.form.LoginForm"
 		p:email="power@abc.com">
 	</bean>
 	<bean id="staffLoginForm"
-		class="com.westbank.mvc.staff.model.StaffLoginForm"
+		class="com.westbank.web.form.StaffLoginForm"
 		p:id="bryan">
 	</bean>
 

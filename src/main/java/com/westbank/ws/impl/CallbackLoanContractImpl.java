@@ -4,7 +4,9 @@ import com.westbank.ws.client.callbackloancontract.CallbackLoanContract;
 import com.westbank.ws.client.callbackloancontract.CallbackLoanContractRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 @javax.jws.WebService(
         serviceName = "CallbackLoanContract",
         portName = "CallbackLoanContractPort",
@@ -17,7 +19,7 @@ public class CallbackLoanContractImpl implements CallbackLoanContract {
     public void send(CallbackLoanContractRequest request) {
         log.info("Executing operation send:" + request);
         // TODO
-        // long borrowerId = request.getBorrowerCustomerId();
+        // Integer borrowerId = request.getBorrowerCustomerId();
         // String contractId = request.getLoanContractId();
     }
 

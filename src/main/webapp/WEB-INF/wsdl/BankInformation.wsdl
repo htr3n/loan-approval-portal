@@ -15,7 +15,7 @@
         <xsd:complexType>
            <xsd:sequence>
             <xsd:element name="loanAmount" type="xsd:double" />
-            <xsd:element name="loanTerm" type="xsd:int" />
+            <xsd:element name="loanTerm" type="xsd:int"  />
             <xsd:element name="interestRate" type="xsd:double" />
             <xsd:element name="staffId" type="xsd:string" />
             <xsd:element name="staffRole" type="xsd:string" />            

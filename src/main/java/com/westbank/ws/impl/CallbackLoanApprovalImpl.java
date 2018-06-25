@@ -1,13 +1,15 @@
 package com.westbank.ws.impl;
 
-import com.westbank.db.service.LoanFileService;
+import com.westbank.service.LoanFileService;
 import com.westbank.ws.client.callbackloanapproval.CallbackLoanApproval;
 import com.westbank.ws.client.callbackloanapproval.CallbackLoanApprovalRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
+@Component
 @javax.jws.WebService(
         serviceName = "CallbackLoanApproval",
         portName = "CallbackLoanApprovalPort",

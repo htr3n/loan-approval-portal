@@ -103,7 +103,7 @@
           <form:input id="estateAddress" path="estateAddress" tabindex="14" />
           <form:errors path="estateAddress" cssClass="fieldError"/>
 
-           <label for="totalPurchasePrice">Total Purchase Price (&euro;)<span class="required">*</span></label>
+           <label for="totalPurchasePrice">Total Purchase Price ($)<span class="required">*</span></label>
            <form:input path="totalPurchasePrice" id="totalPurchasePrice" tabindex="15" />
            <form:errors path="totalPurchasePrice" cssClass="fieldError"/>
 

@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -19,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="accepted" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
- *         &lt;element name="customerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="customerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="token" type="{urn:com:westbank:ws:process:LoanApproval:2018:06}TokenType"/&gt;
@@ -43,7 +46,10 @@ import javax.xml.bind.annotation.XmlType;
 public class CustomerDecision {
 
     protected boolean accepted;
-    protected long customerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer customerId;
     @XmlElement(required = true)
     protected String contractId;
     @XmlElement(required = true)
@@ -70,16 +76,24 @@ public class CustomerDecision {
     /**
      * Gets the value of the customerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
     /**
      * Sets the value of the customerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCustomerId(long value) {
+    public void setCustomerId(Integer value) {
         this.customerId = value;
     }
 

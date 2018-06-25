@@ -5,7 +5,9 @@ import com.westbank.ws.business.loansettlement._2018._06.LoanSettlementRequest;
 import com.westbank.ws.business.loansettlement._2018._06.LoanSettlementResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 @javax.jws.WebService(
         serviceName = "LoanSettlement",
         portName = "LoanSettlementPort",
