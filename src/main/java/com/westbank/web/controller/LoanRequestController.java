@@ -1,8 +1,8 @@
 package com.westbank.web.controller;
 
+import com.westbank.proxy.LoanApprovalProcessProxy;
 import com.westbank.web.Constants;
 import com.westbank.web.form.ApplicationForm;
-import com.westbank.proxy.LoanApprovalProcessProxy;
 import com.westbank.web.validator.LoanRequestValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,12 +53,7 @@ public class LoanRequestController {
 
     @ModelAttribute("applicationForm")
     public ApplicationForm setupApplicationForm() {
-        log.info("Initialize application form");
-        if (applicationForm != null) {
-            return applicationForm;
-        } else {
-            return new ApplicationForm();
-        }
+        return this.applicationForm;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -83,7 +78,8 @@ public class LoanRequestController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processSubmission(ApplicationForm form, BindingResult result,
+    public String processSubmission(@ModelAttribute("applicationForm") ApplicationForm applicationForm,
+                                    BindingResult result,
                                     HttpSession session) {
 
         session.removeAttribute(Constants.SESSION_PROCESS_STATUS);
@@ -94,23 +90,23 @@ public class LoanRequestController {
 
         log.info("Process the loan request");
         if (validator != null) {
-            validator.validate(form, result);
+            validator.validate(applicationForm, result);
             if (result.hasFieldErrors()) {
                 log.info("Form validation failed. Stay!");
                 return THIS_VIEW;
             } else {
                 session.setAttribute(Constants.SESSION_NAV,
                         Constants.NAV_REQUEST);
-                session.setAttribute(Constants.SESSION_CUSTOMER_TITLE, form
+                session.setAttribute(Constants.SESSION_CUSTOMER_TITLE, applicationForm
                         .getBorrowerTitle());
-                session.setAttribute(Constants.SESSION_CUSTOMER_NAME, form
+                session.setAttribute(Constants.SESSION_CUSTOMER_NAME, applicationForm
                         .getBorrowerFirstName()
-                        + " " + form.getBorrowerLastName());
-                session.setAttribute(Constants.SESSION_CUSTOMER_EMAIL, form
+                        + " " + applicationForm.getBorrowerLastName());
+                session.setAttribute(Constants.SESSION_CUSTOMER_EMAIL, applicationForm
                         .getBorrowerEmail());
                 if (processProxy != null) {
                     log.info("Send loan request to the process via the proxy");
-                    boolean isOK = processProxy.startProcess(form);
+                    boolean isOK = processProxy.startProcess(applicationForm);
                     if (isOK) {
                         return REQUEST_INFO;
                     } else {

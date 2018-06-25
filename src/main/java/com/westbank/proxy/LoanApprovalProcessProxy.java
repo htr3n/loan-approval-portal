@@ -1,11 +1,11 @@
 package com.westbank.proxy;
 
-import com.westbank.helper.DateHelper;
 import com.westbank.domain.Address;
 import com.westbank.domain.Contract;
 import com.westbank.domain.Customer;
 import com.westbank.domain.LoanFile;
 import com.westbank.domain.Staff;
+import com.westbank.helper.DateHelper;
 import com.westbank.service.CustomerService;
 import com.westbank.web.form.ApplicationForm;
 import com.westbank.ws.process.loanapproval._2018._06.AddressType;
@@ -19,18 +19,17 @@ import com.westbank.ws.process.loanapproval._2018._06.TokenType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
-@Component
 public class LoanApprovalProcessProxy {
 
     static final String WSDL = "?wsdl";
     static final Logger log = LoggerFactory.getLogger(LoanApprovalProcessProxy.class);
 
+    @Autowired
     protected LoanApproval loanApproval;
 
     @Autowired
@@ -90,7 +89,7 @@ public class LoanApprovalProcessProxy {
             request.setLoanFileId(loanFileId);
             request.setSecureToken(tokenString);
 
-            if (request != null && loanApproval != null) {
+            if (loanApproval != null) {
                 log.debug("Staff involve: " + request);
                 loanApproval.processedByStaff(request);
                 isOK = true;

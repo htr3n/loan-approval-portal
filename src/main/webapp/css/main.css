@@ -1,140 +1,142 @@
 html {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	margin-top: 0px;
-	margin-bottom: 0px;
-   margin-left: auto;
-   margin-right: auto;
-	font-family: Verdana, Tahoma, Arial, sans-serif;
-	font-size: 11px;
-	background: #ddd url(../images/body.gif) repeat fixed 0 0;	
-	color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    font-size: 11px;
+    background: #ddd url(../images/body.gif) repeat fixed 0 0;
+    color: black;
 }
 
 #banner {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 50px;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	border-bottom: 3px solid black;
-	color: #000;
-	background: #ABAD85;
-	z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-bottom: 3px solid black;
+    color: #000;
+    background: #ABAD85;
+    z-index: 5;
 }
 
-body>#banner {
-	position: fixed;
+body > #banner {
+    position: fixed;
 }
 
 #banner h1 {
-	margin: 5px 0 0 10px;
-	font-size: 24px;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.898); /* rgba(255, 255, 255, 0.898);  rgba(0,0,0,.4); */
-	color: #645949;
+    margin: 5px 0 0 10px;
+    font-size: 24px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.898); /* rgba(255, 255, 255, 0.898);  rgba(0,0,0,.4); */
+    color: #645949;
 }
 
 #tabmenu {
-	color: #000;
-	position: absolute;
-	top: 48px;
-	padding: 0;
-	margin: 0;
-	z-index: 10;
-	left: 15px;
+    color: #000;
+    position: absolute;
+    top: 48px;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    left: 15px;
 }
 
-body>#tabmenu {
-	position: fixed;
-}  /*Opera and Mozilla*/
+body > #tabmenu {
+    position: fixed;
+}
+
+/*Opera and Mozilla*/
 
 #tabmenu li {
-	display: inline;
-	overflow: hidden;
-	margin: 0;
-	border: 0;
-	list-style-type: none;
+    display: inline;
+    overflow: hidden;
+    margin: 0;
+    border: 0;
+    list-style-type: none;
 }
 
-#tabmenu a,a.active {
-	color: #DEDECF;
-	background: #898B5E;
-	font-size: 12px;
-	font-weight: bold;
-	border: 3px solid black;
-	padding: 2px;
-	margin: 0 2px;
-	text-decoration: none;
+#tabmenu a, a.active {
+    color: #DEDECF;
+    background: #898B5E;
+    font-size: 12px;
+    font-weight: bold;
+    border: 3px solid black;
+    padding: 2px;
+    margin: 0 2px;
+    text-decoration: none;
 }
 
 #tabmenu a.active {
-	background: #ABAD85;
-	border-top: 4px solid #ABAD85;
-	z-index: 30;
+    background: #ABAD85;
+    border-top: 4px solid #ABAD85;
+    z-index: 30;
 }
 
 #tabmenu a:hover {
-	color: #fff;
-	background: #ADC09F;
+    color: #fff;
+    background: #ADC09F;
 }
 
 #tabmenu a:visited {
-	color: #E8E9BE;
+    color: #E8E9BE;
 }
 
 #tabmenu a.active:hover {
-	background: #ABAD85;
-	color: #D3DBCB;
+    background: #ABAD85;
+    color: #D3DBCB;
 }
 
 #content {
-   float: left;
-	height: auto;
-	margin-top: 100px; 
-	z-index: 0;
-	width: 98%;
-	border: 0px solid;
-	position: relative;
-  left: 1%;
-  padding: 0;
-	/*
-	margin-left: auto;
+    float: left;
+    height: auto;
+    margin-top: 100px;
+    z-index: 0;
+    width: 98%;
+    border: 0px solid;
+    position: relative;
+    left: 1%;
+    padding: 0;
+    /*
+    margin-left: auto;
    margin-right: auto;
    */
 }
 
 #content a {
-	text-decoration: none;
-	color: #86862D;
-	cursor: pointer !important;
-	cursor: hand;
+    text-decoration: none;
+    color: #86862D;
+    cursor: pointer !important;
+    cursor: hand;
 }
 
 .heading {
-	display: block;
-	font-size: 16px;
-	font-weight: bold;
-	margin: 10px 0 0 0;
-	border: 0px solid;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.898); 
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    border: 0px solid;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.898);
 }
 
 .text {
-   clear: both;
-   display: block;
-   padding: 5px 0 10px 0;
-   font: normal;
+    clear: both;
+    display: block;
+    padding: 5px 0 10px 0;
+    font: normal;
 }
 
 #imgStatus {
-   width: 14px;
-   height: 14px;
-   position: relative;
-   left: -5px; 
-   top: .2em;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    left: -5px;
+    top: .2em;
 }

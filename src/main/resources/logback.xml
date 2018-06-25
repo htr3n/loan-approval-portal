@@ -2,13 +2,17 @@
 <configuration>
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>            
-            <pattern>%.-1level | %30.30logger{30} | %m \(%F:%L\)%n</pattern>
+            <!--
+			<pattern>%.-1level | %30.30logger{30} | %m \(%F:%L\)%n</pattern>
+			-->
+			<pattern>%.-1level | %60logger{60} | %m \(%F:%L\)%n</pattern>
         </encoder>
     </appender>
 	<root level="INFO">
 		<appender-ref ref="stdout" />
 	</root>
     <logger name="org.eclipse.jetty" level="INFO" />
+    <!--
     <logger name="org.springframework" level="WARN" />
     <logger name="org.apache.cxf.bus" level="WARN" />
     <logger name="org.apache.cxf.transport" level="WARN" />
@@ -17,4 +21,5 @@
     <logger name="org.hibernate.connection" level="WARN" />
     <logger name="org.hibernate.impl" level="WARN" />
     <logger name="com.mchange" level="WARN" />
+    -->
 </configuration>
