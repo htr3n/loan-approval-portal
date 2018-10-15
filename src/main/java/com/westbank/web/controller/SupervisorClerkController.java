@@ -13,25 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * This controller handles the front-end of a Supervisor/Clerk. After logged in,
- * a staff with the Supervisor/Clerk role will be redirected to this controller.
- * The controller then prepares a list of loan files and sends back to the front
- * -end. When the Supervisor/Clerk pushes the button, the controller will
- * activate the Loan Approval process at the second task "Access Portal". This
- * way, we can simply simulate the interaction between the Supervisor/Clerk and
- * the process
- */
 @Controller
 @RequestMapping("/staff/clerk.html")
 public class SupervisorClerkController {
 
-    static Logger log = LoggerFactory.getLogger(SupervisorClerkController.class);
+    private static Logger log = LoggerFactory.getLogger(SupervisorClerkController.class);
 
-    static final String THIS_VIEW = "staff/clerk";
+    private static final String THIS_VIEW = "staff/clerk";
+
+    private LoanApprovalProcessProxy processProxy;
 
     @Autowired
-    protected LoanApprovalProcessProxy processProxy;
+    public void setProcessProxy(LoanApprovalProcessProxy processProxy) {
+        this.processProxy = processProxy;
+    }
 
     @ModelAttribute("loanList")
     public TaskForm setupTaskForm() {

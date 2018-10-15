@@ -5,10 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter2;
 
 
 /**
@@ -41,10 +38,7 @@ import org.w3._2001.xmlschema.Adapter2;
 @XmlRootElement(name = "TaskDispatchRequest")
 public class TaskDispatchRequest {
 
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double loanAmount;
+    protected double loanAmount;
     @XmlElement(required = true)
     protected String staffId;
     @XmlElement(required = true)
@@ -53,24 +47,16 @@ public class TaskDispatchRequest {
     /**
      * Gets the value of the loanAmount property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getLoanAmount() {
+    public double getLoanAmount() {
         return loanAmount;
     }
 
     /**
      * Sets the value of the loanAmount property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoanAmount(Double value) {
+    public void setLoanAmount(double value) {
         this.loanAmount = value;
     }
 

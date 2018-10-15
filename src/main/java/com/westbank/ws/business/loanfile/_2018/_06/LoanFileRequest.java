@@ -7,10 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
-import org.w3._2001.xmlschema.Adapter2;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -125,10 +122,7 @@ import org.w3._2001.xmlschema.Adapter4;
 @XmlRootElement(name = "LoanFileRequest")
 public class LoanFileRequest {
 
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer borrowerCustomerId;
+    protected int borrowerCustomerId;
     @XmlElement(required = true)
     protected String borrowerTitle;
     @XmlElement(required = true)
@@ -158,26 +152,14 @@ public class LoanFileRequest {
     protected String borrowerEmail;
     @XmlElement(required = true)
     protected String borrowerOccupation;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer borrowerLengthOfService;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double borrowerIncome;
+    protected int borrowerLengthOfService;
+    protected double borrowerIncome;
     @XmlElement(required = true)
     protected String borrowerMaritalStatus;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer borrowerNumberOfChildren;
+    protected int borrowerNumberOfChildren;
     @XmlElement(defaultValue = "false")
     protected boolean coBorrower;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer coBorrowerCustomerId;
+    protected int coBorrowerCustomerId;
     @XmlElement(required = true)
     protected String coBorrowerTitle;
     @XmlElement(required = true)
@@ -193,30 +175,15 @@ public class LoanFileRequest {
     protected String coBorrowerPersonalId;
     @XmlElement(required = true)
     protected String coBorrowerOccupation;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer coBorrowerLengthOfService;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double coBorrowerIncome;
+    protected int coBorrowerLengthOfService;
+    protected double coBorrowerIncome;
     @XmlElement(required = true)
     protected String loanFileId;
     @XmlElement(required = true)
     protected String loanReason;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double loanAmount;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer loanTerm;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double interestRate;
+    protected double loanAmount;
+    protected int loanTerm;
+    protected double interestRate;
     @XmlElement(required = true)
     protected String residenceType;
     @XmlElement(required = true)
@@ -226,14 +193,8 @@ public class LoanFileRequest {
     @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar settlementDate;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double totalPurchasePrice;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double personalCapitalContribution;
+    protected double totalPurchasePrice;
+    protected double personalCapitalContribution;
     @XmlElement(required = true)
     protected String staffId;
     @XmlElement(required = true)
@@ -244,24 +205,16 @@ public class LoanFileRequest {
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getBorrowerCustomerId() {
+    public int getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerCustomerId(Integer value) {
+    public void setBorrowerCustomerId(int value) {
         this.borrowerCustomerId = value;
     }
 
@@ -604,48 +557,32 @@ public class LoanFileRequest {
     /**
      * Gets the value of the borrowerLengthOfService property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getBorrowerLengthOfService() {
+    public int getBorrowerLengthOfService() {
         return borrowerLengthOfService;
     }
 
     /**
      * Sets the value of the borrowerLengthOfService property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerLengthOfService(Integer value) {
+    public void setBorrowerLengthOfService(int value) {
         this.borrowerLengthOfService = value;
     }
 
     /**
      * Gets the value of the borrowerIncome property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getBorrowerIncome() {
+    public double getBorrowerIncome() {
         return borrowerIncome;
     }
 
     /**
      * Sets the value of the borrowerIncome property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerIncome(Double value) {
+    public void setBorrowerIncome(double value) {
         this.borrowerIncome = value;
     }
 
@@ -676,24 +613,16 @@ public class LoanFileRequest {
     /**
      * Gets the value of the borrowerNumberOfChildren property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getBorrowerNumberOfChildren() {
+    public int getBorrowerNumberOfChildren() {
         return borrowerNumberOfChildren;
     }
 
     /**
      * Sets the value of the borrowerNumberOfChildren property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerNumberOfChildren(Integer value) {
+    public void setBorrowerNumberOfChildren(int value) {
         this.borrowerNumberOfChildren = value;
     }
 
@@ -716,24 +645,16 @@ public class LoanFileRequest {
     /**
      * Gets the value of the coBorrowerCustomerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getCoBorrowerCustomerId() {
+    public int getCoBorrowerCustomerId() {
         return coBorrowerCustomerId;
     }
 
     /**
      * Sets the value of the coBorrowerCustomerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCoBorrowerCustomerId(Integer value) {
+    public void setCoBorrowerCustomerId(int value) {
         this.coBorrowerCustomerId = value;
     }
 
@@ -908,48 +829,32 @@ public class LoanFileRequest {
     /**
      * Gets the value of the coBorrowerLengthOfService property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getCoBorrowerLengthOfService() {
+    public int getCoBorrowerLengthOfService() {
         return coBorrowerLengthOfService;
     }
 
     /**
      * Sets the value of the coBorrowerLengthOfService property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCoBorrowerLengthOfService(Integer value) {
+    public void setCoBorrowerLengthOfService(int value) {
         this.coBorrowerLengthOfService = value;
     }
 
     /**
      * Gets the value of the coBorrowerIncome property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getCoBorrowerIncome() {
+    public double getCoBorrowerIncome() {
         return coBorrowerIncome;
     }
 
     /**
      * Sets the value of the coBorrowerIncome property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCoBorrowerIncome(Double value) {
+    public void setCoBorrowerIncome(double value) {
         this.coBorrowerIncome = value;
     }
 
@@ -1004,72 +909,48 @@ public class LoanFileRequest {
     /**
      * Gets the value of the loanAmount property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getLoanAmount() {
+    public double getLoanAmount() {
         return loanAmount;
     }
 
     /**
      * Sets the value of the loanAmount property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoanAmount(Double value) {
+    public void setLoanAmount(double value) {
         this.loanAmount = value;
     }
 
     /**
      * Gets the value of the loanTerm property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getLoanTerm() {
+    public int getLoanTerm() {
         return loanTerm;
     }
 
     /**
      * Sets the value of the loanTerm property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoanTerm(Integer value) {
+    public void setLoanTerm(int value) {
         this.loanTerm = value;
     }
 
     /**
      * Gets the value of the interestRate property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getInterestRate() {
+    public double getInterestRate() {
         return interestRate;
     }
 
     /**
      * Sets the value of the interestRate property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setInterestRate(Double value) {
+    public void setInterestRate(double value) {
         this.interestRate = value;
     }
 
@@ -1172,48 +1053,32 @@ public class LoanFileRequest {
     /**
      * Gets the value of the totalPurchasePrice property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getTotalPurchasePrice() {
+    public double getTotalPurchasePrice() {
         return totalPurchasePrice;
     }
 
     /**
      * Sets the value of the totalPurchasePrice property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setTotalPurchasePrice(Double value) {
+    public void setTotalPurchasePrice(double value) {
         this.totalPurchasePrice = value;
     }
 
     /**
      * Gets the value of the personalCapitalContribution property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getPersonalCapitalContribution() {
+    public double getPersonalCapitalContribution() {
         return personalCapitalContribution;
     }
 
     /**
      * Sets the value of the personalCapitalContribution property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setPersonalCapitalContribution(Double value) {
+    public void setPersonalCapitalContribution(double value) {
         this.personalCapitalContribution = value;
     }
 

@@ -5,10 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -43,14 +40,8 @@ public class LoanFileResponse {
 
     @XmlElement(required = true)
     protected String loanFileId;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer borrowerId;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer coborrowerId;
+    protected int borrowerId;
+    protected int coborrowerId;
 
     /**
      * Gets the value of the loanFileId property.
@@ -79,48 +70,32 @@ public class LoanFileResponse {
     /**
      * Gets the value of the borrowerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getBorrowerId() {
+    public int getBorrowerId() {
         return borrowerId;
     }
 
     /**
      * Sets the value of the borrowerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerId(Integer value) {
+    public void setBorrowerId(int value) {
         this.borrowerId = value;
     }
 
     /**
      * Gets the value of the coborrowerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getCoborrowerId() {
+    public int getCoborrowerId() {
         return coborrowerId;
     }
 
     /**
      * Sets the value of the coborrowerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCoborrowerId(Integer value) {
+    public void setCoborrowerId(int value) {
         this.coborrowerId = value;
     }
 

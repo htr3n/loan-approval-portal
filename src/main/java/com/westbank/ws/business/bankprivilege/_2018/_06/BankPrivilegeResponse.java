@@ -5,10 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -44,14 +41,8 @@ import org.w3._2001.xmlschema.Adapter4;
 public class BankPrivilegeResponse {
 
     protected boolean registered;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer numberOfIncidents;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer numberOfBanks;
+    protected int numberOfIncidents;
+    protected int numberOfBanks;
     @XmlElement(required = true)
     protected String description;
 
@@ -74,48 +65,32 @@ public class BankPrivilegeResponse {
     /**
      * Gets the value of the numberOfIncidents property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getNumberOfIncidents() {
+    public int getNumberOfIncidents() {
         return numberOfIncidents;
     }
 
     /**
      * Sets the value of the numberOfIncidents property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setNumberOfIncidents(Integer value) {
+    public void setNumberOfIncidents(int value) {
         this.numberOfIncidents = value;
     }
 
     /**
      * Gets the value of the numberOfBanks property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getNumberOfBanks() {
+    public int getNumberOfBanks() {
         return numberOfBanks;
     }
 
     /**
      * Sets the value of the numberOfBanks property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setNumberOfBanks(Integer value) {
+    public void setNumberOfBanks(int value) {
         this.numberOfBanks = value;
     }
 

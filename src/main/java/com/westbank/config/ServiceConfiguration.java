@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource({"classpath:endpoint.properties"})
-@Import({ServiceBeans.class})
+@Import({ServiceBeans.class, ServiceClientBeans.class})
 public class ServiceConfiguration {
 
     @Bean(name = Bus.DEFAULT_BUS_ID, destroyMethod = "shutdown")
@@ -19,6 +19,7 @@ public class ServiceConfiguration {
         return new SpringBus();
     }
 
+    /*
     @Bean(name = "org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor")
     BusWiringBeanFactoryPostProcessor busWiringBeanFactoryPostProcessor() {
         return new BusWiringBeanFactoryPostProcessor();
@@ -28,5 +29,6 @@ public class ServiceConfiguration {
     BusExtensionPostProcessor busExtensionPostProcessor() {
         return new BusExtensionPostProcessor();
     }
+    */
 
 }

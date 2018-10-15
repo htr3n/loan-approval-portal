@@ -5,11 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter2;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -46,18 +42,9 @@ import org.w3._2001.xmlschema.Adapter4;
 @XmlRootElement(name = "BankInformationRequest")
 public class BankInformationRequest {
 
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double loanAmount;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer loanTerm;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double interestRate;
+    protected double loanAmount;
+    protected int loanTerm;
+    protected double interestRate;
     @XmlElement(required = true)
     protected String staffId;
     @XmlElement(required = true)
@@ -66,72 +53,48 @@ public class BankInformationRequest {
     /**
      * Gets the value of the loanAmount property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getLoanAmount() {
+    public double getLoanAmount() {
         return loanAmount;
     }
 
     /**
      * Sets the value of the loanAmount property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoanAmount(Double value) {
+    public void setLoanAmount(double value) {
         this.loanAmount = value;
     }
 
     /**
      * Gets the value of the loanTerm property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getLoanTerm() {
+    public int getLoanTerm() {
         return loanTerm;
     }
 
     /**
      * Sets the value of the loanTerm property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setLoanTerm(Integer value) {
+    public void setLoanTerm(int value) {
         this.loanTerm = value;
     }
 
     /**
      * Gets the value of the interestRate property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getInterestRate() {
+    public double getInterestRate() {
         return interestRate;
     }
 
     /**
      * Sets the value of the interestRate property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setInterestRate(Double value) {
+    public void setInterestRate(double value) {
         this.interestRate = value;
     }
 

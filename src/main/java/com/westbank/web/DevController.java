@@ -1,9 +1,12 @@
 package com.westbank.web;
 
-import com.westbank.service.LoanContractService;
 import com.westbank.service.CustomerService;
+import com.westbank.service.LoanContractService;
 import com.westbank.service.LoanFileService;
 import com.westbank.service.StaffService;
+import com.westbank.ws.process.loanapproval._2018._06.LoanApproval;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +29,11 @@ public class DevController {
 
 	@Autowired
 	protected LoanFileService loanFileService;
+
+	@Autowired
+	LoanApproval loanApprovalClient;
+
+	protected static Logger log = LoggerFactory.getLogger(DevController.class);
 
 	@GetMapping("/dev.html")
 	public String indexHandler(HttpSession session) {

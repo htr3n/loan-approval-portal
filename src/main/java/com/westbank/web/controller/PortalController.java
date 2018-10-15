@@ -62,7 +62,7 @@ public class PortalController {
         final Object sessionId = SessionValidator.validateSession(session, Constants.SESSION_CUSTOMER_ID);
         if (sessionId != null) {
             try {
-                loadData((Integer) sessionId, session);
+                loadData(sessionId, session);
                 session.setAttribute(Constants.SESSION_NAV, Constants.NAV_PORTAL);
                 session.removeAttribute(Constants.SESSION_PROCESS_STATUS);
                 session.removeAttribute(Constants.SESSION_PROCESS_STATUS_KEY);

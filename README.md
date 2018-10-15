@@ -27,7 +27,7 @@ Then open a Web browser to http://localhost:9999/portal for the portal main page
 
 Some other pages for development/testing
 
-   * Verifying the underlying database (see `src/main/java/com.westbank.web.DevController`) : http://localhost:9999/portal/dev.html 
+   * Verifying the underlying database (see `com.westbank.web.DevController`) : http://localhost:9999/portal/dev.html 
 
    * Checking the list of running Web services: http://localhost:9999/portal/services
 

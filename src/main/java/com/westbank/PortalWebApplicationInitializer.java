@@ -1,5 +1,8 @@
-package com.westbank.config;
+package com.westbank;
 
+import com.westbank.config.PersistenceConfiguration;
+import com.westbank.config.ServiceConfiguration;
+import com.westbank.config.WebMvcConfiguration;
 import org.apache.cxf.transport.servlet.CXFServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +16,7 @@ import javax.servlet.ServletRegistration;
 
 public class PortalWebApplicationInitializer implements org.springframework.web.WebApplicationInitializer {
 
-    static final Logger log = LoggerFactory.getLogger(PortalWebApplicationInitializer.class);
+    private static final Logger log = LoggerFactory.getLogger(PortalWebApplicationInitializer.class);
 
     @Override
     public void onStartup(ServletContext container) throws ServletException {
@@ -23,7 +26,6 @@ public class PortalWebApplicationInitializer implements org.springframework.web.
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(PersistenceConfiguration.class);
         rootContext.register(ServiceConfiguration.class);
-        //rootContext.refresh();
 
         // manage the lifecycle of the root context
         container.addListener(new ContextLoaderListener(rootContext));

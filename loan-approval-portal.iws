@@ -2,14 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9d5d1f8-0b7a-4d7a-8e51-f59a7880ce51" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-approval-portal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-approval-portal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-approval-portal.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/loan-approval-portal.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-approval-portal.iws" beforeDir="false" afterPath="$PROJECT_DIR$/loan-approval-portal.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/config/PortalWebApplicationInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/PortalWebApplicationInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/DevController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/DevController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CreditBrokerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CreditBrokerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoanRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoanRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CustomerLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/NewRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/NewRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/PortalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/PortalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CustomerProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/SupervisorClerkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/SupervisorClerkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/web/form/ApplicationForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/web/form/ApplicationForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformation_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankinformation/_2018/_06/BankInformation_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilege.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilege.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilegeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilegeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilegeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilegeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilege_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/bankprivilege/_2018/_06/BankPrivilege_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthiness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthinessRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthinessRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthiness_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/creditworthiness/_2018/_06/CreditWorthiness_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanapprovalclosing/_2018/_06/LoanApprovalClosing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanapprovalclosing/_2018/_06/LoanApprovalClosing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanapprovalclosing/_2018/_06/LoanApprovalClosing_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanapprovalclosing/_2018/_06/LoanApprovalClosing_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContractRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContractRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContractResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContractResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContract_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loancontract/_2018/_06/LoanContract_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFile_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanfile/_2018/_06/LoanFile_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanrisk/_2018/_06/LoanRisk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanrisk/_2018/_06/LoanRisk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanrisk/_2018/_06/LoanRisk_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loanrisk/_2018/_06/LoanRisk_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loansettlement/_2018/_06/LoanSettlement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loansettlement/_2018/_06/LoanSettlement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loansettlement/_2018/_06/LoanSettlement_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/loansettlement/_2018/_06/LoanSettlement_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatchRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatchRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatch_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/business/taskdispatch/_2018/_06/TaskDispatch_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApproval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApproval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApprovalRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApprovalRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApproval_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloanapproval/CallbackLoanApproval_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContractRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContractRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContract_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/client/callbackloancontract/CallbackLoanContract_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/CustomerDecision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/CustomerDecision.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApproval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApproval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApprovalRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApprovalRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApproval_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApproval_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/service-clients.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/test-beans.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,16 +242,52 @@
   <component name="EjbViewSettings">
     <EjbView showMembers="false" autoscrollToSource="false" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1291787640">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+          <entry key="properties" value="2" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+          <entry key="Properties" value="2" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1" />
+          <entry key="xml" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1" />
+          <entry key="XML" value="10" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ServiceConfiguration.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="321">
+              <caret line="80" column="21" lean-forward="true" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -205,6 +300,7 @@
         <option value="Interface" />
         <option value="spring-beans.schema" />
         <option value="HTML File" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -228,6 +324,10 @@
       <find>xsd:long</find>
       <find>double</find>
       <find>error.required.applicationForm.loanReason</find>
+      <find>=&quot;</find>
+      <find>=(</find>
+      <find>h2</find>
+      <find>platform</find>
     </findStrings>
     <replaceStrings>
       <replace>com.westbank</replace>
@@ -238,6 +338,8 @@
       <replace>Integer</replace>
       <replace>xsd:int</replace>
       <replace>Double</replace>
+      <replace>=(&quot;</replace>
+      <replace>(</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -246,24 +348,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/service/CustomerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/domain/Staff.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/DevController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/dao/StaffDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/domain/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/domain/Customer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/domain/LoanFile.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/customer/request.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/main.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/customer/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/customer/info.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/part_css.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/parts/header_css.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/newrequest.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/parts/footer_scripts.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/portal.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/info.jsp" />
@@ -278,24 +362,42 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/customer/request.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoanRequestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/NewRequestController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate-extra.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/WebServiceConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceClientConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/services.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceClientBeans.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/test-beans.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/service-clients.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/PortalWebApplicationInitializer.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/westbank/proxy/LoanApprovalProcessProxy.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/README.adoc" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/DevController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/service-clients.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceClientBeans.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CustomerLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/PortalController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoanRequestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/SupervisorClerkController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CreditBrokerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/controller/NewRequestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/form/ApplicationForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/web/form/ExampleApplicationForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/PortalWebApplicationInitializer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/ExampleApplicationForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/SpringTestConfiguration.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/westbank/dao/DaoTestSuite.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/westbank/dao/AgencyDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/wsdl/BankInformation.wsdl" />
+        <option value="$PROJECT_DIR$/src/main/resources/rebel.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java" />
       </list>
     </option>
@@ -338,14 +440,11 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="Loan Approval Portal" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
     </treeState>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="PerforceConfiguration">
     <option name="PORT" value="magic:1666" />
@@ -373,10 +472,11 @@
     <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
     <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="427" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="width" value="1706" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -428,27 +528,12 @@
               <item name="westbank" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="loan-approval-portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="loan-approval-portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="loan-approval-portal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="loan-approval-portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -470,14 +555,37 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="H2" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/westbank" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/loan-approval-portal.ipr" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20000002" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.JRebelSettingsComponent" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.westbank.config" />
+      <recent name="com.westbank.db.repository" />
+      <recent name="com.westbank.db.service" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.westbank.db.dao" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.westbank.dao" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.westbank" />
+      <recent name="com.westbank.proxy" />
+      <recent name="com.westbank.web.validator" />
+      <recent name="com.westbank.helpers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/parts" />
       <recent name="$PROJECT_DIR$/src/main/webapp/js" />
@@ -485,26 +593,12 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/westbank/db/repository" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="com.westbank.db.dao" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.westbank.proxy" />
-      <recent name="com.westbank" />
-      <recent name="com.westbank.web.validator" />
-      <recent name="com.westbank.helpers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/i18n" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/messages" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/parts" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.westbank.config" />
-      <recent name="com.westbank.db.repository" />
-      <recent name="com.westbank.db.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -522,25 +616,25 @@
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="wholeProject" />
       </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="SpringBeansView">
@@ -587,11 +681,20 @@
       <workItem from="1529748320188" duration="8088000" />
       <workItem from="1529828294293" duration="79000" />
       <workItem from="1529829814748" duration="52829000" />
+      <workItem from="1529990003798" duration="2543000" />
+      <workItem from="1529996315004" duration="73000" />
+      <workItem from="1529997754312" duration="100000" />
+      <workItem from="1529997860839" duration="18729000" />
+      <workItem from="1530173309258" duration="3606000" />
+      <workItem from="1538874986616" duration="370000" />
+      <workItem from="1538875399392" duration="629000" />
+      <workItem from="1538950938058" duration="38000" />
+      <workItem from="1539644313679" duration="1029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180953000" />
+    <option name="totallyTimeSpent" value="208070000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -606,50 +709,50 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="427" y="23" width="1706" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3286445" />
-      <window_info anchor="bottom" id="JRebel Console" order="8" side_tool="true" weight="0.3286445" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.2825465" />
-      <window_info anchor="bottom" id="JRebel Executor" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Hierarchy" order="2" weight="0.24964234" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4944962" visible="true" weight="0.2061298" />
       <window_info id="Structure" order="1" sideWeight="0.5051151" side_tool="true" weight="0.29613733" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3286445" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.3286445" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.3286445" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Persistence" order="3" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4948849" visible="true" weight="0.2546495" />
-      <window_info id="Web" order="2" side_tool="true" weight="0.25" />
-      <window_info id="JRebel" order="2" sideWeight="0.5051151" side_tool="true" weight="0.29613733" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32992327" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Aspects" order="3" />
+      <window_info id="Designer" order="2" />
+      <window_info id="JRebel" order="3" sideWeight="0.50550383" side_tool="true" weight="0.229585" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Web" order="8" sideWeight="0.50383633" side_tool="true" weight="0.26895565" />
+      <window_info id="Persistence" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="4" side_tool="true" weight="0.3297568" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="CVS" order="7" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32992327" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32992327" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32992327" />
       <window_info anchor="bottom" id="EJB" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="CVS" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3286445" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286445" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3286445" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Spring" order="15" weight="0.3286445" />
+      <window_info anchor="bottom" id="JRebel Executor" order="16" />
+      <window_info anchor="bottom" id="JRebel Console" order="17" side_tool="true" weight="0.32853514" />
+      <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="19" weight="0.32992327" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Hierarchy" order="2" weight="0.24964234" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3243243" />
+      <window_info anchor="right" id="Aspects" order="6" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297568" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="10" side_tool="true" weight="0.3297568" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,377 +818,324 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-transports-http/3.2.4/cxf-rt-transports-http-3.2.4-sources.jar!/org/apache/cxf/transport/servlet/CXFNonSpringServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-transports-http/3.2.4/cxf-rt-transports-http-3.2.4-sources.jar!/org/apache/cxf/transport/servlet/CXFServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/Bus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/interceptor/LoggingInInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/bus/spring/SpringBus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.7.RELEASE/spring-context-5.0.7.RELEASE-sources.jar!/org/springframework/context/annotation/ComponentScan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/endpoint.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/xml/ws/Endpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/rt.jar!/javax/jws/WebService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/ws/impl/BankInformationImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="1304" column="18" selection-start-line="1304" selection-start-column="18" selection-end-line="1304" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/service/CustomerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+          <caret line="16" selection-start-line="16" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/service-beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="81" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-jaxws/3.2.4/cxf-rt-frontend-jaxws-3.2.4.jar!/schemas/jaxws.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="311" column="2" selection-start-line="311" selection-start-column="2" selection-end-line="311" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/endpoint/Client.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-simple/3.2.4/cxf-rt-frontend-simple-3.2.4.jar!/org/apache/cxf/frontend/ClientProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceClientBeans.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/endpoint/Endpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/service/Service.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-simple/3.2.4/cxf-rt-frontend-simple-3.2.4-sources.jar!/org/apache/cxf/frontend/ClientProxy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/endpoint/EndpointImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-jaxws/3.2.4/cxf-rt-frontend-jaxws-3.2.4-sources.jar!/org/apache/cxf/jaxws/JaxWsClientProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
+        <state relative-caret-position="108">
+          <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/endpoint/ClientImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/proxy/LoanApprovalProcessProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-jaxws/3.2.4/cxf-rt-frontend-jaxws-3.2.4.jar!/org/apache/cxf/jaxws/JaxWsProxyFactoryBean.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        <state relative-caret-position="-1209">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-rt-frontend-jaxws/3.2.4/cxf-rt-frontend-jaxws-3.2.4-sources.jar!/org/apache/cxf/jaxws/JaxWsProxyFactoryBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dao.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/endpoint.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/service-clients.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceClientBeans.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/PortalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CustomerLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/ManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4.jar!/META-INF/cxf/cxf.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffLoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="65" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="65" />
+        <state relative-caret-position="108">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/bus/spring/BusExtensionPostProcessor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/SupervisorClerkController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="31" column="67" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cxf/cxf-core/3.2.4/cxf-core-3.2.4-sources.jar!/org/apache/cxf/bus/spring/BusWiringBeanFactoryPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/service-clients.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/test-beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        <state relative-caret-position="216">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/CreditBrokerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="162">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/org/slf4j/Logger.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/StaffUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="4302">
+          <caret line="239" column="4" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/ws/process/loanapproval/_2018/_06/LoanApproval.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/NewRequestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        <state relative-caret-position="227">
+          <caret line="85" column="15" lean-forward="true" selection-start-line="85" selection-start-column="15" selection-end-line="85" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/proxy/LoanApprovalProcessProxy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/controller/LoanRequestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+        <state relative-caret-position="119">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceBeans.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/DevController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1708">
-          <caret line="132" column="16" selection-start-line="132" selection-start-column="16" selection-end-line="132" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="552">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/service/CustomerService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/form/ApplicationForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="-1094">
+          <caret line="60" column="40" lean-forward="true" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/repository/AgencyRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/web/form/LoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="290">
-            <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/DefaultServletHandlerConfigurer.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Date.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/text/DateFormat.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/util/Locale.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/text/SimpleDateFormat.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/test-beans.xml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE-sources.jar!/org/springframework/web/context/support/AnnotationConfigWebApplicationContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="174">
+          <caret line="149" column="16" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.7.RELEASE/spring-context-5.0.7.RELEASE-sources.jar!/org/springframework/context/MessageSource.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/PortalWebApplicationInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="39" column="30" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="406">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/javax/sql/DataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="76" column="27" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/3.2.0/HikariCP-3.2.0-sources.jar!/com/zaxxer/hikari/HikariDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.0.7.RELEASE/spring-jdbc-5.0.7.RELEASE-sources.jar!/org/springframework/jdbc/datasource/init/DataSourceInitializer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ExampleApplicationForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.0.7.RELEASE/spring-jdbc-5.0.7.RELEASE-sources.jar!/org/springframework/jdbc/datasource/init/ResourceDatabasePopulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1853">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="112" column="28" lean-forward="true" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/PortalWebApplicationInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/WebMvcConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
+        <state relative-caret-position="252">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate-extra.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/dao/AgencyDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        <state relative-caret-position="72">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/dao/CustomerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/dao/CustomerDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/repository/BaseRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/repository/AbstractRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/repository/AgencyRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/SpringTestConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/westbank/dao/DaoTestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/westbank/dao/AgencyDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/dao/AgencyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="421" column="21" lean-forward="true" selection-start-line="421" selection-start-column="21" selection-end-line="421" selection-end-column="21" />
+          <folding>
+            <element signature="e#1640#3239#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/wsdl/BankInformation.wsdl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/rebel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/ServiceConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate-extra.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/westbank/config/PersistenceConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="321">
+          <caret line="80" column="21" lean-forward="true" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1148,6 +1198,7 @@
             <option name="proportions">
               <list>
                 <option value="0.20000002" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

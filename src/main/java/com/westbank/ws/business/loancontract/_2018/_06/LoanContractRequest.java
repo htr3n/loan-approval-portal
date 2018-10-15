@@ -5,10 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter2;
 
 
 /**
@@ -45,10 +42,7 @@ public class LoanContractRequest {
 
     @XmlElement(required = true)
     protected String loanFileId;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter2 .class)
-    @XmlSchemaType(name = "double")
-    protected Double monthlyPayment;
+    protected double monthlyPayment;
     @XmlElement(required = true)
     protected String staffId;
     @XmlElement(required = true)
@@ -81,24 +75,16 @@ public class LoanContractRequest {
     /**
      * Gets the value of the monthlyPayment property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Double getMonthlyPayment() {
+    public double getMonthlyPayment() {
         return monthlyPayment;
     }
 
     /**
      * Sets the value of the monthlyPayment property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setMonthlyPayment(Double value) {
+    public void setMonthlyPayment(double value) {
         this.monthlyPayment = value;
     }
 

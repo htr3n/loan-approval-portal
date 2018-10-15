@@ -1,10 +1,10 @@
 package com.westbank.web.controller;
 
 import com.westbank.domain.Customer;
+import com.westbank.proxy.LoanApprovalProcessProxy;
 import com.westbank.service.CustomerService;
 import com.westbank.web.Constants;
 import com.westbank.web.form.ApplicationForm;
-import com.westbank.proxy.LoanApprovalProcessProxy;
 import com.westbank.web.validator.NewRequestValidator;
 import com.westbank.web.validator.SessionValidator;
 import org.slf4j.Logger;
@@ -34,27 +34,34 @@ import java.util.Date;
 @RequestMapping("/newrequest.html")
 public class NewRequestController {
 
-    static Logger log = LoggerFactory.getLogger(NewRequestController.class);
+    private static Logger log = LoggerFactory.getLogger(NewRequestController.class);
 
-    static final String LOGIN_VIEW = "redirect:/login.html";
-    static final String THIS_VIEW = "customer/newrequest";
-    static final String NEW_REQUEST_INFO = "customer/info";
+    private static final String LOGIN_VIEW = "redirect:/login.html";
+    private static final String THIS_VIEW = "customer/newrequest";
+    private static final String NEW_REQUEST_INFO = "customer/info";
 
-    @Autowired(required = false)
-    protected ApplicationForm applicationForm;
-
-    @Autowired
-    protected NewRequestValidator validator;
-
-    @Autowired
-    protected LoanApprovalProcessProxy processProxy;
-
-    @Autowired
+    private NewRequestValidator validator;
+    private LoanApprovalProcessProxy processProxy;
     private CustomerService customerService;
+
+    @Autowired
+    public void setValidator(NewRequestValidator validator) {
+        this.validator = validator;
+    }
+
+    @Autowired
+    public void setProcessProxy(LoanApprovalProcessProxy processProxy) {
+        this.processProxy = processProxy;
+    }
+
+    @Autowired
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @ModelAttribute("applicationForm")
     public ApplicationForm setupApplicationForm() {
-        return this.applicationForm;
+        return new ApplicationForm();
     }
 
     @RequestMapping(method = RequestMethod.GET)

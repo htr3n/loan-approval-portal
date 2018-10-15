@@ -62,6 +62,7 @@ public class PersistenceConfiguration {
         dataSource.setPassword(env.getProperty(JDBC_CONNECTION_PASSWORD));
         return dataSource;
     }
+
     @Bean
     LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env) {
 

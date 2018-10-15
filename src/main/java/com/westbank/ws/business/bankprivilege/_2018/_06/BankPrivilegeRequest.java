@@ -7,9 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -48,10 +46,7 @@ import org.w3._2001.xmlschema.Adapter4;
 @XmlRootElement(name = "BankPrivilegeRequest")
 public class BankPrivilegeRequest {
 
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer borrowerCustomerId;
+    protected int borrowerCustomerId;
     @XmlElement(required = true)
     protected String borrowerFirstName;
     @XmlElement(required = true)
@@ -67,24 +62,16 @@ public class BankPrivilegeRequest {
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getBorrowerCustomerId() {
+    public int getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBorrowerCustomerId(Integer value) {
+    public void setBorrowerCustomerId(int value) {
         this.borrowerCustomerId = value;
     }
 

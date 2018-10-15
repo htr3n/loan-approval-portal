@@ -13,14 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * This controller handles the front-end of a Manager. After logged in, a staff
- * with the Manager role will be redirected to this controller. The controller
- * then prepares a list of loan files and sends back to the front -end. When the
- * Manager pushes the button, the controller will activate the Loan Approval
- * process at the task "Sign Officially Loan Contract". This way, we can simply
- * simulate the interaction between the Manager and the process.
- */
 @Controller
 @RequestMapping("/staff/manager.html")
 public class ManagerController {

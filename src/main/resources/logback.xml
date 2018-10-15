@@ -5,7 +5,7 @@
             <!--
 			<pattern>%.-1level | %30.30logger{30} | %m \(%F:%L\)%n</pattern>
 			-->
-			<pattern>%.-1level | %60logger{60} | %m \(%F:%L\)%n</pattern>
+			<pattern>%.-1level | %logger{0} | %m \(%F:%L\)%n</pattern>
         </encoder>
     </appender>
 	<root level="INFO">

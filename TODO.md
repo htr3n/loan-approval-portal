@@ -1,3 +1,5 @@
 # TODO
 
-[  ] Switch from Apache Maven to Gradle build ?
+[  ] Switch from Apache Maven to Gradle
+
+[  ] Write more tests

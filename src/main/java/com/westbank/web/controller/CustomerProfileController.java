@@ -28,9 +28,9 @@ import java.util.Date;
 
 @Controller
 @RequestMapping("/profile.html")
-public class ProfileController {
+public class CustomerProfileController {
 
-    static Logger log = LoggerFactory.getLogger(ProfileController.class);
+    static Logger log = LoggerFactory.getLogger(CustomerProfileController.class);
 
     static final String THIS_VIEW = "customer/profile";
     static final String CUSTOMER_LOGIN_VIEW = "redirect:/login.html";

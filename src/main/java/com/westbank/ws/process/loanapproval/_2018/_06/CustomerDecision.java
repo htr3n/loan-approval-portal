@@ -5,10 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -46,10 +43,7 @@ import org.w3._2001.xmlschema.Adapter4;
 public class CustomerDecision {
 
     protected boolean accepted;
-    @XmlElement(required = true, type = String.class)
-    @XmlJavaTypeAdapter(Adapter4 .class)
-    @XmlSchemaType(name = "int")
-    protected Integer customerId;
+    protected int customerId;
     @XmlElement(required = true)
     protected String contractId;
     @XmlElement(required = true)
@@ -76,24 +70,16 @@ public class CustomerDecision {
     /**
      * Gets the value of the customerId property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public Integer getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
 
     /**
      * Sets the value of the customerId property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setCustomerId(Integer value) {
+    public void setCustomerId(int value) {
         this.customerId = value;
     }
 

@@ -24,15 +24,15 @@ import java.util.Optional;
 
 public class StaffUtil {
 
-    static Logger log = LoggerFactory.getLogger(StaffUtil.class);
+    private static Logger log = LoggerFactory.getLogger(StaffUtil.class);
 
-    static final String STAFFLOGIN_VIEW = "redirect:/staff/login.html";
-    static final String ACTION_ACCEPT = "accept";
-    static final String ACTION_GRANT = "grant";
-    static final String ACTION_REJECT = "reject";
-    static final String ACTION_SIGN = "sign";
-    static final String ACTION_LOGOUT = "logout";
-    static final String ACTION_RELOAD = "reload";
+    private static final String STAFFLOGIN_VIEW = "redirect:/staff/login.html";
+    private static final String ACTION_ACCEPT = "accept";
+    private static final String ACTION_GRANT = "grant";
+    private static final String ACTION_REJECT = "reject";
+    private static final String ACTION_SIGN = "sign";
+    private static final String ACTION_LOGOUT = "logout";
+    private static final String ACTION_RELOAD = "reload";
 
     @Autowired
     protected StaffService staffService;
@@ -237,7 +237,7 @@ public class StaffUtil {
         return thisView;
     }
 
-    protected void reload(String staffId, String currentStaffRole, HttpSession session) {
+    private void reload(String staffId, String currentStaffRole, HttpSession session) {
 
         final Staff staff = staffService.getStaffById(staffId);
 

@@ -35,20 +35,28 @@ public class LoanRequestController {
     static Logger log = LoggerFactory.getLogger(LoanRequestController.class);
 
     static final String LOGIN_VIEW = "redirect:/login.html";
-    static final String THIS_VIEW = "customer/request";
-    static final String REQUEST_INFO = "customer/info";
+    private static final String THIS_VIEW = "customer/request";
+    private static final String REQUEST_INFO = "customer/info";
+
+    private ApplicationForm applicationForm;
+    private LoanRequestValidator validator;
+    private LoanApprovalProcessProxy processProxy;
+
+    @Autowired
+    public void setValidator(LoanRequestValidator validator) {
+        this.validator = validator;
+    }
+
+    @Autowired
+    public void setProcessProxy(LoanApprovalProcessProxy processProxy) {
+        this.processProxy = processProxy;
+    }
 
     @Autowired(required = false)
-    protected ApplicationForm applicationForm;
-
-    @Autowired
-    protected LoanRequestValidator validator;
-
-    @Autowired
-    protected LoanApprovalProcessProxy processProxy;
-
     public void setApplicationForm(ApplicationForm applicationForm) {
         this.applicationForm = applicationForm;
+        if (this.applicationForm == null)
+            this.applicationForm = new ApplicationForm();
     }
 
     @ModelAttribute("applicationForm")

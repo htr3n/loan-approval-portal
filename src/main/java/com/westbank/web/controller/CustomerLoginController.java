@@ -18,12 +18,12 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/login.html")
-public class LoginController {
+public class CustomerLoginController {
 
     private static final String THIS_VIEW = "customer/login";
     private static final String PORTAL_VIEW = "redirect:/portal.html";
 
-    static Logger log = LoggerFactory.getLogger(LoginController.class);
+    static Logger log = LoggerFactory.getLogger(CustomerLoginController.class);
 
     @Autowired
     protected CustomerService customerService;

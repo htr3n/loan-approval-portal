@@ -10,64 +10,63 @@ import java.util.Date;
 @Component
 public class ApplicationForm {
 
-	public ApplicationForm() {
-	}
+	public ApplicationForm() {}
 
-	double loanAmount;
-	String loanReason;
-	Integer loanTerm;
-	double interestRate;
-	Date startDate;
+	private double loanAmount;
+	private String loanReason;
+	private Integer loanTerm;
+	private double interestRate;
+	private Date startDate;
 
-	double totalPurchasePrice;
-	double personalCapitalContribution;
+	private double totalPurchasePrice;
+	private double personalCapitalContribution;
 
-	ResidenceType residenceType;
-	EstateType estateType;
-	String estateAddress;
+	private ResidenceType residenceType;
+	private EstateType estateType;
+	private String estateAddress;
 
-	String borrowerTitle;
-	String borrowerCustomerId;
-	String borrowerFirstName;
-	String borrowerLastName;
+	private String borrowerTitle;
+	private String borrowerCustomerId;
+	private String borrowerFirstName;
+	private String borrowerLastName;
 
-	String borrowerPersonalId;
+	private String borrowerPersonalId;
 
-	Date borrowerDateOfBirth;
+	private Date borrowerDateOfBirth;
 
-	String borrowerStreet;
-	String borrowerCity;
-	String borrowerState;
-	String borrowerZipcode;
-	String borrowerCountry;
-	String borrowerPhone;
-	String borrowerMobilePhone;
-	String borrowerEmail;
-	MaritalStatus borrowerMaritalStatus;
-	Integer borrowerNumberOfChildren;
-	String borrowerOccupation;
-	Integer borrowerLengthOfService;
-	double borrowerIncome;
+	private String borrowerStreet;
+	private String borrowerCity;
+	private String borrowerState;
+	private String borrowerZipcode;
+	private String borrowerCountry;
+	private String borrowerPhone;
+	private String borrowerMobilePhone;
+	private String borrowerEmail;
+	private MaritalStatus borrowerMaritalStatus;
+	private Integer borrowerNumberOfChildren;
+	private String borrowerOccupation;
+	private Integer borrowerLengthOfService;
+	private double borrowerIncome;
 
-	String newPin;
-	String newPinAgain;
+	private String newPin;
+	private String newPinAgain;
 
-	boolean hasCoborrower;
-	String coborrowerCustomerId;
-	String coborrowerTitle;
-	String coborrowerFirstName;
-	String coborrowerLastName;
-	String coborrowerEmail;
+	private boolean hasCoborrower;
+	private String coborrowerCustomerId;
+	private String coborrowerTitle;
+	private String coborrowerFirstName;
+	private String coborrowerLastName;
+	private String coborrowerEmail;
 
-	String coborrowerPersonalId;
+	private String coborrowerPersonalId;
 
-	Date coborrowerDateOfBirth;
+	private Date coborrowerDateOfBirth;
 
-	String coborrowerOccupation;
-	Integer coborrowerLengthOfService;
-	double coborrowerIncome;
+	private String coborrowerOccupation;
+	private Integer coborrowerLengthOfService;
+	private double coborrowerIncome;
 
-	boolean accessSensitiveData;
+	private boolean accessSensitiveData;
 
 	public boolean isAccessSensitiveData() {
 		return accessSensitiveData;
