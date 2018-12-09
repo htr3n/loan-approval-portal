@@ -30,7 +30,7 @@ public class LoanFileDaoImpl implements LoanFileDao {
     }
 
     @Override
-    public void deleteLoanFileById(String loanFileId) {
+    public void deleteLoanFileById(Long loanFileId) {
         LoanFile found = getLoanFileById(loanFileId);
 
         if (found != null) {
@@ -49,7 +49,7 @@ public class LoanFileDaoImpl implements LoanFileDao {
     }
 
     @Override
-    public List<LoanFile> getLoanFileByBorrower(Integer borrowerId) {
+    public List<LoanFile> getLoanFileByBorrower(Long borrowerId) {
         List<LoanFile> results = null;
         try {
             final Customer borrower = new Customer();
@@ -66,7 +66,7 @@ public class LoanFileDaoImpl implements LoanFileDao {
     }
 
     @Override
-    public LoanFile getLoanFileById(String loanFileId) {
+    public LoanFile getLoanFileById(Long loanFileId) {
         return entityManager.find(LoanFile.class, loanFileId);
     }
 
@@ -76,7 +76,7 @@ public class LoanFileDaoImpl implements LoanFileDao {
     }
 
     @Override
-    public List<LoanFile> getGrantedLoanFileByCustomer(Integer customerId) {
+    public List<LoanFile> getGrantedLoanFileByCustomer(Long customerId) {
         final Customer customer = new Customer();
         customer.setCustomerId(customerId);
         List<LoanFile> results = new ArrayList<>();

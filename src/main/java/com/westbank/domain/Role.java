@@ -30,16 +30,24 @@ public class Role implements Serializable {
 	public static final String CREDIT_BROKER = "Credit Broker";
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Integer roleId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected Long id;
 
 	@Basic
-	protected String roleName;
+	private String roleName;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "role", targetEntity = Staff.class, fetch = FetchType.LAZY)
 	protected List<Staff> staff;
 
 	public Role() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Role(String role) {

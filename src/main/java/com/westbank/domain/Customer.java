@@ -1,18 +1,6 @@
 package com.westbank.domain;
 
-import javax.persistence.Basic;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -25,60 +13,64 @@ public class Customer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	protected Integer customerId;
+	protected Long customerId;
 
 	@Temporal(TemporalType.DATE)
-	protected Date dateOfBirth;
+	private Date dateOfBirth;
 
 	@Basic
-	protected String email;
+	private String email;
 
 	@Basic
-	protected String firstName;
+	private String firstName;
 
 	@Basic
-	protected Double income;
+	private Double income;
 
 	@Basic
-	protected String lastName;
+	private String lastName;
 
 	@Basic
-	protected Integer lengthOfService;
+	private Integer lengthOfService;
 
 	@OneToMany(targetEntity = LoanFile.class, mappedBy = "borrower", fetch = FetchType.LAZY)
-	protected List<LoanFile> loans;
+	private List<LoanFile> loans;
 
 	@Enumerated(EnumType.STRING)
-	protected MaritalStatus maritalStatus;
+	private MaritalStatus maritalStatus;
 
 	@Basic
-	protected String mobilePhone;
+	private String mobilePhone;
 
 	@Basic
-	protected Integer numberOfChildren;
+	private Integer numberOfChildren;
 
 	@Basic
-	protected String occupation;
+	private String occupation;
 
 	@Basic
-	protected String personalId;
+	private String personalId;
 
 	@Basic
-	protected String phone;
+	private String phone;
 
 	@Basic
-	protected String pin;
+	private String pin;
 
 	@Basic
-	protected String title;
+	private String title;
 
 	@Embedded
-	Address address;
+	private Address address;
 
 	public Customer() {
 	}
 
-	public Customer(Integer customerId) {
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -86,171 +78,72 @@ public class Customer implements Serializable {
 		return dateOfBirth;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public double getIncome() {
-		return income;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public Integer getLengthOfService() {
-		return lengthOfService;
-	}
-
-	public List<LoanFile> getLoans() {
-		return loans;
-	}
-
-	public MaritalStatus getMaritalStatus() {
-		return maritalStatus;
-	}
-
-	public String getMobilePhone() {
-		return mobilePhone;
-	}
-
-	public String getOccupation() {
-		return occupation;
-	}
-
-	public Integer getCustomerId() {
-		return customerId;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public String getPin() {
-		return pin;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	public void setIncome(double income) {
+	public Double getIncome() {
+		return income;
+	}
+
+	public void setIncome(Double income) {
 		this.income = income;
+	}
+
+	public String getLastName() {
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
+	public Integer getLengthOfService() {
+		return lengthOfService;
+	}
+
 	public void setLengthOfService(Integer lengthOfService) {
 		this.lengthOfService = lengthOfService;
+	}
+
+	public List<LoanFile> getLoans() {
+		return loans;
 	}
 
 	public void setLoans(List<LoanFile> loans) {
 		this.loans = loans;
 	}
 
+	public MaritalStatus getMaritalStatus() {
+		return maritalStatus;
+	}
+
 	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+
 	public void setMobilePhone(String mobilePhone) {
 		this.mobilePhone = mobilePhone;
-	}
-
-	public void setOccupation(String occupation) {
-		this.occupation = occupation;
-	}
-
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Customer [");
-		if (address != null) {
-			builder.append("address=").append(address).append(", ");
-		}
-		if (customerId != null) {
-			builder.append("customerId=").append(customerId).append(", ");
-		}
-		if (dateOfBirth != null) {
-			builder.append("dateOfBirth=").append(dateOfBirth).append(", ");
-		}
-		if (email != null) {
-			builder.append("email=").append(email).append(", ");
-		}
-		if (firstName != null) {
-			builder.append("firstName=").append(firstName).append(", ");
-		}
-		builder.append("income=").append(income).append(", ");
-		if (lastName != null) {
-			builder.append("lastName=").append(lastName).append(", ");
-		}
-		builder.append("lengthOfService=").append(lengthOfService).append(", ");
-		if (maritalStatus != null) {
-			builder.append("maritalStatus=").append(maritalStatus).append(", ");
-		}
-		if (mobilePhone != null) {
-			builder.append("mobilePhone=").append(mobilePhone).append(", ");
-		}
-		builder.append("numberOfChildren=").append(numberOfChildren).append(
-				", ");
-		if (occupation != null) {
-			builder.append("occupation=").append(occupation).append(", ");
-		}
-		if (personalId != null) {
-			builder.append("personalId=").append(personalId).append(", ");
-		}
-		if (phone != null) {
-			builder.append("phone=").append(phone).append(", ");
-		}
-		if (pin != null) {
-			builder.append("pin=").append(pin).append(", ");
-		}
-		if (title != null) {
-			builder.append("title=").append(title);
-		}
-		builder.append("]");
-		return builder.toString();
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
 	}
 
 	public Integer getNumberOfChildren() {
@@ -261,6 +154,14 @@ public class Customer implements Serializable {
 		this.numberOfChildren = numberOfChildren;
 	}
 
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
 	public String getPersonalId() {
 		return personalId;
 	}
@@ -269,4 +170,58 @@ public class Customer implements Serializable {
 		this.personalId = personalId;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPin() {
+		return pin;
+	}
+
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer{" +
+				"customerId=" + customerId +
+				", dateOfBirth=" + dateOfBirth +
+				", email='" + email + '\'' +
+				", firstName='" + firstName + '\'' +
+				", income=" + income +
+				", lastName='" + lastName + '\'' +
+				", lengthOfService=" + lengthOfService +
+				", loans=" + loans +
+				", maritalStatus=" + maritalStatus +
+				", mobilePhone='" + mobilePhone + '\'' +
+				", numberOfChildren=" + numberOfChildren +
+				", occupation='" + occupation + '\'' +
+				", personalId='" + personalId + '\'' +
+				", phone='" + phone + '\'' +
+				", pin='" + pin + '\'' +
+				", title='" + title + '\'' +
+				", address=" + address +
+				'}';
+	}
 }

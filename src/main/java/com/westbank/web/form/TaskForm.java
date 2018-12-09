@@ -5,15 +5,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskForm {
 
-	protected String loanFileId;
-	protected String contractId;
+	protected Long loanFileId;
+	protected Long contractId;
 	protected String action;
 
-	public String getLoanFileId() {
+	public Long getLoanFileId() {
 		return loanFileId;
 	}
 
-	public void setLoanFileId(String loanFileId) {
+	public void setLoanFileId(Long loanFileId) {
 		this.loanFileId = loanFileId;
 	}
 
@@ -25,11 +25,11 @@ public class TaskForm {
 		this.action = action;
 	}
 
-	public String getContractId() {
+	public Long getContractId() {
 		return contractId;
 	}
 
-	public void setContractId(String contractId) {
+	public void setContractId(Long contractId) {
 		this.contractId = contractId;
 	}
 

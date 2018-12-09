@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface CustomerService {
 
-    Customer findCustomerById(Integer borrowerCustomerId);
+    Customer findCustomerById(Long borrowerCustomerId);
 
     List<Customer> findAll();
 
     Customer authenticate(String email, String pin);
 
-    Customer updateProfile(Integer sessionId, ApplicationForm form);
+    Customer updateProfile(Long sessionId, ApplicationForm form);
 }

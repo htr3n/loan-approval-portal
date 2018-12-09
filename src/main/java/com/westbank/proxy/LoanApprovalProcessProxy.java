@@ -1,21 +1,10 @@
 package com.westbank.proxy;
 
-import com.westbank.domain.Address;
-import com.westbank.domain.Contract;
-import com.westbank.domain.Customer;
-import com.westbank.domain.LoanFile;
-import com.westbank.domain.Staff;
+import com.westbank.domain.*;
 import com.westbank.helper.DateHelper;
 import com.westbank.service.CustomerService;
 import com.westbank.web.form.ApplicationForm;
-import com.westbank.ws.process.loanapproval._2018._06.AddressType;
-import com.westbank.ws.process.loanapproval._2018._06.CustomerDecision;
-import com.westbank.ws.process.loanapproval._2018._06.LoanApproval;
-import com.westbank.ws.process.loanapproval._2018._06.LoanApprovalRequest;
-import com.westbank.ws.process.loanapproval._2018._06.ManagerDecision;
-import com.westbank.ws.process.loanapproval._2018._06.ManagerSignature;
-import com.westbank.ws.process.loanapproval._2018._06.StaffIdentity;
-import com.westbank.ws.process.loanapproval._2018._06.TokenType;
+import com.westbank.ws.process.loanapproval._2018._06.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +43,6 @@ public class LoanApprovalProcessProxy {
             LoanApprovalRequest request = createLoanRequest(form);
 
             if (request != null && loanApproval != null) {
-                request.setLoanFileId(UUID.randomUUID().toString());
                 log.debug("Start process: " + request);
                 loanApproval.start(request);
                 isOK = true;
@@ -77,7 +65,7 @@ public class LoanApprovalProcessProxy {
      * @param loanFileId -- the ID of the {@link LoanFile} under consideration
      * @return <code>true</code> if successful, otherwise, <code>false</code>
      */
-    public boolean processedByStaff(String staffId, String role, String loanFileId) {
+    public boolean processedByStaff(String staffId, String role, Long loanFileId) {
         boolean isOK = false;
         try {
             final StaffIdentity request = new StaffIdentity();
@@ -109,7 +97,7 @@ public class LoanApprovalProcessProxy {
      * @param loanFileId -- the ID of the {@link LoanFile} under consideration
      * @return <code>true</code> if successful, otherwise, <code>false</code>
      */
-    public boolean informManagerDecision(String staffId, String role, String loanFileId, boolean isGranted) {
+    public boolean informManagerDecision(String staffId, String role, Long loanFileId, boolean isGranted) {
         boolean isOK = false;
         try {
             final ManagerDecision request = new ManagerDecision();
@@ -120,7 +108,7 @@ public class LoanApprovalProcessProxy {
             request.setGranted(isGranted);
             request.setSecureToken(tokenString);
 
-            if (request != null && loanApproval != null) {
+            if (loanApproval != null) {
                 log.debug("Send the manager's decision: " + request);
                 loanApproval.decidedByManager(request);
                 isOK = true;
@@ -142,7 +130,7 @@ public class LoanApprovalProcessProxy {
      * @param accepted     -- whether the customer accepts the contract or not
      * @return <code>true</code> if successful, otherwise, <code>false</code>
      */
-    public boolean informCustomerDecision(Integer customerId, String customerName, String loanFileId, String contractId,
+    public boolean informCustomerDecision(Long customerId, String customerName, Long loanFileId, Long contractId,
                                           boolean accepted) {
         boolean isOK = false;
         try {
@@ -171,7 +159,7 @@ public class LoanApprovalProcessProxy {
      * @param contractId -- the {@link Contract}'s ID
      * @return <code>true</code> if successful, otherwise, <code>false</code>
      */
-    public boolean signedContractByManager(String staffId, String staffName, String loanFileId, String contractId) {
+    public boolean signedContractByManager(String staffId, String staffName, Long loanFileId, Long contractId) {
         boolean isOK = false;
         try {
             log.info("Manager signed contract #'" + contractId + "'");
@@ -199,7 +187,7 @@ public class LoanApprovalProcessProxy {
         LoanApprovalRequest request = null;
         if (form != null) {
             try {
-                Integer borrowerCustomerId = Integer.valueOf(form.getBorrowerCustomerId());
+                Long borrowerCustomerId = form.getBorrowerCustomerId();
                 Customer borrower = customerService.findCustomerById(borrowerCustomerId);
                 if (borrower != null) {
                     log.info("Customer exists!");
@@ -217,8 +205,7 @@ public class LoanApprovalProcessProxy {
             // co-borrower
             if (form.isHasCoborrower()) {
                 try {
-                    Integer coborrowerCustomerId = Integer.valueOf(form.getCoborrowerCustomerId());
-                    request.setCoBorrowerCustomerId(coborrowerCustomerId);
+                    request.setCoBorrowerCustomerId(form.getCoborrowerCustomerId());
                 } catch (NumberFormatException e) {
                     request.setCoBorrowerTitle(form.getCoborrowerTitle());
                     request.setCoBorrowerFirstName(form.getCoborrowerFirstName());
@@ -329,8 +316,8 @@ public class LoanApprovalProcessProxy {
         return request;
     }
 
-    protected CustomerDecision createCustomerSignature(Integer customerId, String customerName, String loanFileId,
-                                                       String contractId) {
+    protected CustomerDecision createCustomerSignature(Long customerId, String customerName, Long loanFileId,
+                                                       Long contractId) {
         final CustomerDecision signature = new CustomerDecision();
         signature.setCustomerId(customerId);
         signature.setContractId(contractId);
@@ -339,8 +326,8 @@ public class LoanApprovalProcessProxy {
         return signature;
     }
 
-    protected ManagerSignature createManagerSignature(String staffId, String staffName, String loanFileId,
-                                                      String contractId) {
+    protected ManagerSignature createManagerSignature(String staffId, String staffName, Long loanFileId,
+                                                      Long contractId) {
         final ManagerSignature signature = new ManagerSignature();
         signature.setStaffId(staffId);
         signature.setContractId(contractId);

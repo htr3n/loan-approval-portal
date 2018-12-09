@@ -46,7 +46,7 @@ public class CustomerProfileController {
         final Object sessionId = SessionValidator.validateSession(session, Constants.SESSION_CUSTOMER_ID);
         if (sessionId != null) {
             try {
-                Integer customerId = (Integer) sessionId;
+                Long customerId = (Long) sessionId;
                 log.info("Session ID is valid. Initialize customer data");
                 return loadCustomerProfile(customerId);
             } catch (NumberFormatException e) {
@@ -99,7 +99,7 @@ public class CustomerProfileController {
                 validator.validate(form, result);
                 if (!result.hasFieldErrors()) {
                     log.info("Update customer's profile");
-                    Customer customer = customerService.updateProfile((Integer) sessionId, form);
+                    Customer customer = customerService.updateProfile((Long) sessionId, form);
                     if (customer != null) {
                         updatedOK = true;
                     } else {
@@ -122,7 +122,7 @@ public class CustomerProfileController {
         return THIS_VIEW;
     }
 
-    protected ApplicationForm loadCustomerProfile(Integer customerId) {
+    protected ApplicationForm loadCustomerProfile(Long customerId) {
         final ApplicationForm form = new ApplicationForm();
         Customer customer = customerService.findCustomerById(customerId);
         if (customer != null) {

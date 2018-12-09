@@ -7,17 +7,17 @@ import java.util.List;
 
 public interface CustomerDao {
 
-    Customer updateCustomerProfile(Integer customerId, ApplicationForm form);
+    Customer updateCustomerProfile(Long customerId, ApplicationForm form);
 
     Customer authenticateCustomer(String email, String pin);
 
     void deleteCustomer(Customer customer);
 
-    void deleteCustomer(Integer customerId);
+    void deleteCustomer(Long customerId);
 
     List<Customer> findAll();
 
-    Customer getCustomerById(Integer customerId);
+    Customer getCustomerById(Long customerId);
 
     void save(Customer customer);
 }

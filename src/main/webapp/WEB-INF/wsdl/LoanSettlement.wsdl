@@ -14,8 +14,8 @@
 			<xsd:element name="LoanSettlementRequest">
 				<xsd:complexType>
 					<xsd:sequence>
-            <xsd:element name="loanFileId" type="xsd:string" />           
-						<xsd:element name="loanContractId" type="xsd:string" />						
+            <xsd:element name="loanFileId" type="xsd:long" />
+						<xsd:element name="loanContractId" type="xsd:long" />
             <xsd:element name="staffId" type="xsd:string" />
             <xsd:element name="staffRole" type="xsd:string" />                       
 					</xsd:sequence>

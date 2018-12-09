@@ -15,9 +15,9 @@ public interface LoanContractService {
 
     List<Contract> getAllContracts();
 
-    Optional<Contract> getContractById(String contractId);
+    Optional<Contract> getContractById(Long contractId);
 
     void save(Contract contract);
 
-    List<Contract> getContractByBorrower(Integer customerId);
+    List<Contract> getContractByBorrower(Long customerId);
 }

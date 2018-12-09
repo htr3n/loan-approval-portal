@@ -8,17 +8,17 @@ public interface LoanFileDao {
 
     void deleteLoanFile(LoanFile loanFile);
 
-    void deleteLoanFileById(String loanFileId);
+    void deleteLoanFileById(Long loanFileId);
 
     List<LoanFile> findAll();
 
-    List<LoanFile> getLoanFileByBorrower(Integer borrowerId);
+    List<LoanFile> getLoanFileByBorrower(Long borrowerId);
 
-    LoanFile getLoanFileById(String loanFileId);
+    LoanFile getLoanFileById(Long loanFileId);
 
     void save(LoanFile loanFile);
 
-    List<LoanFile> getGrantedLoanFileByCustomer(Integer customerId);
+    List<LoanFile> getGrantedLoanFileByCustomer(Long customerId);
 
     List<LoanFile> getLoanFileByRole(String role);
 }

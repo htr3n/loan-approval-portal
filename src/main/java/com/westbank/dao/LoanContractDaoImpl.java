@@ -1,11 +1,6 @@
 package com.westbank.dao;
 
-import com.westbank.domain.Agency;
-import com.westbank.domain.Contract;
-import com.westbank.domain.Customer;
-import com.westbank.domain.LoanFile;
-import com.westbank.domain.LoanFileStatus;
-import com.westbank.domain.Staff;
+import com.westbank.domain.*;
 import com.westbank.ws.business.loancontract._2018._06.LoanContractRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +14,6 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public class LoanContractDaoImpl implements LoanContractDao {
 
@@ -32,13 +26,12 @@ public class LoanContractDaoImpl implements LoanContractDao {
     public Contract createAndStoreNewContract(LoanContractRequest request) {
         Contract contract = null;
         if (request != null) {
-            String loanFileId = request.getLoanFileId();
+            Long loanFileId = request.getLoanFileId();
             LoanFile loanFile = null; // TODO getLoanFileById(loanFileId);
 
             if (loanFile != null) {
                 contract = new Contract();
                 contract.setLoanFile(loanFile);
-                contract.setContractId(UUID.randomUUID().toString());
                 contract.setBorrower(loanFile.getBorrower());
                 contract.setCoBorrower(loanFile.getCoBorrower());
                 contract.setBorrower(loanFile.getBorrower());
@@ -80,7 +73,7 @@ public class LoanContractDaoImpl implements LoanContractDao {
     }
 
     @Override
-    public void deleteLoanContractById(String contractId) {
+    public void deleteLoanContractById(Long contractId) {
         final Contract loanFile = new Contract();
         loanFile.setContractId(contractId);
         deleteContract(loanFile);
@@ -97,7 +90,7 @@ public class LoanContractDaoImpl implements LoanContractDao {
     }
 
     @Override
-    public List<Contract> findContractByBorrowerId(Integer borrowerId) {
+    public List<Contract> findContractByBorrowerId(Long borrowerId) {
         final Customer borrower = new Customer();
         borrower.setCustomerId(borrowerId);
         return findContractByBorrower(borrower);
@@ -120,7 +113,7 @@ public class LoanContractDaoImpl implements LoanContractDao {
     }
 
     @Override
-    public Optional<Contract> findContractById(String contractId) {
+    public Optional<Contract> findContractById(Long contractId) {
         return Optional.ofNullable(entityManager.find(Contract.class, contractId));
     }
 

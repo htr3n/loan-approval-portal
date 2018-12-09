@@ -26,7 +26,7 @@ public class ApplicationForm {
 	private String estateAddress;
 
 	private String borrowerTitle;
-	private String borrowerCustomerId;
+	private Long borrowerCustomerId;
 	private String borrowerFirstName;
 	private String borrowerLastName;
 
@@ -52,7 +52,7 @@ public class ApplicationForm {
 	private String newPinAgain;
 
 	private boolean hasCoborrower;
-	private String coborrowerCustomerId;
+	private Long coborrowerCustomerId;
 	private String coborrowerTitle;
 	private String coborrowerFirstName;
 	private String coborrowerLastName;
@@ -67,14 +67,6 @@ public class ApplicationForm {
 	private double coborrowerIncome;
 
 	private boolean accessSensitiveData;
-
-	public boolean isAccessSensitiveData() {
-		return accessSensitiveData;
-	}
-
-	public void setAccessSensitiveData(boolean accessSensitiveData) {
-		this.accessSensitiveData = accessSensitiveData;
-	}
 
 	public double getLoanAmount() {
 		return loanAmount;
@@ -106,6 +98,14 @@ public class ApplicationForm {
 
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public double getTotalPurchasePrice() {
@@ -156,11 +156,11 @@ public class ApplicationForm {
 		this.borrowerTitle = borrowerTitle;
 	}
 
-	public String getBorrowerCustomerId() {
+	public Long getBorrowerCustomerId() {
 		return borrowerCustomerId;
 	}
 
-	public void setBorrowerCustomerId(String borrowerCustomerId) {
+	public void setBorrowerCustomerId(Long borrowerCustomerId) {
 		this.borrowerCustomerId = borrowerCustomerId;
 	}
 
@@ -178,6 +178,22 @@ public class ApplicationForm {
 
 	public void setBorrowerLastName(String borrowerLastName) {
 		this.borrowerLastName = borrowerLastName;
+	}
+
+	public String getBorrowerPersonalId() {
+		return borrowerPersonalId;
+	}
+
+	public void setBorrowerPersonalId(String borrowerPersonalId) {
+		this.borrowerPersonalId = borrowerPersonalId;
+	}
+
+	public Date getBorrowerDateOfBirth() {
+		return borrowerDateOfBirth;
+	}
+
+	public void setBorrowerDateOfBirth(Date borrowerDateOfBirth) {
+		this.borrowerDateOfBirth = borrowerDateOfBirth;
 	}
 
 	public String getBorrowerStreet() {
@@ -284,6 +300,38 @@ public class ApplicationForm {
 		this.borrowerIncome = borrowerIncome;
 	}
 
+	public String getNewPin() {
+		return newPin;
+	}
+
+	public void setNewPin(String newPin) {
+		this.newPin = newPin;
+	}
+
+	public String getNewPinAgain() {
+		return newPinAgain;
+	}
+
+	public void setNewPinAgain(String newPinAgain) {
+		this.newPinAgain = newPinAgain;
+	}
+
+	public boolean isHasCoborrower() {
+		return hasCoborrower;
+	}
+
+	public void setHasCoborrower(boolean hasCoborrower) {
+		this.hasCoborrower = hasCoborrower;
+	}
+
+	public Long getCoborrowerCustomerId() {
+		return coborrowerCustomerId;
+	}
+
+	public void setCoborrowerCustomerId(Long coborrowerCustomerId) {
+		this.coborrowerCustomerId = coborrowerCustomerId;
+	}
+
 	public String getCoborrowerTitle() {
 		return coborrowerTitle;
 	}
@@ -306,6 +354,30 @@ public class ApplicationForm {
 
 	public void setCoborrowerLastName(String coborrowerLastName) {
 		this.coborrowerLastName = coborrowerLastName;
+	}
+
+	public String getCoborrowerEmail() {
+		return coborrowerEmail;
+	}
+
+	public void setCoborrowerEmail(String coborrowerEmail) {
+		this.coborrowerEmail = coborrowerEmail;
+	}
+
+	public String getCoborrowerPersonalId() {
+		return coborrowerPersonalId;
+	}
+
+	public void setCoborrowerPersonalId(String coborrowerPersonalId) {
+		this.coborrowerPersonalId = coborrowerPersonalId;
+	}
+
+	public Date getCoborrowerDateOfBirth() {
+		return coborrowerDateOfBirth;
+	}
+
+	public void setCoborrowerDateOfBirth(Date coborrowerDateOfBirth) {
+		this.coborrowerDateOfBirth = coborrowerDateOfBirth;
 	}
 
 	public String getCoborrowerOccupation() {
@@ -332,117 +404,11 @@ public class ApplicationForm {
 		this.coborrowerIncome = coborrowerIncome;
 	}
 
-	public boolean isHasCoborrower() {
-		return hasCoborrower;
+	public boolean isAccessSensitiveData() {
+		return accessSensitiveData;
 	}
 
-	public void setHasCoborrower(boolean hasCoborrower) {
-		this.hasCoborrower = hasCoborrower;
+	public void setAccessSensitiveData(boolean accessSensitiveData) {
+		this.accessSensitiveData = accessSensitiveData;
 	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getBorrowerDateOfBirth() {
-		return borrowerDateOfBirth;
-	}
-
-	public void setBorrowerDateOfBirth(Date borrowerDateOfBirth) {
-		this.borrowerDateOfBirth = borrowerDateOfBirth;
-	}
-
-	public Date getCoborrowerDateOfBirth() {
-		return coborrowerDateOfBirth;
-	}
-
-	public void setCoborrowerDateOfBirth(Date coborrowerDateOfBirth) {
-		this.coborrowerDateOfBirth = coborrowerDateOfBirth;
-	}
-
-	public String getCoborrowerCustomerId() {
-		return coborrowerCustomerId;
-	}
-
-	public void setCoborrowerCustomerId(String coborrowerCustomerId) {
-		this.coborrowerCustomerId = coborrowerCustomerId;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("ApplicationForm [borrowerCity=").append(borrowerCity).append(", borrowerCountry=")
-				.append(borrowerCountry).append(", borrowerCustomerId=").append(borrowerCustomerId)
-				.append(", borrowerDateOfBirth=").append(borrowerDateOfBirth).append(", borrowerEmail=")
-				.append(borrowerEmail).append(", borrowerFirstName=").append(borrowerFirstName)
-				.append(", borrowerIncome=").append(borrowerIncome).append(", borrowerLastName=")
-				.append(borrowerLastName).append(", borrowerLengthOfService=").append(borrowerLengthOfService)
-				.append(", borrowerMaritalStatus=").append(borrowerMaritalStatus).append(", borrowerMobilePhone=")
-				.append(borrowerMobilePhone).append(", borrowerNumberOfChildren=").append(borrowerNumberOfChildren)
-				.append(", borrowerOccupation=").append(borrowerOccupation).append(", borrowerPersonalId=")
-				.append(borrowerPersonalId).append(", borrowerPhone=").append(borrowerPhone).append(", borrowerState=")
-				.append(borrowerState).append(", borrowerStreet=").append(borrowerStreet).append(", borrowerTitle=")
-				.append(borrowerTitle).append(", borrowerZipcode=").append(borrowerZipcode)
-				.append(", coborrowerCustomerId=").append(coborrowerCustomerId).append(", coborrowerDateOfBirth=")
-				.append(coborrowerDateOfBirth).append(", coborrowerEmail=").append(coborrowerEmail)
-				.append(", coborrowerFirstName=").append(coborrowerFirstName).append(", coborrowerIncome=")
-				.append(coborrowerIncome).append(", coborrowerLastName=").append(coborrowerLastName)
-				.append(", coborrowerLengthOfService=").append(coborrowerLengthOfService)
-				.append(", coborrowerOccupation=").append(coborrowerOccupation).append(", coborrowerPersonalId=")
-				.append(coborrowerPersonalId).append(", coborrowerTitle=").append(coborrowerTitle)
-				.append(", estateAddress=").append(estateAddress).append(", estateType=").append(estateType)
-				.append(", hasCoborrower=").append(hasCoborrower).append(", interestRate=").append(interestRate)
-				.append(", loanAmount=").append(loanAmount).append(", loanReason=").append(loanReason)
-				.append(", loanTerm=").append(loanTerm).append(", newPin=").append(newPin).append(", newPinAgain=")
-				.append(newPinAgain).append(", personalCapitalContribution=").append(personalCapitalContribution)
-				.append(", residenceType=").append(residenceType).append(", startDate=").append(startDate)
-				.append(", totalPurchasePrice=").append(totalPurchasePrice).append(", accessSensitiveData=")
-				.append(accessSensitiveData).append("]");
-		return builder.toString();
-	}
-
-	public String getCoborrowerEmail() {
-		return coborrowerEmail;
-	}
-
-	public void setCoborrowerEmail(String coborrowerEmail) {
-		this.coborrowerEmail = coborrowerEmail;
-	}
-
-	public String getBorrowerPersonalId() {
-		return borrowerPersonalId;
-	}
-
-	public void setBorrowerPersonalId(String borrowerPersonalId) {
-		this.borrowerPersonalId = borrowerPersonalId;
-	}
-
-	public String getCoborrowerPersonalId() {
-		return coborrowerPersonalId;
-	}
-
-	public void setCoborrowerPersonalId(String coborrowerPersonalId) {
-		this.coborrowerPersonalId = coborrowerPersonalId;
-	}
-
-	public String getNewPin() {
-		return newPin;
-	}
-
-	public void setNewPin(String newPin) {
-		this.newPin = newPin;
-	}
-
-	public String getNewPinAgain() {
-		return newPinAgain;
-	}
-
-	public void setNewPinAgain(String newPinAgain) {
-		this.newPinAgain = newPinAgain;
-	}
-
 }

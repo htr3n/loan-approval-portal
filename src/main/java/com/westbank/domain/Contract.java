@@ -37,8 +37,8 @@ public class Contract implements Serializable {
 	protected Customer coBorrower;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	protected String contractId;	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected Long contractId;
 
 	@Basic
 	protected String estateLocation;
@@ -93,7 +93,7 @@ public class Contract implements Serializable {
 		return coBorrower;
 	}
 
-	public String getContractId() {
+	public Long getContractId() {
 		return contractId;
 	}
 
@@ -149,7 +149,7 @@ public class Contract implements Serializable {
 		this.coBorrower = coBorrower;
 	}
 
-	public void setContractId(String contractId) {
+	public void setContractId(Long contractId) {
 		this.contractId = contractId;
 	}
 

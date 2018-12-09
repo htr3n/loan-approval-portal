@@ -27,9 +27,8 @@ public class LoanFile implements Serializable {
 	private static final long serialVersionUID = -7780385054212644226L;
 
 	@Id
-	@Column
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	protected String loanFileId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected Long loanFileId;
 
 	@ManyToOne(targetEntity = Customer.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = "borrower")
@@ -85,7 +84,7 @@ public class LoanFile implements Serializable {
 	protected Double personalCapitalContribution;
 
 	@ManyToOne(targetEntity = Staff.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "updatedBy")
+	@JoinColumn
 	protected Staff updatedBy;
 
 	@Basic
@@ -132,7 +131,7 @@ public class LoanFile implements Serializable {
 		return loanAmount;
 	}
 
-	public String getLoanFileId() {
+	public Long getLoanFileId() {
 		return loanFileId;
 	}
 
@@ -204,7 +203,7 @@ public class LoanFile implements Serializable {
 		this.loanAmount = loanAmount;
 	}
 
-	public void setLoanFileId(String loanFileId) {
+	public void setLoanFileId(Long loanFileId) {
 		this.loanFileId = loanFileId;
 	}
 

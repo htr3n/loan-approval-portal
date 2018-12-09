@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -18,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
@@ -42,11 +45,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CallbackLoanApprovalRequest")
 public class CallbackLoanApprovalRequest {
 
-    protected int borrowerCustomerId;
-    @XmlElement(required = true)
-    protected String contractId;
-    @XmlElement(required = true)
-    protected String loanFileId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long borrowerCustomerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long contractId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanFileId;
     @XmlElement(required = true)
     protected String status;
     @XmlElement(required = true)
@@ -55,16 +65,24 @@ public class CallbackLoanApprovalRequest {
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getBorrowerCustomerId() {
+    public Long getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setBorrowerCustomerId(int value) {
+    public void setBorrowerCustomerId(Long value) {
         this.borrowerCustomerId = value;
     }
 
@@ -76,7 +94,7 @@ public class CallbackLoanApprovalRequest {
      *     {@link String }
      *     
      */
-    public String getContractId() {
+    public Long getContractId() {
         return contractId;
     }
 
@@ -88,7 +106,7 @@ public class CallbackLoanApprovalRequest {
      *     {@link String }
      *     
      */
-    public void setContractId(String value) {
+    public void setContractId(Long value) {
         this.contractId = value;
     }
 
@@ -100,7 +118,7 @@ public class CallbackLoanApprovalRequest {
      *     {@link String }
      *     
      */
-    public String getLoanFileId() {
+    public Long getLoanFileId() {
         return loanFileId;
     }
 
@@ -112,7 +130,7 @@ public class CallbackLoanApprovalRequest {
      *     {@link String }
      *     
      */
-    public void setLoanFileId(String value) {
+    public void setLoanFileId(Long value) {
         this.loanFileId = value;
     }
 

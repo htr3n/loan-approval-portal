@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -18,8 +21,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="loanContractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="loanContractId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,23 +39,36 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CallbackLoanContractRequest")
 public class CallbackLoanContractRequest {
 
-    protected int borrowerCustomerId;
-    @XmlElement(required = true)
-    protected String loanContractId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long borrowerCustomerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanContractId;
 
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getBorrowerCustomerId() {
+    public Long getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setBorrowerCustomerId(int value) {
+    public void setBorrowerCustomerId(Long value) {
         this.borrowerCustomerId = value;
     }
 
@@ -64,7 +80,7 @@ public class CallbackLoanContractRequest {
      *     {@link String }
      *     
      */
-    public String getLoanContractId() {
+    public Long getLoanContractId() {
         return loanContractId;
     }
 
@@ -76,7 +92,7 @@ public class CallbackLoanContractRequest {
      *     {@link String }
      *     
      */
-    public void setLoanContractId(String value) {
+    public void setLoanContractId(Long value) {
         this.loanContractId = value;
     }
 

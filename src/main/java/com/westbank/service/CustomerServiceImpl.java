@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional(readOnly = true)
-    public Customer findCustomerById(Integer borrowerCustomerId) {
+    public Customer findCustomerById(Long borrowerCustomerId) {
         return customerDao.getCustomerById(borrowerCustomerId);
     }
 
@@ -43,7 +43,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
-    public Customer updateProfile(Integer sessionId, ApplicationForm form) {
+    public Customer updateProfile(Long sessionId, ApplicationForm form) {
         return customerDao.updateCustomerProfile(sessionId, form);
     }
 }

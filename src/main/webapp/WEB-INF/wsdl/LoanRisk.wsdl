@@ -14,7 +14,7 @@
 			<xsd:element name="LoanRiskRequest">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="loanFileId" type="xsd:string" />						
+						<xsd:element name="loanFileId" type="xsd:long" />
             <xsd:element name="staffId" type="xsd:string" />
             <xsd:element name="staffRole" type="xsd:string" />                       
 					</xsd:sequence>

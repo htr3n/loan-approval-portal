@@ -13,15 +13,15 @@ public interface LoanContractDao {
 
     void deleteContract(Contract contract);
 
-    void deleteLoanContractById(String contractId);
+    void deleteLoanContractById(Long contractId);
 
     List<Contract> findAll();
 
-    List<Contract> findContractByBorrowerId(Integer borrowerId);
+    List<Contract> findContractByBorrowerId(Long borrowerId);
 
     List<Contract> findContractByBorrower(Customer borrower);
 
-    Optional<Contract> findContractById(String contractId);
+    Optional<Contract> findContractById(Long contractId);
 
     void save(Contract loan);
 }

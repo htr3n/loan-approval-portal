@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -19,9 +22,9 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="accepted" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
- *         &lt;element name="customerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="customerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="token" type="{urn:com:westbank:ws:process:LoanApproval:2018:06}TokenType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -43,11 +46,18 @@ import javax.xml.bind.annotation.XmlType;
 public class CustomerDecision {
 
     protected boolean accepted;
-    protected int customerId;
-    @XmlElement(required = true)
-    protected String contractId;
-    @XmlElement(required = true)
-    protected String loanFileId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long customerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long contractId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanFileId;
     @XmlElement(required = true)
     protected TokenType token;
 
@@ -70,16 +80,24 @@ public class CustomerDecision {
     /**
      * Gets the value of the customerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
     /**
      * Sets the value of the customerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCustomerId(int value) {
+    public void setCustomerId(Long value) {
         this.customerId = value;
     }
 
@@ -91,7 +109,7 @@ public class CustomerDecision {
      *     {@link String }
      *     
      */
-    public String getContractId() {
+    public Long getContractId() {
         return contractId;
     }
 
@@ -103,7 +121,7 @@ public class CustomerDecision {
      *     {@link String }
      *     
      */
-    public void setContractId(String value) {
+    public void setContractId(Long value) {
         this.contractId = value;
     }
 
@@ -115,7 +133,7 @@ public class CustomerDecision {
      *     {@link String }
      *     
      */
-    public String getLoanFileId() {
+    public Long getLoanFileId() {
         return loanFileId;
     }
 
@@ -127,7 +145,7 @@ public class CustomerDecision {
      *     {@link String }
      *     
      */
-    public void setLoanFileId(String value) {
+    public void setLoanFileId(Long value) {
         this.loanFileId = value;
     }
 

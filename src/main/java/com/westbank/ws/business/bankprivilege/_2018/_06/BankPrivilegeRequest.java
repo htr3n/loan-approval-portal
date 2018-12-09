@@ -7,7 +7,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.datatype.XMLGregorianCalendar;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -20,7 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="borrowerCustomerId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="borrowerFirstName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="borrowerLastName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="borrowerDateOfBirth" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
@@ -46,7 +48,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "BankPrivilegeRequest")
 public class BankPrivilegeRequest {
 
-    protected int borrowerCustomerId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long borrowerCustomerId;
     @XmlElement(required = true)
     protected String borrowerFirstName;
     @XmlElement(required = true)
@@ -62,16 +67,24 @@ public class BankPrivilegeRequest {
     /**
      * Gets the value of the borrowerCustomerId property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getBorrowerCustomerId() {
+    public Long getBorrowerCustomerId() {
         return borrowerCustomerId;
     }
 
     /**
      * Sets the value of the borrowerCustomerId property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setBorrowerCustomerId(int value) {
+    public void setBorrowerCustomerId(Long value) {
         this.borrowerCustomerId = value;
     }
 

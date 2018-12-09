@@ -20,7 +20,7 @@ public class CustomerDaoImpl implements CustomerDao {
     private EntityManager entityManager;
 
     @Override
-    public Customer updateCustomerProfile(Integer customerId, ApplicationForm form) {
+    public Customer updateCustomerProfile(Long customerId, ApplicationForm form) {
         Customer customer = getCustomerById(customerId);
         if (form != null && customer != null) {
             customer.setPersonalId(form.getBorrowerPersonalId());
@@ -86,7 +86,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public void deleteCustomer(Integer customerId) {
+    public void deleteCustomer(Long customerId) {
         final Customer customer = new Customer();
         customer.setCustomerId(customerId);
         deleteCustomer(customer);
@@ -103,7 +103,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public Customer getCustomerById(Integer customerId) {
+    public Customer getCustomerById(Long customerId) {
         return entityManager.find(Customer.class, customerId);
     }
 

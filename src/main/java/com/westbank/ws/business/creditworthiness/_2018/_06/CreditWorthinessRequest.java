@@ -5,7 +5,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
+import org.w3._2001.xmlschema.Adapter4;
 
 
 /**
@@ -18,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="numberOfIncidents" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="numberOfBanks" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="staffId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
@@ -42,10 +46,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CreditWorthinessRequest")
 public class CreditWorthinessRequest {
 
-    @XmlElement(required = true)
-    protected String loanFileId;
-    protected int numberOfIncidents;
-    protected int numberOfBanks;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanFileId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer numberOfIncidents;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
+    @XmlSchemaType(name = "int")
+    protected Integer numberOfBanks;
     @XmlElement(required = true)
     protected String staffId;
     @XmlElement(required = true)
@@ -59,7 +71,7 @@ public class CreditWorthinessRequest {
      *     {@link String }
      *     
      */
-    public String getLoanFileId() {
+    public Long getLoanFileId() {
         return loanFileId;
     }
 
@@ -71,39 +83,55 @@ public class CreditWorthinessRequest {
      *     {@link String }
      *     
      */
-    public void setLoanFileId(String value) {
+    public void setLoanFileId(Long value) {
         this.loanFileId = value;
     }
 
     /**
      * Gets the value of the numberOfIncidents property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumberOfIncidents() {
+    public Integer getNumberOfIncidents() {
         return numberOfIncidents;
     }
 
     /**
      * Sets the value of the numberOfIncidents property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumberOfIncidents(int value) {
+    public void setNumberOfIncidents(Integer value) {
         this.numberOfIncidents = value;
     }
 
     /**
      * Gets the value of the numberOfBanks property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getNumberOfBanks() {
+    public Integer getNumberOfBanks() {
         return numberOfBanks;
     }
 
     /**
      * Sets the value of the numberOfBanks property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setNumberOfBanks(int value) {
+    public void setNumberOfBanks(Integer value) {
         this.numberOfBanks = value;
     }
 

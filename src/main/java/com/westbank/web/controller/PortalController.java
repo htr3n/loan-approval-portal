@@ -110,7 +110,7 @@ public class PortalController {
                 }
 
                 if (isGiveAccess) {
-                    final String loanFileId = form.getLoanFileId();
+                    final Long loanFileId = form.getLoanFileId();
                     LoanFile loanFile = loanFileService.getLoanFileById(loanFileId);
                     if (loanFile != null) {
                         loanFile.setAccessSensitiveData(isAccessible);
@@ -120,9 +120,9 @@ public class PortalController {
                 } else {
                     boolean isAccepted = ACTION_SIGN.equalsIgnoreCase(action);
 
-                    Customer customer = customerService.findCustomerById((Integer) customerId);
-                    final String loanFileId = form.getLoanFileId();
-                    final String contractId = form.getContractId();
+                    Customer customer = customerService.findCustomerById((Long)customerId);
+                    final Long loanFileId = form.getLoanFileId();
+                    final Long contractId = form.getContractId();
                     Optional<Contract> contract = loanContractService.getContractById(contractId);
                     if (customer != null && processProxy != null) {
                         log.info("Send customer's decision to the process");
@@ -169,7 +169,7 @@ public class PortalController {
 
     protected void loadData(Object sessionId, HttpSession session) {
         try {
-            Integer customerId = (Integer)sessionId;
+            Long customerId = (Long)sessionId;
             final List<Contract> contracts = loanContractService.getContractByBorrower(customerId);
             final List<LoanFile> loans = loanFileService.getLoanFileByBorrower(customerId);
             final Customer customer = customerService.findCustomerById(customerId);

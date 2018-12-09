@@ -31,7 +31,7 @@ public class LoanRiskImpl implements LoanRisk {
     public LoanRiskResponse evaluate(LoanRiskRequest request) {
         log.info("Executing operation evaluate: " + request);
         final LoanRiskResponse response = new LoanRiskResponse();
-        String loanFileId = request.getLoanFileId();
+        Long loanFileId = request.getLoanFileId();
         LoanFile loanFile = loanFileDao.getLoanFileById(loanFileId);
         if (loanFile != null) {
             if (EstateType.HOUSE == loanFile.getEstateType()) {

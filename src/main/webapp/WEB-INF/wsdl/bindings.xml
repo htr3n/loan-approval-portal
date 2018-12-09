@@ -3,7 +3,7 @@
               xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <jxb:globalBindings>
         <jxb:javaType name="java.lang.Integer" xmlType="xsd:int"/>
-        <jxb:javaType name="java.lang.Integer" xmlType="xsd:long"/>
+        <jxb:javaType name="java.lang.Long" xmlType="xsd:long"/>
         <jxb:javaType name="java.lang.Double" xmlType="xsd:double"/>
         <jxb:javaType name="java.lang.Double" xmlType="xsd:float"/>
     </jxb:globalBindings>

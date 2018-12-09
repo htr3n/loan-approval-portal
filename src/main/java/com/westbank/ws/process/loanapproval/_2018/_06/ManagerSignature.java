@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -19,8 +22,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="staffId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="contractId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="token" type="{urn:com:westbank:ws:process:LoanApproval:2018:06}TokenType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -42,10 +45,14 @@ public class ManagerSignature {
 
     @XmlElement(required = true)
     protected String staffId;
-    @XmlElement(required = true)
-    protected String contractId;
-    @XmlElement(required = true)
-    protected String loanFileId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long contractId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanFileId;
     @XmlElement(required = true)
     protected TokenType token;
 
@@ -81,7 +88,7 @@ public class ManagerSignature {
      *     {@link String }
      *     
      */
-    public String getContractId() {
+    public Long getContractId() {
         return contractId;
     }
 
@@ -93,7 +100,7 @@ public class ManagerSignature {
      *     {@link String }
      *     
      */
-    public void setContractId(String value) {
+    public void setContractId(Long value) {
         this.contractId = value;
     }
 
@@ -105,7 +112,7 @@ public class ManagerSignature {
      *     {@link String }
      *     
      */
-    public String getLoanFileId() {
+    public Long getLoanFileId() {
         return loanFileId;
     }
 
@@ -117,7 +124,7 @@ public class ManagerSignature {
      *     {@link String }
      *     
      */
-    public void setLoanFileId(String value) {
+    public void setLoanFileId(Long value) {
         this.loanFileId = value;
     }
 

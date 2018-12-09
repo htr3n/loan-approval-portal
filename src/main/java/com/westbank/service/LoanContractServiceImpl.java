@@ -33,7 +33,7 @@ public class LoanContractServiceImpl implements LoanContractService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Contract> getContractById(String contractId) {
+    public Optional<Contract> getContractById(Long contractId) {
         return loanContractDao.findContractById(contractId);
     }
 
@@ -45,7 +45,7 @@ public class LoanContractServiceImpl implements LoanContractService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Contract> getContractByBorrower(Integer customerId) {
+    public List<Contract> getContractByBorrower(Long customerId) {
         return loanContractDao.findContractByBorrowerId(customerId);
     }
 

@@ -15,7 +15,7 @@
       <xsd:element name="LoanFileRequest">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="borrowerCustomerId" type="xsd:int" />
+            <xsd:element name="borrowerCustomerId" type="xsd:long" />
             <xsd:element name="borrowerTitle" type="xsd:string" />
             <xsd:element name="borrowerFirstName" type="xsd:string" />
             <xsd:element name="borrowerLastName" type="xsd:string" />
@@ -35,7 +35,7 @@
             <xsd:element name="borrowerMaritalStatus" type="xsd:string"  />
             <xsd:element name="borrowerNumberOfChildren" type="xsd:int"   />
             <xsd:element name="coBorrower" type="xsd:boolean"  default="false" />
-            <xsd:element name="coBorrowerCustomerId" type="xsd:int" />
+            <xsd:element name="coBorrowerCustomerId" type="xsd:long" />
             <xsd:element name="coBorrowerTitle" type="xsd:string" />
             <xsd:element name="coBorrowerFirstName" type="xsd:string"  />
             <xsd:element name="coBorrowerLastName" type="xsd:string" />
@@ -46,7 +46,7 @@
             <xsd:element name="coBorrowerLengthOfService" type="xsd:int" />
             <xsd:element name="coBorrowerIncome" type="xsd:double" />
 
-            <xsd:element name="loanFileId" type="xsd:string" />
+            <xsd:element name="loanFileId" type="xsd:long" />
             <xsd:element name="loanReason" type="xsd:string" />
             <xsd:element name="loanAmount" type="xsd:double" />
             <xsd:element name="loanTerm" type="xsd:int" />
@@ -68,9 +68,9 @@
       <xsd:element name="LoanFileResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="loanFileId" type="xsd:string" />
-            <xsd:element name="borrowerId" type="xsd:int" />
-            <xsd:element name="coborrowerId" type="xsd:int"  />
+            <xsd:element name="loanFileId" type="xsd:long" />
+            <xsd:element name="borrowerId" type="xsd:long" />
+            <xsd:element name="coborrowerId" type="xsd:long"  />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

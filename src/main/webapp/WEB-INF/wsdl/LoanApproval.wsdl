@@ -34,7 +34,7 @@
       <xsd:element name="LoanApprovalRequest">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="borrowerCustomerId" type="xsd:int" />
+            <xsd:element name="borrowerCustomerId" type="xsd:long" />
             <xsd:element name="borrowerTitle" type="xsd:string" />
             <xsd:element name="borrowerFirstName" type="xsd:string" />
             <xsd:element name="borrowerLastName" type="xsd:string" />
@@ -50,7 +50,7 @@
             <xsd:element name="borrowerMaritalStatus" type="xsd:string"  />
             <xsd:element name="borrowerNumberOfChildren" type="xsd:int"   />
             <xsd:element name="coBorrower" type="xsd:boolean"  default="false" />
-            <xsd:element name="coBorrowerCustomerId" type="xsd:int" />
+            <xsd:element name="coBorrowerCustomerId" type="xsd:long" />
             <xsd:element name="coBorrowerTitle" type="xsd:string" />
             <xsd:element name="coBorrowerFirstName" type="xsd:string"  />
             <xsd:element name="coBorrowerLastName" type="xsd:string" />
@@ -61,7 +61,7 @@
             <xsd:element name="coBorrowerLengthOfService" type="xsd:int"  />
             <xsd:element name="coBorrowerIncome" type="xsd:double" />
 
-            <xsd:element name="loanFileId" type="xsd:string" />
+            <xsd:element name="loanFileId" type="xsd:long" />
             <xsd:element name="loanReason" type="xsd:string" />
             <xsd:element name="loanAmount" type="xsd:double" />
             <xsd:element name="loanTerm" type="xsd:int"  />
@@ -92,9 +92,9 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="accepted" type="xsd:boolean" />
-            <xsd:element name="customerId" type="xsd:int" />
-            <xsd:element name="contractId" type="xsd:string" />
-            <xsd:element name="loanFileId" type="xsd:string" />
+            <xsd:element name="customerId" type="xsd:long" />
+            <xsd:element name="contractId" type="xsd:long" />
+            <xsd:element name="loanFileId" type="xsd:long" />
             <xsd:element name="token" type="TokenType" />
           </xsd:sequence>
         </xsd:complexType>
@@ -104,8 +104,8 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="staffId" type="xsd:string" />
-            <xsd:element name="contractId" type="xsd:string" />
-            <xsd:element name="loanFileId" type="xsd:string" />
+            <xsd:element name="contractId" type="xsd:long" />
+            <xsd:element name="loanFileId" type="xsd:long" />
             <xsd:element name="token" type="TokenType" />
           </xsd:sequence>
         </xsd:complexType>
@@ -127,7 +127,7 @@
           <xsd:sequence>
             <xsd:element name="staffId" type="xsd:string"/>
             <xsd:element name="staffRole" type="xsd:string"/>                       
-            <xsd:element name="loanFileId" type="xsd:string"/>
+            <xsd:element name="loanFileId" type="xsd:long"/>
             <xsd:element name="secureToken" type="xsd:base64Binary" />                       
           </xsd:sequence>
         </xsd:complexType>
@@ -137,7 +137,7 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="granted" type="xsd:boolean"/>
-            <xsd:element name="loanFileId" type="xsd:string"/>
+            <xsd:element name="loanFileId" type="xsd:long"/>
             <xsd:element name="staffId" type="xsd:string"/>
             <xsd:element name="staffRole" type="xsd:string"/>                       
             <xsd:element name="secureToken" type="xsd:base64Binary" />                       

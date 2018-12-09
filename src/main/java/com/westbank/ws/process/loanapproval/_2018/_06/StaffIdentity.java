@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3._2001.xmlschema.Adapter3;
 
 
 /**
@@ -20,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="staffId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="staffRole" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="loanFileId" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
  *         &lt;element name="secureToken" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -44,8 +47,10 @@ public class StaffIdentity {
     protected String staffId;
     @XmlElement(required = true)
     protected String staffRole;
-    @XmlElement(required = true)
-    protected String loanFileId;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlSchemaType(name = "long")
+    protected Long loanFileId;
     @XmlElement(required = true)
     protected byte[] secureToken;
 
@@ -105,7 +110,7 @@ public class StaffIdentity {
      *     {@link String }
      *     
      */
-    public String getLoanFileId() {
+    public Long getLoanFileId() {
         return loanFileId;
     }
 
@@ -117,7 +122,7 @@ public class StaffIdentity {
      *     {@link String }
      *     
      */
-    public void setLoanFileId(String value) {
+    public void setLoanFileId(Long value) {
         this.loanFileId = value;
     }
 

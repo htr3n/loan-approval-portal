@@ -18,9 +18,9 @@ public interface LoanFileService {
 
     List<LoanFile> getAllLoanFiles();
 
-    LoanFile getLoanFileById(String loanFileId);
+    LoanFile getLoanFileById(Long loanFileId);
 
-    List<LoanFile> getLoanFileByBorrower(Integer customerId);
+    List<LoanFile> getLoanFileByBorrower(Long customerId);
 
     void save(LoanFile loanFile);
 

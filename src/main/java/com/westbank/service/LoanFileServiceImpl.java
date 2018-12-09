@@ -216,7 +216,7 @@ public class LoanFileServiceImpl implements LoanFileService {
     @Override
     @Transactional
     public void updateLoanFile(CallbackLoanApprovalRequest request) {
-        final String loanFileId = request.getLoanFileId();
+        final Long loanFileId = request.getLoanFileId();
         final String description = request.getDescription();
         LoanFileStatus status = null;
         try {
@@ -249,13 +249,13 @@ public class LoanFileServiceImpl implements LoanFileService {
 
     @Override
     @Transactional(readOnly = true)
-    public LoanFile getLoanFileById(String loanFileId) {
+    public LoanFile getLoanFileById(Long loanFileId) {
         return loanFileDao.getLoanFileById(loanFileId);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<LoanFile> getLoanFileByBorrower(Integer customerId) {
+    public List<LoanFile> getLoanFileByBorrower(Long customerId) {
         return loanFileDao.getLoanFileByBorrower(customerId);
     }
 

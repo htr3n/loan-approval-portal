@@ -114,8 +114,8 @@ public class NewRequestController {
                     if (processProxy != null) {
                         log.info("Deliver the new request to the process");
                         // customer ID must be set to be properly handled
-                        applicationForm.setBorrowerCustomerId(String.valueOf(sessionId));
-                        Customer borrower = customerService.findCustomerById((Integer) sessionId);
+                        applicationForm.setBorrowerCustomerId((Long)sessionId);
+                        Customer borrower = customerService.findCustomerById((Long) sessionId);
                         boolean isOK = processProxy.startProcess(applicationForm);
                         if (isOK) {
                             session.setAttribute(Constants.SESSION_CUSTOMER_TITLE, borrower.getTitle());

@@ -110,7 +110,7 @@ public class StaffUtil {
 
         } else {
 
-            String loanFileId = form.getLoanFileId();
+            Long loanFileId = form.getLoanFileId();
             LoanFile loanFile = null;
             Staff currentStaff = null;
             String staffName = null;
@@ -126,10 +126,9 @@ public class StaffUtil {
                 if (processProxy != null) {
                     if (ACTION_SIGN.equals(action)) {
                         log.info("Send manager's signature to the process");
-                        String contractId = form.getContractId();
+                        Long contractId = form.getContractId();
                         boolean isOK = processProxy.signedContractByManager(
-                                currentStaffId, staffName, loanFileId,
-                                contractId);
+                                currentStaffId, staffName, loanFileId, contractId);
                         if (!isOK) {
                             session.setAttribute(
                                     Constants.SESSION_PROCESS_STATUS,

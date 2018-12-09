@@ -116,23 +116,19 @@ public class LoanApprovalImpl implements LoanApproval {
 
             String staffId = request.getStaffId();
             String staffRole = request.getStaffRole();
-            String loanFileId = request.getLoanFileId();
+            Long loanFileId = request.getLoanFileId();
 
             if (Role.CREDIT_BROKER.equals(staffRole)) {
                 try {
                     invokeBankPrivilege(loanFileId, staffId, staffRole);
-
                     requestBankInformation(loanFileId, staffId, staffRole);
-
                     dispatchTask(loanFileId, staffId, staffRole);
-
                 } catch (final Exception e) {
                     e.printStackTrace();
                 }
 
             } else if (Role.POST_PROCESSING_CLERK.equals(staffRole) || Role.SUPERVISOR.equals(staffRole)) {
                 try {
-
                     checkCreditWorthiness(loanFileId, staffId, staffRole);
                     LoanRiskResponse risk = evaluateLoanRisk(loanFileId, staffId, staffRole);
                     if (risk != null && !risk.isHighRisk()) {
@@ -151,7 +147,7 @@ public class LoanApprovalImpl implements LoanApproval {
     public void decidedByManager(ManagerDecision request) {
         log.info("Received the manager's decision:" + request);
         if (request != null) {
-            String loanFileId = request.getLoanFileId();
+            Long loanFileId = request.getLoanFileId();
             String staffId = request.getStaffId();
             String staffRole = Role.MANAGER;
             // the high-risk loan is granted ...
@@ -174,10 +170,10 @@ public class LoanApprovalImpl implements LoanApproval {
     @Override
     public void informedByCustomer(CustomerDecision request) {
         log.info("Received the customer's signature:" + request);
-        String contractId = request.getContractId();
+        Long contractId = request.getContractId();
         Optional<Contract> contract = loanContractDao.findContractById(contractId);
         if (contract.isPresent()) {
-            String loanFileId = contract.get().getLoanFile().getLoanFileId();
+            Long loanFileId = contract.get().getLoanFile().getLoanFileId();
             performLoanSettlement(contractId);
             closeLoanApproval(loanFileId, contractId);
             notifyCustomer(loanFileId, contractId);
@@ -187,7 +183,7 @@ public class LoanApprovalImpl implements LoanApproval {
     @Override
     public void signedByManager(ManagerSignature request) {
         log.info("Received the manager's signature:" + request);
-        String contractId = request.getContractId();
+        Long contractId = request.getContractId();
         String staffId = request.getStaffId();
         String staffRole = Role.MANAGER;
         if (contractId != null) {
@@ -200,7 +196,7 @@ public class LoanApprovalImpl implements LoanApproval {
 
         final LoanFileRequest loanFileRequest = new LoanFileRequest();
 
-        Integer borrowerCustomerId = loanRequest.getBorrowerCustomerId();
+        Long borrowerCustomerId = loanRequest.getBorrowerCustomerId();
         Customer borrower = null;
         if (borrowerCustomerId != null) {
             borrower = customerService.findCustomerById(borrowerCustomerId);
@@ -262,7 +258,7 @@ public class LoanApprovalImpl implements LoanApproval {
         loanFileRequest.setCoBorrower(loanRequest.isCoBorrower());
         if (loanRequest.isCoBorrower()) {
 
-            Integer coborrowerCustomerId = loanRequest.getCoBorrowerCustomerId();
+            Long coborrowerCustomerId = loanRequest.getCoBorrowerCustomerId();
             Customer coborrower = null;
             if (coborrowerCustomerId != null) {
                 coborrower = customerService.findCustomerById(coborrowerCustomerId);
@@ -312,7 +308,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return response;
     }
 
-    protected BankPrivilegeResponse invokeBankPrivilege(String loanFileId, String staffId, String staffRole) {
+    protected BankPrivilegeResponse invokeBankPrivilege(Long loanFileId, String staffId, String staffRole) {
         BankPrivilegeResponse response = null;
 
         final BankPrivilegeRequest request = new BankPrivilegeRequest();
@@ -330,7 +326,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return response;
     }
 
-    protected BankInformationResponse requestBankInformation(String loanFileId, String staffId, String staffRole) {
+    protected BankInformationResponse requestBankInformation(Long loanFileId, String staffId, String staffRole) {
 
         final BankInformationRequest request = new BankInformationRequest();
 
@@ -348,7 +344,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return response;
     }
 
-    protected TaskDispatchResponse dispatchTask(String loanFileId, String staffId, String staffRole) {
+    protected TaskDispatchResponse dispatchTask(Long loanFileId, String staffId, String staffRole) {
 
         final TaskDispatchRequest request = new TaskDispatchRequest();
 
@@ -364,7 +360,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return response;
     }
 
-    protected CreditWorthinessResponse checkCreditWorthiness(String loanFileId, String staffId, String staffRole) {
+    protected CreditWorthinessResponse checkCreditWorthiness(Long loanFileId, String staffId, String staffRole) {
 
         final CreditWorthinessRequest request = new CreditWorthinessRequest();
 
@@ -381,7 +377,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return response;
     }
 
-    protected LoanRiskResponse evaluateLoanRisk(String loanFileId, String staffId, String staffRole) {
+    protected LoanRiskResponse evaluateLoanRisk(Long loanFileId, String staffId, String staffRole) {
 
         final LoanRiskRequest request = new LoanRiskRequest();
         if (loanFileId != null) {
@@ -392,7 +388,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return loanRisk.evaluate(request);
     }
 
-    protected LoanContractResponse createLoanContract(String loanFileId, String staffId, String staffRole) {
+    protected LoanContractResponse createLoanContract(Long loanFileId, String staffId, String staffRole) {
 
         final LoanContractRequest request = new LoanContractRequest();
         if (loanFileId != null) {
@@ -403,7 +399,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return loanContract.create(request);
     }
 
-    protected LoanApprovalClosingResponse closeLoanApproval(String loanFileId, String contractId) {
+    protected LoanApprovalClosingResponse closeLoanApproval(Long loanFileId, Long contractId) {
 
         final LoanApprovalClosingRequest request = new LoanApprovalClosingRequest();
         if (loanFileId != null) {
@@ -415,7 +411,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return loanApprovalClosing.close(request);
     }
 
-    protected LoanSettlementResponse performLoanSettlement(String contractId) {
+    protected LoanSettlementResponse performLoanSettlement(Long contractId) {
 
         final LoanSettlementRequest request = new LoanSettlementRequest();
         if (contractId != null) {
@@ -424,7 +420,7 @@ public class LoanApprovalImpl implements LoanApproval {
         return loanSettlement.start(request);
     }
 
-    protected void sendLoanContract(String contractId, String staffId, String staffRole) {
+    protected void sendLoanContract(Long contractId, String staffId, String staffRole) {
 
         final CallbackLoanContractRequest request = new CallbackLoanContractRequest();
         if (contractId != null) {
@@ -433,7 +429,7 @@ public class LoanApprovalImpl implements LoanApproval {
         callbackLoanContract.send(request);
     }
 
-    protected void notifyCustomer(String loanFileId, String contractId) {
+    protected void notifyCustomer(Long loanFileId, Long contractId) {
         final CallbackLoanApprovalRequest request = new CallbackLoanApprovalRequest();
 
         if (contractId != null) {
