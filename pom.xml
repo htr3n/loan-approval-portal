@@ -13,7 +13,7 @@
         <java.version>1.8</java.version>
         <cxf.version>3.2.11</cxf.version>
         <h2.version>1.4.197</h2.version>
-        <hibernate.version>5.3.6.Final</hibernate.version>
+        <hibernate.version>5.3.20.Final</hibernate.version>
         <hikaricp.version>3.2.0</hikaricp.version>
         <jetty.version>9.4.17.v20190418</jetty.version>
         <spring.version>5.2.3.RELEASE</spring.version>
